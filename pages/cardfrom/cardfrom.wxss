@@ -1,0 +1,16 @@
+page{background: #fff;}
+.top{text-align: center;background: #feebda;padding-top: 15rpx;padding-bottom: 15rpx}
+.top text{color: #fb6e27;font-size: 30rpx;display: block;}
+
+.face{display: flex;justify-content: center;margin-top: 30rpx;}
+.face image{width: 120rpx;height: 120rpx;border-radius: 50%;}
+
+.subwarp{padding: 25rpx 35rpx 0;}
+.item{display: flex;align-items: center;height: 95rpx;line-height: 95rpx;border-bottom: 1px solid rgb(240, 240, 240);}
+.item text{font-size: 35rpx;width: 160rpx;padding-left: 10rpx;}
+.item input{font-size: 32rpx;color: rgb(139, 139, 139);}
+
+.btnwarp{width: 100%;margin-top: 50rpx;}
+.btnwarp button{width: 90%;margin: auto;background: #ff7903;color: #fff;
+text-align: center;height: 85rpx;line-height: 85rpx;border-radius: 40rpx;}
+.item .addres{background:#ff7903;padding-left: 0;font-size: 24rpx;border-radius: 30rpx;text-align: center;color: #fff;display: inline-block;height: 40rpx;line-height: 40rpx;}

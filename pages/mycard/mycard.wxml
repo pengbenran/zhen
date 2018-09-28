@@ -1,0 +1,47 @@
+<view class='container'>
+  <view class='warpBox'>
+    <view class='boxbg' wx:if='{{boxbool}}'><image src='{{cardbg}}'></image></view>
+    <view class='box1' wx:if='{{boxbool}}'>
+       <text>您还没有自己的名片</text>
+       <view class='box01btn' bindtap='tocardfrom'>点击立即拥有</view>
+    </view>
+    <view class='box2' wx:else>
+      <view class='box2top'>
+       <view class='left'>
+         <view class='name'>马登</view>
+         <view class='zhiwei'><text>开发</text><text>前端</text></view>
+         <view class='gs'>谷琴</view>
+       </view> 
+       <view class='right'><image src='{{face}}'></image></view>
+      </view>
+      <view class='dizhi'>地址：江西省南昌市西湖区八一大道67号</view>
+      <view class='phone'>电话：<text>15623140205</text></view>
+    </view>
+
+    <!--box1 end-->
+    <view class='itemwarp'>
+      <view class='item'>
+        <image src='{{ren}}'></image>
+        <text>人气：0</text>
+      </view>
+      <view class='item'>
+       <image src='{{zan}}'></image>
+        <text>点赞：0</text>
+      </view>
+      <view class='item'>
+       <image src='{{chang}}'></image>
+        <text>关注：0</text>
+      </view>
+    </view>
+    <!--item end-->
+  </view>
+
+<view class='warpbtn'>
+  <view class='btn'>给好友递名片</view> 
+</view>
+
+<view class='haibao'>
+  <view class='haibaobtn'>生成海报</view>
+</view>
+
+</view>

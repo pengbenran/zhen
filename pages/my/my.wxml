@@ -96,6 +96,19 @@
       </view>
     </view>
   </view> 
+  <!--名片-->
+     <view class="integral">
+    <view class="integral-left">
+      <image src="{{int}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde" bindtap='mingpan'>
+      <text>名片</text>
+      <view class="inte-rightimg">
+        <text class="clor-text" style='margin-right:10rpx;'>{{mp}}</text>
+         <image src="{{clor}}"></image> 
+      </view>
+    </view>
+  </view> 
 <!-- 地址管理 -->
   <view class="integral" bindtap='dizhi' data-dizhinub="0">
     <view class="integral-left">

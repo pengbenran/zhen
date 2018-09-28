@@ -10,20 +10,22 @@
   width: 90%;
   overflow: hidden;
   height: 25px;
+ 
 }
 
 .marquee_box {
   width: 100%;
-  position: relative;
+  position: relative;  height: 25px;
+  padding-left: 10rpx;
 }
 
 .marquee_text {
   white-space: nowrap;
-  position: absolute;
+  position: absolute;  height: 25px;
   top: 0;
 }
-
-
+.marquee_box swiper{height: 50rpx;}
+.marquee_box .content{font-size: 30rpx;}
 /* 首页搜索框 */
 .searchTop{
   background: #fff;
@@ -68,6 +70,7 @@
   background: #FFF;
   height: 50rpx;
   padding: 0 20rpx 0 20rpx;
+  display: flex;align-items: center;
 }
 .Img{
   float: left;

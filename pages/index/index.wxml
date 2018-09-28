@@ -17,10 +17,12 @@
     <!-- 公告 -->
     <view class="example">
       <view class="marquee_box">
-        <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
           <!-- {{data.indexNotice.content}} -->
-          {{gonggao}}
-        </view>
+            <swiper duration='1000' autoplay='true' interval='3000' vertical='true'>
+                <swiper-item wx:for="{{indexNotice}}" >
+                    <div class='content'>{{item.content}}</div>
+                </swiper-item>
+              </swiper>
       </view>
     </view>
     <!-- <view class='Announ-text'>
