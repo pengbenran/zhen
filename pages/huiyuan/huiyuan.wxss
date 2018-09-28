@@ -1,0 +1,49 @@
+.member-top{
+  height: 400rpx;
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+  position: relative;
+}
+.member-top image{
+  height: 100%;
+  width: 94%;
+}
+.rate{
+ height:120rpx; 
+ font-size: 13px;
+ color: #d4f2ff;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ position: absolute;
+ left: 70rpx;
+ bottom: 14rpx;
+}
+.member-botom{
+  height: 70rpx;
+  display: flex;
+  padding-left: 20rpx;
+  font-size: 15px;
+  color: #63cdff;
+  align-items: center;
+  margin-top: 30rpx;
+  background: #FFF;
+}
+.member-text{
+  height: 548rpx;
+  background: #FFF;
+  border-top: 1px solid #DDD;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  color: #b3b3b3;
+}
+.gold{
+  position: absolute;
+ left: 90rpx;
+ top: 136rpx;
+ color: #fff;
+ font-size: 14px;
+}

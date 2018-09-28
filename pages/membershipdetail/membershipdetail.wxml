@@ -1,0 +1,24 @@
+<!--pages/membershipdetail/membershipdetail.wxml-->
+<!-- 微分销详细信息 -->
+<view class='membership'>
+  <view class='membershipForm'>
+    <view class='membershipIcon'>
+      <image src='https://shop.guqinet.com/html/images/shanquan/memberIcon.jpg'></image>
+    </view>
+    <view class='membershiptitle'>微分销详细信息提交</view>
+    <form bindsubmit='btnform'>
+      <view class='membershipFormList'>
+        <input placeholder='身份证号码' name="IDcard"></input>
+      </view>
+      <view class='membershipFormList'>
+        <input placeholder='银行卡号' name="bankcard" type='number'></input>
+      </view>
+      <view class='membershipFormList'>
+        <input placeholder='开户银行' name="depositBlank"></input>
+      </view>
+      <button class='formBtn' form-type='submit'>提交并支付{{money}}元</button>
+    </form>
+   
+  </view>
+</view>
+

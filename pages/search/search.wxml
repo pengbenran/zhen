@@ -1,0 +1,39 @@
+<!--pages/search/search.wxml-->
+<!-- <view class="search df">
+    <input class="df_1" placeholder="请输入你有搜索的内容" auto-focus focus="{{focus}}" value="{{searchValue}}" bindinput="searchValueInput"/>
+    <button>搜索</button>
+</view> -->
+<!-- 手机  -->
+  <view class='searchTop'>
+    <view class="m-searchTop">
+      <view class="icon-search"></view>
+      <input class="input" placeholder="搜索" bindinput ="serarchkey" />
+    </view>
+    <button class="cell" bindtap='indexsou'>搜索</button>
+  </view>
+<view class="cont" wx:if="{{hotKeyShow}}">
+  <view class='cont-top'>
+  <text class="font_14">热门搜索</text>
+  <text class="font_13" bindtap='taps'>换一批</text>
+  </view>
+    <view class="w100">
+        <button wx:for="{{random}}" bindtap="doKeySearch" data-key="{{item.brandId}}">{{item.name}}</button>
+    </view>
+</view>
+<view class='font_14' style='margin-left:20rpx;'>搜索列表</view>
+<block wx:if="{{hide}}">
+<view class='commodity'>
+      <view class='cod-1' wx:for="{{goodsList}}" id='{{item.goodsId}}' bindtap='tiao' style='border:1px solid #DDD;box-shadow:1px 1px 2px #DDD;'>
+        <image class='codImg' src='{{item.thumbnail}}'></image>
+        <text class='copy'>{{item.name}}</text>
+        <view class='money-gou'>
+        <text class='money'>{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+    <!--购物车底部  -->
+  </block>
+  <block wx:else>
+    <view class="cart-no-data">搜索是空的哦~</view>
+  </block>
+<view class="clear mt10" bindtap="getMore" style="display:{{productData==''?'none':'block'}}">点击查看更多</view>

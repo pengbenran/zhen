@@ -1,0 +1,8 @@
+
+.wetoast__bd {
+	position: fixed;
+  z-index: 5000;
+  top:15%;
+  right:32%;
+  color: #fff;
+}

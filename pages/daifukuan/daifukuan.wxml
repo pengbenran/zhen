@@ -1,0 +1,53 @@
+<view class='complete'wx:for="{{orderList}}" wx:for-item="i">
+<view  wx:for="{{i.item}}" wx:for-item="j">
+        <view class='complete-box1'>
+          <view class='box1-left'>
+          <image src='{{completeimg}}'></image>
+          </view>
+          <view class='box1-right'>
+            <view class='box1-top'>
+            <text class='toptext1'>{{toptext1}}</text>
+            <text class='toptext2'>{{toptext2}}</text>
+            </view>
+            <text class='box1-bootom'>{{bootom1}}</text>
+          </view>
+        </view>
+        <view class='complete-box2'>
+        <view class='box2-left'>
+        <image src='{{j.image}}'></image>
+        </view>
+        <view class='box2-conter'>
+        <text class='context1'>{{j.name}}</text>
+        <text class='context2'>{{j.sn}}</text>
+        </view>
+        <view  class='box2-right'>
+         <text class='rigtext1'>￥{{j.price}}</text>
+         <text class='rigtext3'>x{{j.num}}</text>
+        </view>
+        </view>
+        <view class='complete-box3'>
+          <text class='tex01'>共{{j.num}}件商品 合计:</text>
+          <text class='tex02'>￥{{j.goodsAmount}} </text>
+          <text class='tex03'> (含运费￥{{yun}})</text>
+        </view>
+        <view class='complete-box4'>
+          <view  class='com-input01' bindtap="powerDrawer" data-statu="open">{{del}}</view>
+          <view  class='com-input02'>{{yes}}</view>
+        </view>
+        </view>
+      </view>
+
+      <!--取消订单模态框  -->
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <image src='{{cellimg}}' class='cell-img'></image>
+  <text>{{prompt}}</text>
+  <view class='cell-btn'>
+    <view  class='cell-input1' bindtap="powerDrawer" data-statu="close1">{{dellt}}</view>
+    <view  class='cell-input2' bindtap="powerDrawer" data-statu="close">{{think}}</view>
+  </view>
+</view>

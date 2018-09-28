@@ -1,0 +1,188 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <!--头像 -->
+  <image class="head" src="{{head}}"></image>
+  <view class='bg'>
+    <block wx:if="{{hasmemberId&&isUse}}">
+     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> 
+    <view class="head-cont">
+        <view  bindtap="bindViewTap" class="userinfo">   
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>  
+        </view> 
+      <view class="member" hidden="{{!isMember}}">{{lvidname}}</view>
+    </view>
+    <view class='jifenbtn' bindtap='jumprechge'>积分充值</view>
+     <!-- <image class="head-right" src="{{right}}"></image>  -->
+     </block>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权登录 </button>
+  </view>
+  <!-- 会员卡 -->
+  <!-- <view class='membercard' hidden="{{isMember}}">
+    <view class='memberImg'>
+      <image src="{{head}}"></image>
+    </view>
+    <view class='membertitle' bindtap='opencard'>
+      立即开卡
+    </view>
+
+
+  </view> -->
+
+
+  <!--订单-->
+  <view class="indent">
+    <text class="indent-left">我的订单</text>
+    <view class="indent-right" bindtap='fahuo' id='0'>
+      <text>查看全部订单</text>
+      <image class="indent-img" src="{{indent}}"></image>
+    </view>
+  </view>
+  <!-- 待付款选项-->
+  <view class='menu'>
+    <view class='df nav'>
+      <view class='df_1' bindtap='fahuo' id='1'>
+        <image src="{{df}}"></image>
+        待付款
+        <block wx:if="{{statuscount}}">
+          <view class='yuan'>{{statuscount}}</view>
+        </block>
+      </view>
+      <view class='df_1' bindtap='fahuo' id='2'>
+        <image src="{{dfh}}"></image>
+        <block wx:if="{{freightstatuscount}}">
+          <view class='yuan'>{{freightstatuscount }}</view>
+        </block>
+        待发货
+      </view>
+      <view class='df_1' bindtap='fahuo' id='3'>
+        <image src="{{ds}}"></image>
+        <block wx:if="{{shippedstatuscount }}">
+        <view class='yuan'>{{shippedstatuscount }}</view>
+        </block>
+        待收货
+      </view>
+      <view class='df_1' bindtap='fahuo' id='4'>
+        <image src="{{ywc}}"></image>
+        <block wx:if="{{finishstatuscount}}">
+        <view class='yuan'>{{finishstatuscount}}</view>
+        </block>
+        已完成
+      </view>
+    </view>
+  </view>
+  <!--列表区域  -->
+  <!-- 微分销 -->
+   <view class="integral int-top" bindtap='openMember'>
+    <view class="integral-left">
+      <image src="{{myping}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde">
+      <text>微分销会员</text>
+        <view class="inte-rightimg">
+          <image src="{{inteping}}"></image>
+        </view>
+    </view>
+  </view>
+   <!-- 积分 -->
+   <view class="integral">
+    <view class="integral-left">
+      <image src="{{int}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde" bindtap='jifen'>
+      <text>积分</text>
+      <view class="inte-rightimg">
+        <text class="clor-text" style='margin-right:10rpx;'>{{mp}}</text>
+         <image src="{{clor}}"></image> 
+      </view>
+    </view>
+  </view> 
+<!-- 地址管理 -->
+  <view class="integral" bindtap='dizhi' data-dizhinub="0">
+    <view class="integral-left">
+      <image src="{{inter}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right">
+      <text>地址管理</text>
+    <view class="inte-rightimg">
+      <image src="{{inte}}"></image>
+    </view>
+    </view>
+  </view>
+  <!--会员卡-->
+<!-- <view class="integral int-top" bindtap='huiyuanka'>
+    <view class="integral-left">
+      <image src="{{integra}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde">
+      <text>会员卡</text>
+    <view class="inte-rightimg">
+      <text class="core-red"></text>
+      <image src="{{core}}"></image>
+    </view>
+    </view>
+  </view> -->
+<!-- 优惠券-->
+  <view class="integral" bindtap='youhuijuan'>
+    <view class="integral-left">
+      <image src="{{youhui}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right .int-borde">
+      <text>优惠券</text>
+    <view class="inte-rightimg">
+      <!-- <text class="clor-text">{{vouchercount}}张未使用</text> -->
+      <image src="{{three}}"></image>
+    </view>
+    </view>
+  </view>
+  <!-- 我的拼团-->
+<view class="integral" bindtap='pingtuan'>
+    <view class="integral-left">
+      <image src="{{myping}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde">
+      <text>我的拼团</text>
+        <view class="inte-rightimg">
+          <image src="{{inteping}}"></image>
+        </view>
+    </view>
+  </view>
+<!-- 我的砍价-->
+  <!-- <view class="integral" bindtap='kanjia'>
+    <view class="integral-left">
+      <image src="{{kanjia}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right">
+      <text>我的砍价</text>
+    <view class="inte-rightimg">
+      <image src="{{rightimg}}"></image>
+    </view>
+    </view>
+  </view> -->
+<!--收藏  -->
+  <view class="integral" bindtap='shoucang'>
+        <view class="integral-left">
+          <image src="{{left}}" class="integral-image"></image>
+        </view>
+        <view class="integral-right int-borde">
+          <text>收藏</text>
+          <view class="inte-rightimg">
+            <image src="{{shoucan}}"></image>
+          </view>
+        </view>
+    </view>
+    <!--售后  -->
+      <view class="integral" bindtap='tui'>
+        <view class="integral-left">
+          <image src="{{shouhou}}" class="integral-image"></image>
+        </view>
+          <view class="integral-right .int-borde">
+            <text>售后</text>
+            <view class="inte-rightimg">
+              <image src="{{three}}"></image>
+            </view>
+          </view>
+      </view>
+  <view class="log">
+    <image src="https://shop.guqinet.com/html/images/pos/logo.png" alt=""/>
+  </view>
+</view>

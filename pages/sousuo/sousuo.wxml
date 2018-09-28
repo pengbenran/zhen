@@ -1,0 +1,23 @@
+ <view class="container">
+  <!-- 搜索  -->
+  <view class='searchTop'>
+    <view class="m-searchTop">
+      <view class="icon-search"></view>
+      <input class="input" placeholder="手机" focus="{{focus}}" />
+    </view>
+    <button class="cell">取消</button>
+  </view>
+  <!-- 历史记录 -->
+  <view class="record">
+    <view class="record-past">
+      <text class="cord-textone">热门搜索</text>
+      <text class="cord-text">换一批</text>
+    </view>
+    <view class="list-box">
+      <view class="record-list"  wx:for="{{hotKeyList}}" bindtap="doKeySearch" data-key="{{item.keyword}}">{{item.keyword}}</view>
+    </view>
+
+
+  </view>
+
+</view>

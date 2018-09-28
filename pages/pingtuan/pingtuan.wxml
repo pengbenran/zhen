@@ -1,0 +1,31 @@
+<!--pages/cart/cart.wxml-->
+<!--一起拼团页面  -->
+
+  <!--拼团图片  -->
+
+  <image class="spell-img" src="{{spell}}"></image>
+  <!--拼团商品列表-->
+  <view class="spell-down">
+    <view class="spell-left">
+      <image src="{{down}}"></image>
+    </view>
+    <view class="spell-right">
+      <view class="spell-top">
+        <text>文字文字文字文字文字文字文字</text>
+      </view>
+      <view class=" spell-conten">
+        <text>15人参团</text>
+      </view>
+      <view class=" spell-bottom">
+        <view class="spe-left">
+          <text class=" spetext-one">￥998.00</text>
+          <text class=" spetext-two">1200.00</text>
+        </view>
+        
+          <button class="spell-btn">{{char_lt}}</button>
+       
+
+      </view>
+    </view>
+  </view>
+ 

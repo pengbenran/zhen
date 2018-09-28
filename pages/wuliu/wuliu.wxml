@@ -1,0 +1,52 @@
+<view class="container">
+
+  <view class='logistics'>
+    <view class='log-left'>
+      <image src='{{image}}'></image>
+      <view class='shop-name'>1件商品</view>
+    </view>
+    <view class='log-right'>
+      <text>配送企业：{{data.com}}</text>
+      <text>快递单号：{{express.nu}}</text>
+    </view>
+  </view>
+  <!--流程条 -->
+  <!-- <view class='material'>
+    <view class='order_process'>
+      <view class='process_wrap' wx:for="{{processData}}" wx:key="">
+        <text class='process_name' style="color:{{item.corl}}">{{item.name}}</text>
+        <view class='process'>
+          <view class='process_line' style="background:{{item.start}}"></view>
+          <image class='process_icon' src="{{item.icon}}"></image>
+          <view class='process_line' style="background:{{item.end}}"></view>
+        </view>
+        <text class='process_addree'>{{item.addree}}</text>
+      </view>
+    </view>
+  </view> -->
+</view>
+<!--物流详情  -->
+<view class='details'>
+  <view class='details-top'>
+    <text>物流详情</text>
+  </view>
+
+  <view class='details-bottom'>
+  
+    <view class="detabox " wx:for= "{{express.data}}">
+      <view class="deta-img">
+      <block>
+        <image src='https://shop.yogain.cn/simages/images/wuliu/zu27.png'></image>
+      </block>
+        <view class='line'></view>
+      </view>
+     <view class='deta-right'>
+     <text class='deta-text1 active-text'>{{item.context}}</text>
+     <text class='deta-text2'>{{item.ftime}}</text>
+     </view>
+    </view>
+    
+  </view>
+
+
+</view>

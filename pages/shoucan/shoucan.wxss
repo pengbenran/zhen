@@ -1,0 +1,108 @@
+.collect-head{
+height:40rpx;
+background: #fff;
+border-top: 1rpx solid #eee;
+padding: 20rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 15px;
+color: #9e9e9e;
+}
+.mub-text{
+  color: #4cc8ff;
+}
+.head-right{
+ display: flex;
+ align-items: center;
+}
+.head-right image{
+ width: 40rpx;
+ height:40rpx;
+ margin-right: 15rpx;
+}
+.hide {
+    display: none;
+}
+.cart-no-data {
+  padding:40rpx 0;
+color:#999;
+text-align:center;
+}
+/*商品列表*/
+.commodity{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+flex-wrap: wrap;
+}
+.cod-1{
+background:#fff;
+display:inline-block;
+width:35%;
+margin-left:20rpx;
+padding:40rpx;
+height: 360rpx;
+margin-bottom: 20rpx;
+}
+.codImg{
+width:90%;
+height:75%;
+}
+.copy{
+   display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    font-size: 30rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+}
+.money{
+  color: red;
+}
+.money-gou{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.gouxuan{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 购物车底部*/
+.footers{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.cart-foot{
+  display: flex;
+ height: 100rpx;
+
+}
+.foot-left{
+  width: 65%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20rpx;
+  color: #000;
+  font-size: 14px;
+}
+.quanxuan{
+  width: 50rpx;
+  height: 50rpx;
+}
+.foot-right{
+  width: 45%;
+  height: 100%;
+  background: #ff4f4f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}

@@ -1,0 +1,93 @@
+<view class="container">
+  <!--头部  -->
+  <image class="head" src='{{headsimg}}'></image>
+  <view class="payment">
+    <view class="payment-top">
+      <image class='pay-img' src='{{mentimg}}'></image>
+      收货人：
+      <text>{{shipName}}</text>
+      <text class='phone'>{{shipMobile}}</text>
+    </view>
+    <view class="payment-bottom">
+     <view class='adess'>
+      <image class='pay-img' src='{{payimg}}'></image>
+      收货地址：
+      </view>
+      <view class='addesstext'>
+            <text>{{shipAddr}}</text>
+      </view>
+    </view>
+  </view>
+<view >
+  <!--编辑  -->
+  <view class='shopping'>
+    <view class='shop-left'>
+      <image class='yes' src='{{yes}}'></image>
+      <text>手机专卖商城</text>
+      <image class='ind' src='{{indimg}}'></image>
+    </view>
+    
+  </view>
+  <!-- 商品 -->
+  <view class='Spcart'wx:for="{{list}}">
+    <view class='box2'>
+      <image src='{{item.image}}'></image>
+    </view>
+    <!-- 数量加减 -->
+    <view class='box6'>
+      <view class='character'>{{item.name}}</view>
+      <view class='numb-boot'>
+        <text>{{specvalue}}</text>
+      </view>
+    </view>
+    <view class='box5'>
+      <view class='box5-text'>
+        <text class='box5-one'>￥{{item.price}}</text>
+        <text class='box5-two'>x{{item.num}}</text>
+      </view>
+      <view class='box5-two'>
+        <image src='{{bao}}' class='baozhang'></image>
+        <text class='bao'>正平保障</text>
+      </view>
+    </view>
+
+  </view>
+  <view class='way'>
+    <text class='way-text1'>合计：</text>
+    <text class='way-text3'>￥{{Goods.orderAmount}}</text>
+  </view>
+  <view class='mode'>
+    <view class='mode-top'>
+      <text class='way-text1'>商品金额：</text>
+      <text class='way-text4'>￥{{Goods.orderAmount}}</text>
+    </view>
+    <view class='mode-botom'>
+      <text class='way-text1'>运费：</text>
+      <text class='way-text4'>￥{{Goods.shippingAmount}}</text>
+    </view>
+  </view>
+ </view>
+ <!--底部  -->
+  <view class='footers'>
+    <view class="cart-foot">
+      <view class="foot-cont">
+            <view class='homepage' bindtap='zhuye'>
+        <image src='{{homeimg}}'></image>
+        <text>首页</text>
+      </view>
+            <view class='foo-line'></view>
+              <button class='homepage custom ' open-type="contact" session-from="weapp">
+                <image src='{{weappimg}}'></image>
+                <text>客服</text>
+              </button>
+
+        <!--  -->
+        <text class="cont-tone">合计：{{Goods.orderAmount}}元</text>
+      </view>
+      <view class="foot-right" bindtap='payoff'>
+      <text>去支付</text>
+      </view>
+    </view>
+  </view>
+
+</view>

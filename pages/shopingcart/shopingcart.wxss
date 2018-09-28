@@ -1,0 +1,168 @@
+/* pages/shopingcart/shopingcart.wxss */
+.carts{
+  background: #FFF;
+}
+.shopping{
+  background: #FFF;
+  height: 70rpx;
+  display: flex;
+  padding: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+}
+.shop-left{
+  font-size: 15px;
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.yes{
+  height: 50rpx;
+  width: 50rpx;
+}
+.ind{
+  height: 30rpx;
+  width:20rpx;
+}
+
+.shop-r{
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+/* 商品 */
+.Spcart{
+  background: #FFF;
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  height: 260rpx;
+  
+}
+.box1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 10%;
+}
+.box2{
+  height: 90%;
+  width: 25%;
+}
+.box3{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  height: 100%;
+  width: 40%;
+  
+}
+.numb{
+  display: flex;
+  flex-direction: row;
+  justify-content:  flex-start;
+  align-items: center;
+  height: 40%;
+}
+.btn{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.btn input{
+margin:0;
+width:30px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+font-size:15px;
+height:45rpx;
+min-height: 40rpx;
+}
+#del1{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  height:45rpx;
+width:55rpx;
+
+    border: 1px solid #DDD;
+}
+#add1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+ height:45rpx;
+width:55rpx;
+
+  border: 1px solid #DDD;
+}
+.price{
+  color: red;
+  font-size: 15px;
+  height: 25%;
+}
+.box4{
+  background: #ff4f4f;
+  color: #FFF;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+}
+/* 购物车底部*/
+.footers{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.cart-foot{
+  display: flex;
+ height: 100rpx;
+
+}
+.foot-left{
+  width: 65%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20rpx;
+  color: #000;
+  font-size: 14px;
+}
+.quanxuan{
+  width: 50rpx;
+  height: 50rpx;
+}
+.foot-right{
+  width: 45%;
+  height: 100%;
+  background: #ff4f4f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}

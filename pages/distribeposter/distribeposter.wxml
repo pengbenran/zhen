@@ -1,0 +1,6 @@
+<!--pages/distribeposter/distribeposter.wxml-->
+<view>
+  <canvas style="width:{{screenWidth}}px;height:{{screenWidth*1.636}}px" canvas-id="firstCanvas"></canvas>
+  <view class='btn' bindtap='saveImg' wx:if="{{isOk}}">保存推广海报</view>
+</view>
+ 

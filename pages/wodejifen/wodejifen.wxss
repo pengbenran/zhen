@@ -1,0 +1,105 @@
+/*头像区域*/
+@import "../../addone/wetoast.wxss"; 
+page{
+  background: #fff;
+}
+.head{
+  width: 100%;
+  height:400rpx;
+  display: block;
+}
+.integral{
+   width: 100%;
+   height: 250rpx;
+   display: flex;
+  align-items: center;
+  position: relative; 
+  flex-direction: column;
+  justify-content: space-around;
+}
+.int-text1{
+  color: #fff;
+}
+ .int-text2{
+  color: #ddd;
+  font-size:12px;
+}
+.integral{
+  position: absolute;
+  top: 20rpx;
+}
+.signin{
+ width: 180rpx;
+ height: 80rpx;
+}
+.boxd{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+/*头部导航*/
+.swiper-tab{
+    display: flex;
+    justify-content: space-between;
+    width:76%;
+    text-align: center;
+    height:100rpx;
+    line-height:98rpx;
+    padding-bottom: 2px;
+    background: #fff;
+    padding: 0 12%;
+    border-bottom: 1rpx solid #eee;
+
+}
+.swiper-tab-item{
+    display: inline-block;
+    font-size: 14px;
+}
+/* 选项卡被选中 */
+.active{
+    color:#26b4ff;
+    border-bottom: 2px solid #26b4ff ;
+}
+/* 选项卡没有被选中 */
+.disActive{
+  color:#000;
+}
+/*签到  */
+.qiandao{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  height: 50rpx;
+  width: 175rpx;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+}
+.qian-img{
+  height: 40rpx;
+  width: 42rpx;
+  margin-right: 10rpx;
+}
+.total-box{
+  padding: 0 20rpx;
+}
+.total{
+  margin-top: 20rpx;
+  height: 80rpx;
+  width: 100%;
+  border: 1rpx solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 12rpx;
+  font-size: 15px;
+}
+
+.total-text1{
+color: #26b4ff;
+}
+.total-text2{
+color: #707070;
+}

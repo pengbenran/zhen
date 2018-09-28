@@ -1,0 +1,72 @@
+<view class="container">
+  <!--头部  -->
+  <image class="head" src='{{headsimg}}'></image>
+  <view class="payment">
+    <view class="payment-top">
+      <image class='pay-img' src='{{mentimg}}'></image>
+      收货人：
+      <text>{{data.orderDO.shipName}}</text>
+      <text class='phone'>{{data.orderDO.shipMobile}}</text>
+    </view>
+    <view class="payment-bottom">
+     <view class='adess'>
+      <image class='pay-img' src='{{payimg}}'></image>
+      收货地址：
+      </view>
+      <text>{{data.orderDO.shipAddr}}</text>
+    </view>
+  </view>
+<view >
+  <!--编辑  -->
+  <view class='shopping'>
+    <view class='shop-left'>
+      <image class='yes' src='{{yes}}'></image>
+      <text>{{indexdata.shopname}}</text>
+      <image class='ind' src='{{indimg}}'></image>
+    </view>
+    
+  </view>
+  <!-- 商品 -->
+  <view class='Spcart'wx:for="{{data.orderDO.item}}" style='height:200rpx'>
+      <view class='box2'>
+        <image src='{{item.image}}'></image>
+      </view>
+    <!-- 数量加减 -->
+      <view class='box6'>
+        <view class='character'>{{item.name}}</view>
+          <view class='numb-boot'>
+              <block wx:if="{{item.specvalue}}">
+                <text>{{item.specvalue}}</text>
+              </block>
+          </view>
+      </view>
+      <view class='box5'>
+          <view class='box5-text'>
+            <text class='box5-one'>￥{{item.price}}</text>
+            <text class='box5-two'>x{{item.num}}</text>
+          </view>
+          <view class='box5-two'>
+            <image src='{{bao}}' class='baozhang'></image>
+            <text class='bao'>正品保障</text>
+          </view>
+      </view>
+
+  </view>
+    <view class='way'>
+      <text class='way-text1'>合计：</text>
+      <text class='way-text3'>￥{{data.orderDO.orderAmount}}</text>
+    </view>
+    <view class='mode'>
+        <view class='mode-top'>
+          <text class='way-text1'>商品金额：</text>
+          <text class='way-text4'>￥{{data.orderDO.orderAmount}}</text>
+        </view>
+        <view class='mode-botom'>
+          <text class='way-text1'>运费：</text>
+          <text class='way-text4'>￥{{data.orderDO.shippingAmount}}</text>
+        </view>
+    </view>
+ </view>
+ <!--底部  -->
+    
+</view>

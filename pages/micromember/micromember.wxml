@@ -1,0 +1,60 @@
+<!--pages/micromember/micromember.wxml-->
+<!-- 微分销会员 -->
+<view class='micromemberContain'>
+  <view class='micromemberhead'>
+    <view class='micromemberBcg' style="width:{{ImageWidth}};height:{{ImageHeight}}">
+      <image src='{{distribeDo.lvpicurl}}'></image>
+    </view>
+    <view class='userInfo'>
+      <view class='useravator'>
+        <image src='{{memberDo.face}}'></image>
+      </view>
+      <view class='username'>
+        <view>{{distribeDo.wechat}}</view>
+        <view bindtap='distribeposter'>我的推广海报</view>
+      </view>
+    </view>
+    <view class='userbanlance'>
+      <view>账户余额(元)</view>
+      <view class='banlance'>{{distribeDo.balance}}</view>
+    </view>
+    <view class='putforwardbtn' bindtap='jumpputforward'>提现</view>
+  </view>
+  <!-- 累计到账与资产总计 -->
+  <view class='micromemberPanel'>
+    <view class='micromemberPanelLeft'>
+      <view>累计到账收益（元）</view>
+      <view class='panelBalance'>{{total}}</view>
+    </view>
+    <view class='line'></view>
+    <view class='micromemberPanelLeft'>
+      <view>资产总计（元）</view>
+      <view class='panelBalance'>{{totalAssets}}</view>
+    </view>
+  </view>
+  <view class='micromemberdomain'>
+    <view class='micromemberItem' wx:for="{{micromemberItem}}" bindtap='jumpfenrungood' data-url="{{item.url}}">
+      <view class='micromemberIcom'>
+        <image src='{{item.itemImg}}'></image>        
+      </view>
+      <view class='micromemberItemIntro'>
+        <view class="micromemberItemIntrotitle">{{item.itemName}}</view>
+        <view>{{item.itemintro}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='memberContain'>
+    <view class='membertitle'>新增会员</view>
+    <view class='memberList' wx:for="{{memberDOList}}">
+      <view class='memberuser'>
+        <view class='memberuseravator'>
+          <image src='{{item.face}}'></image>
+        </view>
+        <view class='memberName'>{{item.uname}}</view>
+      </view>
+    </view>  
+    <view wx:if="{{!hasmember}}" class='tip'>
+      还没有会员哦
+    </view> 
+  </view>
+</view>

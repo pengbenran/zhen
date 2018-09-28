@@ -1,0 +1,23 @@
+/**app.wxss**/
+page{
+  background: #F2F2F2;
+}
+ 
+button::after{
+  border:none;
+  }
+input{
+  outline:none;
+  border:none;
+  list-style: none;
+}
+.swiper-parent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1;
+}

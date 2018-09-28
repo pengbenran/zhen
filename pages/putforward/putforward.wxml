@@ -1,0 +1,13 @@
+<!--pages/putforward/putforward.wxml-->
+<view class='putforward'>
+  <view class='putforwardcard'>
+    <view class='title'>到账银行卡:</view>
+    <view>{{depositBank}}({{cardno}})</view>
+  </view>
+  <view class='putforwardnum'>
+    <view class='title'>提现金额</view>
+    <view class='putforwardinpt'><input placeholder='请输入提现金额' bindinput="bindKeyInput" auto-focus value='{{inputValue}}'></input></view>
+  </view>
+  <view class='tip'>当前账号余额为{{balance}}元,<text class='allforward' bindtap='allforward'>全部提现</text></view>
+  <view class='putforwardbtn' bindtap='putforwardbtn'>立即提现</view>
+</view>

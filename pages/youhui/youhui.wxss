@@ -1,0 +1,78 @@
+/*头部导航*/
+.swiper-tab{
+    display: flex;
+    justify-content: space-between;
+    width:76%;
+    text-align: center;
+    height:8vh;
+    line-height:98rpx;
+    padding-bottom: 2px;
+    background: #fff;
+    padding: 0 12%;
+    border: 1px solid #eee;
+}
+#swiperContent{
+  height: 92vh;
+  overflow: scroll;
+}
+.swiper-tab-item{
+    display: inline-block;
+    font-size: 16px;
+}
+/* 选项卡被选中 */
+.active{
+    color:#1b86f8;
+    border-bottom: 3px solid #1b86f8 ;
+}
+/* 选项卡没有被选中 */
+.disActive{
+  color:#000;
+}
+/*商品列表*/
+.commodity{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+  overflow: scroll
+}
+.cod-1{
+background:#fff;
+display:inline-block;
+width:35%;
+margin-left:20rpx;
+padding:40rpx;
+height: 360rpx;
+margin-top: 15rpx;
+}
+.codImg{
+width:263rpx;
+height:270rpx;
+
+}
+.copy{
+   display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    font-size: 30rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+}
+.money{
+  color: red;
+}
+.money-gou{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.jiahao{
+  width: 50rpx;
+  height: 50rpx;
+}
+.jia-boder{
+  width: 50rpx;
+  height: 50rpx;
+  
+}

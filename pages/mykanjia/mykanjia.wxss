@@ -1,0 +1,151 @@
+/*头部导航*/
+.swiper-tab{
+    display: flex;
+    justify-content: space-between;
+    width:60%;
+    text-align: center;
+    height:100rpx;
+    line-height:98rpx;
+    padding-bottom: 2px;
+    background: #fff;
+    padding: 0 20%;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+
+}
+.gun{
+  height: 553px;
+  display: block;
+}
+.container{
+  height:100%;
+      overflow: hidden;
+}
+page{
+      height: 100%;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    overflow: hidden;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+ 
+ .swbox{
+   height: 200rpx;
+ }
+/* 滑动区域 */
+ 
+.scrollers, .scrollView {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.swiper-tab-item{
+    display: inline-block;
+    font-size: 16px;
+}
+/* 选项卡被选中 */
+.active{
+    color:#1b86f8;
+    border-bottom: 3px solid #1b86f8 ;
+}
+/* 选项卡没有被选中 */
+.disActive{
+  color:#000;
+}
+/*帮忙砍价css  */
+.join{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20rpx;
+}
+.joinImg{
+  height: 365rpx;
+  width: 100%;
+}
+.j-tit{
+  font-size: 15px;
+  margin-top: 20rpx;
+}
+.Arrimg-box{
+ width: 100%;
+ height: 100rpx;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.Arrimg-right{
+  font-size: 14px;
+  color: #ff3e3f;
+}
+.Arrimg{
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+.headimg{
+  height: 55rpx;
+  width: 55rpx;
+  border-radius: 50%;
+}
+.headimg image{
+  position: absolute;
+  height: 50rpx;
+  width: 50rpx;
+}
+.people{
+  font-size: 14px;
+  color: #3394ff;
+  margin-left: 10rpx;
+}
+.j-footer{
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  border-top: 2rpx solid #eee;
+  background: #fff;
+}
+.footer-text{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.end-text{
+  color:#8e8e8e;
+}
+.ter-one{
+ font-size: 15px;
+}
+.ter-two{
+ margin-top: 10rpx;
+ font-size: 14px;
+ color:#8e8e8e;
+}
+.ter-three{
+ color: #ff3e3f;
+ font-size: 15px;
+}
+.ter-four{
+color: #3394ff;
+}
+.discount{
+  margin-left: 10rpx;
+  font-size: 13px;
+  color: #b3b3b3;
+  text-decoration:line-through;
+}
+.footer-img{
+  width: 27%;
+  height: 60rpx;
+}
+.footer-img image{
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==1?'':'disActive'}} {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">优惠券</view>
+  </view>
+
+    <scroll-view scroll-y="true" class='gun'> -->
+    <!--第一张 -->
+    <block wx:if="{{redPacket!=''}}">
+      <view class='voucherList'>
+  <view class='members'>
+        <image src='{{members}}'></image>
+          <view class='preferences'>
+              <view class='pre-left'>
+                <text class='moneyleft'>{{redPacket.amount}}</text>
+                <text class='yuan'>元</text>
+              </view>
+
+              <view class='pres'>
+                <text class='youhui'>新人专享红包</text>
+              </view>
+                <view class='pres-right' data-conditionAmount="{{redPacket.amount}}" data-memberRedpacketId='{{redPacket.memberRedpacketId}}' bindtap='useRedbao'>
+                  <text>点</text>
+                  <text>击</text>
+                  <text>使</text>
+                  <text>用</text>
+                </view>
+          </view>
+
+      </view>
+
+      </view>
+    </block>
+    <block wx:if="{{voucherUsed.length != 0}}">
+    <view class='voucherList' wx:for="{{voucherUsed}}" wx:for-item="i">
+
+
+  <view class='members' wx:for="{{i}}"  wx:for-item="item">
+        <image src='{{members}}'></image>
+          <view class='preferences'>
+              <view class='pre-left'>
+                <text class='moneyleft'>{{item.faceValue}}</text>
+                <text class='yuan'>元</text>
+              </view>
+
+              <view class='pres'>
+                <text class='youhui'>{{item.voucherName}}</text>
+                  <view class='pretext'>
+                  <block wx:if="{{item.conditions == 2}}">
+                    <text>满{{item.conditionAmount}}可用</text>
+                  </block>
+                  </view>
+                <text class='data'>{{data}}</text>
+              </view>
+                <view class='pres-right' data-memberVoucherId ='{{item.memberVoucherId}}' data-conditionAmount="{{item.conditionAmount}}" data-faceValue='{{item.faceValue}}' bindtap='shiyong'>
+                  <text>点</text>
+                  <text>击</text>
+                  <text>使</text>
+                  <text>用</text>
+                </view>
+          </view>
+
+      </view>
+
+      </view>
+
+     </block>
+     <block wx:else>
+        <view class="cart-no-data">优惠券是空的哦~</view>
+     </block>
+<!-- </scroll-view> -->
+</view>

@@ -1,0 +1,13 @@
+/* pages/postersharing/postersharing.wxss */
+.btn{
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #78A5F1;
+  color: #fff;
+  margin: 20rpx auto;
+}
+canvas{
+  margin: 0 auto;
+}

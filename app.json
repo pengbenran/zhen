@@ -1,0 +1,115 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/morepoint/morepoint",
+    "pages/distribeposter/distribeposter",
+    "pages/postersharing/postersharing",
+    "pages/memberconsume/memberconsume",
+    "pages/micromember/micromember",
+    "pages/putforward/putforward",
+    "pages/memberlist/memberlist",
+    "pages/membermanage/membermanage",
+    "pages/fengrungood/fengrungood",
+    "pages/membership/membership",
+    "pages/membershipdetail/membershipdetail",  
+    "pages/bargain/bargain",
+    "pages/my/my",
+    "pages/membershioup/membershioup",
+    "pages/pintuanxiangqing/pintuanxiangqing",
+    "pages/cart/cart",
+    "pages/voucher/voucher",
+    "pages/dingdan/dingdan",
+    "pages/pay/pay",
+    "pages/group/group",
+    "pages/dingdan2/dingdan2",
+    "pages/tuihuo/tuihuo",
+    "pages/dist/dist",
+    "pages/join/join",
+    "pages/bigwheel/bigwheel",
+    "pages/guaguaka/guaguaka",
+    "pages/huiyuan/huiyuan",
+    "pages/myaddresstwo/myaddresstwo",
+    "pages/xinzengdizhitwo/xinzengdizhitwo",
+    "pages/xinzengdizhitwo2/xinzengdizhitwo2",
+    "pages/fivefahuo/fivefahuo",
+    "pages/youhui/youhui",
+    "pages/myaddress/myaddress",
+    "pages/myaddressP/myaddressP",
+    "pages/wodejifen/wodejifen",
+    "pages/shoping/shoping",
+    "pages/shoucan/shoucan",
+    "pages/wuliu/wuliu",
+    "pages/youhuijuan/youhuijuan",
+    "pages/pingtuan/pingtuan",
+    "pages/shopingcart/shopingcart",
+    "pages/spingpai/spingpai",
+    "pages/xinzengdizhi/xinzengdizhi",
+    "pages/active/active",
+    "pages/bianjidizhi/bianjidizhi",
+    "pages/bianjidizhitwo/bianjidizhitwo",
+    "pages/sousuo/sousuo",
+    "pages/shangfeilei/shangfeilei",
+    "pages/quzhifu/quzhifu",
+    "pages/mypingtuan/mypingtuan",
+    "pages/mykanjia/mykanjia",
+    "pages/zhekouxiangqing/zhekouxiangqing",
+    "pages/fenxiangkanjia/fenxiangkanjia",
+    "pages/kanjiaxiangqing/kanjiaxiangqing",
+     "pages/receiving/receiving",
+     "pages/gotuan/gotuan",
+     "pages/phonefenlei/phonefenlei",
+      "pages/tuikuan/tuikuan",
+      "pages/search/search",
+      "pages/listgruop/listgruop",
+      "pages/cantuan/cantuan",
+      "pages/collage/collage",
+      "pages/tui/tui"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#515151"
+  },
+  "tabBar": {
+    "color": "#b3b3b3",
+    "selectedColor": "#3494ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "#d9d9d9",
+    "list": [
+      {
+        "selectedIconPath": "/image/shouye01.png",
+        "iconPath": "/image/shouye.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/image/all1.png",
+        "iconPath": "/image/all.png",
+        "pagePath": "pages/shangfeilei/shangfeilei",
+        "text": "全部分类"
+      },
+      {
+          "selectedIconPath": "/image/active01.png",
+          "iconPath": "/image/active.png",
+          "pagePath": "pages/active/active",
+          "text": "活动"
+        },
+      {
+         "selectedIconPath": "/image/chart01.png",
+         "iconPath": "/image/chart.png",
+        "pagePath": "pages/cart/cart",
+        "text": "购物车"
+      },
+      {
+         "selectedIconPath": "/image/wode01.png",
+         "iconPath": "/image/wode.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+      
+    ]
+  }
+}

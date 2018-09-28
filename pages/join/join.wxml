@@ -1,0 +1,155 @@
+<!--pages/join/join.wxml-->
+<!--pages/pin/pin.wxml-->
+
+<!-- 获取权限弹出层  -->
+<view class="modal-box" hidden="{{flag}}" bindtap="show">
+    <view class="modal-body">
+        <view class="modal-content">
+            <button wx:if="{{!mylogin}}" class="knowBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权登录 </button>
+        </view>
+    </view>
+</view>
+
+
+<!--介绍  -->
+<view class="cantuan">
+  <!--图片  -->
+  <view class='can-image'>
+    <view class='red-box'>团购</view>
+    <image src='{{joinData.img}}'></image>
+  </view>
+  <!-- 标题，价钱  -->
+  <view class='can-tit'>
+    <text class='can-title'>{{joinData.goodsName}}</text>
+    <!--价钱  -->
+    <view class='price'>
+     <text class='money'>￥{{joinData.activityPrice}}</text>
+      <!-- <button class='fenxiang' open-type='share'>
+        <image src='{{fenxiang}}'></image>
+        <text>分享</text>
+      </button> -->
+    </view>
+  </view>
+  <!--标题end  -->
+</view>
+<!--介绍end  -->
+
+<!--等待开团  -->
+<view class='wait'>
+  <view class='wait-tit'  hidden="{{!canJoin}}">
+    <image class='watch' src='{{watch}}'></image>
+    <text>仅剩<text class='number'>{{joinData.shortPerson}}</text>个名额，剩余{{countDownHour}}时{{countDownMinute}}分{{countDownSecond}}秒结束</text>
+  </view>
+  <!-- <view class='time'>
+    <text class='end'>距结束仅剩</text> -->
+  <!--计时  -->
+  <!-- <view class="countDownTimeView countDownAllView"> -->
+  <!-- <view class="voteText countDownTimeText">{{countDownDay}}天</view>   -->
+  <!-- <view class="voteText countDownTimeText">{{countDownHour}}</view>
+      <text>时</text>
+      <view class="voteText countDownTimeText">{{countDownMinute}}</view>
+      <text>分</text>
+      <view class="voteText countDownTimeText">{{countDownSecond}}</view>
+      <text>秒</text>
+    </view> -->
+  <!--  -->
+  <!-- </view> -->
+  <view class='head-img'  hidden="{{!canJoin}}">
+    <view class='box-img'>
+     <image class='headimg01' src='{{collageSucceed.face}}'></image>
+      <view class='noun'>团长</view> 
+    </view>
+  </view>
+
+  <!--按钮 -->
+  <view class='Offered' hidden="{{!canJoin}}">
+    <button class='btns' bindtap='sModal' >参与活动</button>
+  </view>
+   <view class='Offered' hidden="{{canJoin}}">
+    <button class='btns' bindtap='kaituan'>我要开团</button>
+  </view>
+</view>
+<!--规格  -->
+<!--立即购买模态框  -->
+  <view class="commodity_screen" bindtap="hModal" wx:if="{{sModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{sModalStatus}}">
+    <view class='commodity-box'>
+      <view class='commodity-box1'>
+        <view class='com-box1-left'>
+          <image src='{{joinData.img}}'></image>
+        </view>
+        <view class='com-box1-right'>
+          <view class='box1-right-top'>
+            <text>{{joinData.goodsName}}</text>
+            <view class='cha-img' bindtap="hModal">
+              <image src='{{xximg}}'></image>
+            </view>
+          </view>
+          <view class='cha-btm'>
+            <text class='money-red'>￥{{joinData.activityPrice}}</text>
+          </view>
+        </view>
+      </view>
+      <!--  -->
+
+
+      <!--规格  -->
+
+<!-- <view class='commodity-box2' wx:for='{{twoList}}' wx:for-item="i" wx:for-index="indexi" data-id="{{index}}">
+    <text> {{i.specName}}</text>
+       <view class='spebox' wx:for='{{i.value}}' wx:for-item="j" wx:for-index="indexj">
+      <view class='specification' >
+         <button class="spebtn {{j.flag?'active':''}}" data-id="{{indexi}}" data-item="{{indexj}}"  bindtap='changColor'>{{j.specvalue}}{{j.flag}}</button> 
+      </view>
+    </view>
+</view>  -->
+     <!--规格  -->
+<!-- <view class='commodity-box2'>
+    <text>{{twoList[0].specName}}</text>
+    <view class='spebox'>
+      <view class='specification' wx:for='{{twoList[0].value}}'>
+        <button class="spebtn {{current == item.specValueId?'active':''}}" data-text='{{item.specvalue}}' data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='chang'>{{item.specvalue}}</button>
+      </view>
+    </view>
+</view> -->
+
+
+<!-- 颜色 -->
+ <!-- <view class='commodity-box2'>
+    <text>{{twoList[1].specName}}</text>
+       <view class='spebox'>
+      <view class='specification' wx:for='{{twoList[1].value}}'>
+        <button class="spebtn {{currentItem == item.specValueId?'active':''}}" data-text='{{item.specvalue}}' data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='changColor'>{{item.specvalue}}</button>
+      </view>
+    </view>
+</view>  -->
+
+      <view class='commodity-box3'>
+        <text>购买数量：</text>
+        <view class='btn'>
+          <view id='del1' type="default" bindtap='minusCount'>-</view>
+          <input value='{{pic}}'></input>
+          <view id='add1' type='defalut' bindtap='addCount'>+</view>
+        </view>
+
+      </view>
+    </view>
+    <!-- <view class='commodity-box5'>下一步</view>  -->
+    <view class='commodity-box6'>
+      <view class='com-box6' bindtap='next' style='width:100%'>
+        点击购买
+      </view>
+    </view>
+  </view>
+  <!-- 模态框结束 -->
+<!--拼团玩法 -->
+<view class='paly'>
+  <view class='paly-left'>
+    <image src='{{paly}}'></image>
+    <text>拼团玩法?</text>
+  </view>
+  <view class='paly-right'>
+    支付开团/参团>邀请参团>人满成团
+  </view>
+</view>
+

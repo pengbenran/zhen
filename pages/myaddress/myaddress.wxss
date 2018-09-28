@@ -1,0 +1,96 @@
+.address{
+  background: #fff;
+  border-top: 1rpx solid #eee;
+}
+.shipping-top{
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #333333;
+}
+.names{
+ font-size: 16px;
+}
+.name-text1{
+  margin-left: 60rpx;
+}
+.name-text2{
+  font-size: 16px;
+}
+.shipping-bottom{
+  padding: 20rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.approve{
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+.approve image{
+  width: 38rpx;
+  height: 38rpx;
+}
+.edit{
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+}
+.edit-left{
+  display: flex;
+  align-items: center;
+}
+.edit-left image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.edit-right{
+  display: flex;
+  align-items: center;
+}
+.edit-right image{
+  width: 36rpx;
+  height: 38rpx;
+}
+.edit-text1{
+ margin-left: 10rpx;
+ font-size: 16px;
+ color: #26b8ff;
+}
+.edit-text2{
+ margin-left: 10rpx;
+ font-size: 16px;
+ color: #ff3537;
+}
+.approve-text{
+  margin-left: 10rpx;
+ font-size: 16px;
+ color: #26b8ff;
+}
+.add-magrin{margin-top: 20rpx;}
+.text2{
+  color: #26b4fe;
+}
+/*按钮  */
+.cellbtn{
+  width: 100%;
+  height:100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:40rpx;
+}
+.com-input01{
+  height:90rpx;
+  line-height: 90rpx;
+  width:85%;
+  color: #fff;
+  border-radius: 45rpx;
+  background: #26b4fe;
+  text-align: center;
+}

@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class='head'>
+    <view class='portrait-left'>
+      <view class='port-img'>
+        <image src='{{message.logo}}'></image>
+      </view>
+    </view>
+    <view class=' portrait-right'>
+      <view class='rait-left'>
+        <text>{{message.shopname}}</text>
+          <view class='rait-bottom'>
+            <!-- <view class='port-left'>满减</view> -->
+            <text class='port-text'>{{message.descs}}</text>
+          </view>
+      </view>
+      <view class='rait-right'> 
+        <!-- <image src='{{rait}}'></image> -->
+      </view>
+    </view>
+  </view>
+  <!--公告  -->
+  <!-- <view class='head-bottom'> -->
+    <!-- <view class='head-box'>公告</view>
+    <text class='head-text'>{{indexNotice.content}}</text> -->
+  <!-- </view> -->
+  <!--导航商品列表  -->
+
+  <view class="box">
+    <view class="left_list">
+        <view class="list_item {{currentType == item.catId ? 'active' : ''}}" wx:for="{{GoodCatAll}}" data-index="{{index}}" id="{{item.catId}}" bindtap="currentType">
+          {{item.name}}
+        </view>
+    </view>
+    <!--滚动-->
+    <scroll-view scroll-y="true" class="right_cont">
+      <view class="mes">商品分类</view>
+      <!--商品列表-->
+      <navigator wx:for="{{Goods}}" url="../group/group?goodid={{item.goodsId}}&catId={{item.catId}}" hover-class="none">
+        <view class='choice' >
+          <view class='cho-left'>
+            <image src='{{item.thumbnail}}'></image>
+          </view>
+            <view class='noun-right'>
+              <text class='copys'>{{item.name}}</text>
+                <view class='noun-top'>
+                  <text class='money'>￥{{item.price}}</text>
+                  <view class='jiahao'>
+                    <image src='{{jiahao}}'></image>
+                  </view>
+                </view>
+            </view>
+        </view>
+      </navigator>
+    </scroll-view>
+
+
+  </view>
+
+
+</view>

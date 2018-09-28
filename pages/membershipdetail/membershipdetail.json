@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "填写详细信息",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black"
+}

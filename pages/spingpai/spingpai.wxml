@@ -1,0 +1,43 @@
+<view class="container">
+  <!-- 搜索  -->
+  <view class='searchTop'>
+    <view class="m-searchTop">
+      <view class="icon-search"></view>
+      <input class="input" placeholder="搜索品牌"  bindinput ="serarchkey"/>
+    </view>
+    <button class="cell" bindtap='sou'>搜索</button>
+  </view>
+  <!-- 热门 -->
+  <view class='hot'>
+  <view class='hot-top'>
+  <text class='hot-text1'>热门搜索</text>
+  <text class='hot-text2' bindtap='taps'>换一批</text>
+  </view>
+  <block wx:if="{{hide}}">
+  <view class='hot-bottom'>
+      <view class="one" wx:for="{{random}}" id='{{item.brandId}}' bindtap='phonefenlei'> 
+          <image src="{{item.logo}}"></image>
+      </view> 
+  </view>
+  </block>
+  <block wx:else>
+      <view class='hot-bottom'>
+      <view class='null'>
+              <text>暂无该手机品牌</text>
+      </view>
+      </view>
+  </block>
+  </view>
+</view>
+<!-- 全部-->
+<view class='classify'>
+  <view class='hot-top'>
+  <text class='hot-text1'>全部分类</text>
+  </view>
+  <view class='hot-bottom'>
+      <view class="one" wx:for="{{brandList}}" id='{{item.brandId}}' bindtap='phonefenlei'> 
+          <image src="{{item.logo}}"></image>
+      </view> 
+  </view>
+</view>
+<view class='hot-text3'>暂无更多品牌</view>

@@ -1,0 +1,43 @@
+<view class="container">
+  <!--头部  -->
+  <view class='collect-head'>
+    <view class='head-left'>
+      共收藏<text class='mub-text'>{{FavoriteList.length==undefined?0:FavoriteList.length
+      }}个</text>宝贝 
+    </view>
+    <view class='head-right'>
+      <image src='{{guanimg}}' bindtap='sousuo'></image>
+      <text bindtap='changeMode'>管理</text>
+    </view>
+  </view>
+  <!--商品列表 -->
+  <block wx:if="{{hasList}}">
+    <view class='commodity'>
+      <view class='cod-1' wx:for="{{FavoriteList}}">
+        <image class='codImg' src='{{item.goodsDO.thumbnail}}' id='{{item.goodsDO.goodsId}}' bindtap='tiao'></image>
+        <text class='copy' id='{{item.goodsDO.goodsId}}' bindtap='tiao'>{{item.goodsDO.name}}</text>
+        <view class='money-gou'>
+          <text class='money'>￥{{item.goodsDO.price}}</text>
+          <icon wx:if="{{item.selected}}" type="success" color="red" size="21" data-index="{{index}}" id="{{item.favoriteIds}}" class="cart-pro-select {{inEditMode ? '' : 'hide'}}" bindtap="selectList" />
+          <icon wx:else type="circle" color="#DDD" class="cart-pro-select {{inEditMode ? '' : 'hide'}}" data-index="{{index}}" id="{{item.favoriteIds}}" bindtap="selectList" />
+        </view>
+      </view>
+    </view>
+    <!--购物车底部  -->
+    <view class="footers {{inEditMode ? '' : 'hide'}}">
+      <view class="cart-foot">
+        <view class="foot-left">
+          <icon wx:if="{{selectAllStatus}}" type="success" color="red" size="21" id="{{item.favoriteIds}}" class="cart-pro-select" bindtap="selectAll" />
+          <icon wx:else type="circle" color="#DDD" id="{{item.favoriteIds}}" bindtap="selectAll" />
+          <text>全选</text>
+        </view>
+        <view class="foot-right" bindtap='deled'>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="cart-no-data">收藏是空的哦~</view>
+  </block>
+</view>

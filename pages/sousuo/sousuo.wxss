@@ -1,0 +1,84 @@
+/* 首页搜索框 */
+.searchTop{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:130rpx;
+  border-bottom: 1px solid #ccc;
+}
+.m-searchTop {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 73%;
+    height:70rpx;
+    font-size: 30rpx;
+    background-color: #f2f2f2;
+    border-radius: 50rpx;
+    justify-content:  flex-start;
+    
+    margin-left: 20rpx;
+}
+.cell{
+  width: 16%;
+  height: 65rpx;
+  line-height: 66rpx;
+  font-size: 10px;
+
+
+}
+.m-searchTop .icon-search {
+    display: inline-block;
+    width: 70rpx;
+    height: 50rpx;
+    vertical-align: top;
+    background-image: url(http://img02.camel.com.cn/image/zw_search.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-left: 15rpx;
+}
+
+.m-searchTop .placeholder {
+    color: #d9d9d9;
+    vertical-align: top;
+}
+/* end */
+.record{
+  height: 1000rpx;
+  background: #fff;
+  padding: 0 30rpx;
+}
+.record-past{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 80rpx;
+}
+.list-box{
+display: flex;
+flex-direction: row;
+justify-content:  flex-start;
+flex-wrap: wrap;
+}
+.record-list{
+  display: flex;
+  align-items: center;
+  height: 65rpx;
+  font-size: 11px;
+  color: #000;
+  border: 1px solid #f2f2f2;
+  background: #f2f2f2;
+  padding: 0 10rpx 0 10rpx;
+  margin: 15rpx;
+  border-radius: 5%;
+}
+.cord-textone{
+margin-left: 10rpx;
+font-size: 13px;
+}
+.cord-text{
+  color: red;
+  font-size: 12px;
+}

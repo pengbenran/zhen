@@ -1,0 +1,142 @@
+<!--pages/active/active.wxml-->
+<view class="container">
+  <view class="swiper-tab" >
+  <view style='width:33%'>
+      <view class="swiper-tab-item {{currentTab==0?'':'disActive'}} {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">限时折扣</view>
+  </view>
+  <view style='width:33%'>
+      <view class="swiper-tab-item {{currentTab==1?'':'disActive'}} {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">一起拼团</view>
+  </view>
+  <view style='width:33%'>
+    <view class="swiper-tab-item {{currentTab==2?'':'disActive'}} {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">帮忙砍价</view> 
+  </view>    
+</view>
+<swiper class='swiper' current="{{currentTab}}" circular='false'  bindchange="changes">
+<!--限时折扣页面  -->
+  <swiper-item>
+  <scroll-view class='scrollers' scroll-y="{{true}}" >
+  <!--折扣图片  -->
+  <!-- <image class="spell-img" src="/image/zhe.jpg"></image> -->
+  <view class="spell-down" wx:for="{{apiLimit}}" wx:for-item="zhekou" bindtap='xianshi'  data-item="{{zhekou.limitGoodsId}}" id="{{index}}" data-apiLimit="{{item.perTotal}}">
+    <view class="spell-left">
+        <view class='spellimg'>
+        <image src="{{zhekou.goodsDO.thumbnail}}"></image>
+        </view>    
+        <view class='price'>
+            <image src="{{marimg}}" class='priceimg'></image>
+            <view class='price-muber' >
+              <block wx:if="{{zhekou.activityType==1}}">
+                <text>限时</text>
+                <text>{{zhekou.discount}}折</text>
+              </block>
+              <block wx:else="{{zhekou.activityType==2}}">
+                <text>减价</text>
+                <text>￥{{zhekou.minusAmount}}</text>
+              </block>
+            </view>
+      </view>
+    </view>
+    <view class="spell-right">
+          <view class="spell-top">
+            <text class='name'>{{zhekou.goodsName}}</text>
+          </view>
+    <view class=" spell-bottom">
+      <view class="spe-left">
+        <text class=" spetext-one">￥{{zhekou.finalAmount}}</text>
+        <text class=" spetext-two">￥{{zhekou.goodsPrice}}</text>
+      </view>
+    <view class="spell-btn">
+      <image src='https://shop.yogain.cn/simages/image/treeyiqi/kan.png'></image>
+    </view>
+      </view>
+      </view>
+  </view>
+  <view class = "cart-no-data" wx:if="{{apiLimit.length==0}}">
+   活动已结束~~敬请期待！
+  </view>
+   
+    <view class='swbox'></view>
+  </scroll-view>
+ </swiper-item>
+
+
+  <!--一起拼团页面  -->
+  <swiper-item>
+  <scroll-view class='scrollers' scroll-y="{{true}}" >
+  <!--拼团图片-->
+  <!-- <image class="spell-img" src="/image/go.jpg"></image> -->
+  <!--拼团商品列表-->
+  <view class="spell-down"  wx:for="{{pingtuanList}}" wx:for-index="idx" wx:for-item="pings" bindtap='pingtuan' data-item="{{pings}}">
+    <view class="spell-left">
+    <view class='spellimg'>
+    <image src="{{pings.thumbnail}}" ></image>
+    </view>  
+      <view class='spot'>拼团</view>
+    </view>
+    <view class="spell-right">
+      <view class="spell-top">
+        <text class='name'>{{pings.goodsName}}</text>
+      </view>
+      <view class=" spell-conten">
+        <text>{{pings.collagePersons}}人团</text>
+      </view>
+      <view class=" spell-bottom">
+        <view class="spe-left">
+          <text class=" spetext-one">￥{{pings.activityPrice}}</text>
+          <text class=" spetext-two">￥{{pings.goodsPrice}}</text>
+        </view>
+        <view class="spell-btn" >
+        <image src='https://shop.yogain.cn/simages/image/treeyiqi/tuan.png'></image>
+        </view>
+      </view>
+    </view>
+   </view>
+    <view class='swbox'></view>
+   <view class = "cart-no-data" wx:if="{{goodsList.length==0}}">
+   活动已结束~~敬请期待！
+   </view>
+   
+  </scroll-view>
+ </swiper-item>
+
+<!--帮忙砍价页面  -->
+   <swiper-item>
+  <scroll-view class='scrollers' scroll-y="{{true}}" >
+  <view class='join' wx:for= "{{data}}" wx:for-index="idx" wx:for-item="i" bindtap='kanjia' id='{{i.goodsId}}' data-cutid="{{i.cutId}}">
+  <view class='joinImg'>
+    <image  src='{{i.thumbnail}}'></image>
+  </view>
+  <text class='j-tit'>{{i.cutName}}</text>
+  <view class='Arrimg'>
+    <view class='headimg'>
+      <image src='{{i.memberList[0].face}}'></image>
+    </view>
+    <view class='headimg'>
+      <image src='{{i.memberList[1].face}}'></image>
+    </view>
+    <view class='headimg'>
+      <image src='{{i.memberList[2].face}}'></image>
+    </view>
+    <view class='headimg'>
+      <image src='{{i.memberList[3].face}}'></image>
+    </view>
+    <view class='headimg'>
+      <image src='{{i.memberList[4].face}}'></image>
+    </view>
+  </view>
+  <view class="j-footer">
+  <view class="footer-left" >
+  <text style='font-size:30rpx;color:#b3b3b3;'>最低</text>
+  <text class='money' style='margin-right:10rpx;'>￥{{i.belowPrice}}</text>
+    <text class='discount'>原价￥{{i.initPrice}}</text>
+  </view>
+    <view class="footer-img">
+    <image src='{{footerimg}}'></image>
+    </view>
+  </view>
+</view>
+<view class='swbox'></view>
+</scroll-view>
+  </swiper-item> 
+</swiper>
+</view>

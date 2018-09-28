@@ -1,0 +1,383 @@
+/**index.wxss**/
+/* 搜索框 */
+.input{
+  width: 120rpx;
+}
+
+/*公告 */
+.example {
+  display:inline-block;
+  width: 90%;
+  overflow: hidden;
+  height: 25px;
+}
+
+.marquee_box {
+  width: 100%;
+  position: relative;
+}
+
+.marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+}
+
+
+/* 首页搜索框 */
+.searchTop{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+.m-searchTop {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 90%;
+    height: 75rpx;
+    font-size: 30rpx;
+    background-color: #f2f2f2;
+    border-radius: 45rpx;
+    justify-content: center;
+}
+.m-searchTop input{
+  width: 170rpx;
+}
+.m-searchTop .icon-search {
+    display: inline-block;
+    width: 60rpx;
+    height: 70rpx;
+    vertical-align: top;
+    background-image: url(http://img02.camel.com.cn/image/zw_search.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.m-searchTop .placeholder {
+    color: #d9d9d9;
+    vertical-align: top;
+}
+/* end */
+/* 公告 */
+.Announcement{
+  background: #FFF;
+  height: 50rpx;
+  padding: 0 20rpx 0 20rpx;
+}
+.Img{
+  float: left;
+  height:35rpx;
+  width:37rpx;
+  padding-right: 15rpx;
+    border-right: 1px solid #DDD;
+}
+.Announ-text{
+float: left;
+font-size:12px;
+padding:0 20rpx 0 20rpx;
+
+}
+/* 轮播 */
+.swiper_box{
+  width:100%;
+  height:200px;
+
+}
+
+swiper-item image{
+  width:100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+/* 菜单选项 */
+.menu{
+  display:block;
+}
+.nav{
+  background: #fff;
+  padding: 10px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; 
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+
+}
+.nav image{
+  width: 90rpx;
+  height: 90rpx;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+.df{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+   flex-wrap: wrap;
+}
+.df_1{
+  width: 25%;
+  height: 146rpx;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 品牌馆 */
+.Brand{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30rpx;
+  background: #fff;
+}
+.Brand_2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.B-tit{
+  margin-top: 20rpx;
+}
+.spacer{
+      overflow: hidden;
+    margin: 10px 5px 0;
+    width: 1px;
+    height: 7px;
+    background-color: #59A9FD;
+}
+.txt{
+  float: left;
+}
+.B-img image{
+  width: 450rpx;
+  height: 25px;
+}
+/* 横向滚动 */
+
+.sc{
+ white-space: nowrap;
+  display: block;
+  height:90px;
+}
+.one{
+    background: white; 
+ width:20%;
+height:70px;
+    display: inline-block;
+    line-height: 240rpx;
+    padding: 10px;
+}
+.one image{
+   height:71%;
+width:75%;
+
+}
+/* 查看更多 */
+.more{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70rpx;
+  background: #FFF;
+  margin-bottom: 30rpx;
+  border-top: 1px solid #f7f7f7;
+}
+.more text{
+  color: #cfcfcf;
+  font-size: 12px;
+}
+.more image{
+  margin-left: 20rpx;
+  height: 30rpx;
+  width: 15rpx;
+}
+/* 商品分类 */
+.shop{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rpx;
+  background: #fff;
+}
+.jumb{
+  height: 330rpx;
+  width: 100%;
+}
+.jumbImg{
+  background: #fff;
+  padding: 0 20rpx 30rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+.commodity{
+display:flex;
+flex-direction:row;
+width:41%;
+justify-content:center;
+align-items:center;
+background:#FFF;
+padding:28rpx;
+margin-bottom:20rpx;
+height: 432rpx;
+}
+.box{
+  height: 142rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+  
+}
+.jia{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.commoditys{
+  display: flex;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.codImg{
+height:280rpx;
+width:264rpx;
+margin-left: 16rpx;
+
+}
+.copy{
+  font-size: 32rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.money{
+  color: red;
+}
+.money-gou{
+  width: 100%;
+   display: flex;
+  justify-content: space-between;
+  align-items:center; 
+  
+}
+.jiahao{
+  width: 260rpx;
+  height: 272rpx;
+}
+.jia-boder{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 新人专享红包 */
+/* .newmodel{
+  position: relative;
+  top: 0;
+  left: 0;
+} */
+.mask{
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.bcgImg{
+  width: 70vw;
+  height: 90vw;
+  overflow: hidden;
+  position: fixed;
+  top: 200rpx;
+  left: 15vw;
+}
+.bcgImg image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.telphone{ 
+  position: fixed;
+  top: 590rpx;
+  left: 15vw;
+  display: flex;
+  width: 70vw;
+  padding:0 2vw;
+  box-sizing: border-box;
+}
+.inputBcg{
+  width: 40vw;
+  height: 80rpx;
+  line-height:80rpx;
+  border:2px solid #FA7C04; 
+  background: #fff;
+  border-radius: 5rpx;
+  padding-left:5rpx;
+  box-sizing: border-box; 
+  font-size: 0.8rem;
+}
+.getphoneBtn{
+  font-size:0.8rem;
+  padding: 0;
+  margin-left: 10rpx;
+  flex-grow: 1;
+  background: #FFB425;
+}
+.getbtn{
+  position: fixed;
+  top: 730rpx;
+  left: 17vw;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 66vw;
+  text-align: center;
+ border-radius: 10rpx;
+  font-size:0.8rem;
+  background: #FFB425;
+}
+.closebtn{
+  height: 50rpx;
+  width: 50rpx;
+  position: fixed;
+  right: 16vw;
+  top:210rpx;
+}
+.closebtn image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.showredpack{
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  position: fixed;
+  bottom: 120rpx;
+  right: 80rpx;
+}
+.showredpack image{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}

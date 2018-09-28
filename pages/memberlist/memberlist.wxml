@@ -1,0 +1,14 @@
+<!--pages/memberlist/memberlist.wxml-->
+ <view class='memberContain'>
+    <view class='memberList' wx:for="{{memberDOList}}" bindtap='jumpconsume' data-memberId='{{item.memberId}}'>
+      <view class='memberuser'>
+        <view class='memberuseravator'>
+          <image src='{{item.face}}'></image>
+        </view>
+        <view class='memberName'>{{item.uname}}</view>
+      </view>
+    </view> 
+     <view wx:if="{{!hasmember}}" class='tip'>
+      还没有会员哦
+    </view> 
+  </view>

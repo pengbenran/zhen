@@ -1,0 +1,258 @@
+<!--pages/group/group.wxml-->
+<import src="../../wxParse/wxParse.wxml" /> 
+<view class='container'>
+  <!-- 详情页轮播 -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:{{ImageWidth}};height:{{ImageHeight}}">
+    <block wx:for="{{Gallery}}" wx:for-item="item">
+      <swiper-item>
+        <image src="{{item.original}}" bindtap='previewImage'id="{{item.imgId}}" class="slide-image" width="100%" height="180" data-type="{{item.type}}" data-action="{{item.action}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--定时-->
+  <view class='distance'>
+    <image src='{{disimg}}' class='distance-img'></image>
+    <view class='distance-cont'>
+      <view class='tance-left'>
+        <text class='tance-one'>天天砍价</text>
+        <text class='tance-two'>最低￥{{cutGood.belowPrice}}</text>
+        <text class='tance-three'>￥{{cutGood.initPrice}}</text>
+      </view>
+      <view class='tance-cont'>
+        
+      </view>
+      <view class='tance-right'>
+        <text class='ma-left'>距结束仅剩{{countDownDay}}天</text>
+        <!--时间  -->
+        <view class='tance-time'>
+          <view class="countDownTimeView countDownAllView">
+            <view class="voteText countDownTimeText">{{countDownHour}}</view>
+            <text>时</text>
+            <view class="voteText countDownTimeText">{{countDownMinute}}</view>
+            <text>分</text>
+            <view class="voteText countDownTimeText">{{countDownSecond}}</view>
+            <text>秒</text>
+          </view>
+        </view>
+        <!--时间  -->
+      </view>
+    </view>
+  </view>
+  <!-- 产品名、收藏、分享 -->
+  <view class='content'>
+    <view class='cont-tit'>
+      {{name}}
+    </view>
+    <!-- 店铺认证 -->
+    <!-- 店铺认证-->
+    <view class='Shop-box'>
+      <view class='Sbox-left'>
+        <image src='{{sbox}}'></image>
+        <text>店铺认证</text>
+      </view>
+      
+    </view>
+    <!-- 保证、包邮、24h、返点 -->
+    <view class='genuine'>
+      <view class='g1'>
+        <image src='{{geimg}}'></image>
+        <text>正品保证</text>
+      </view>
+      <view class='g1'>
+        <image src='{{geimg}}'></image>
+        <text>全场包邮</text>
+      </view>
+      <view class='g1'>
+        <image src='{{geimg}}'></image>
+        <text>24h发货</text>
+      </view>
+      <view class='g1'>
+        <image src='{{geimg}}'></image>
+        <text>返点积分</text>
+      </view>
+    </view>
+  </view>
+
+  
+  <!--下一步选规格模态框-->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class='commodity-box'>
+      <view class='commodity-box1'>
+        <view class='com-box1-left'>
+          <image src='{{comimg}}'></image>
+        </view>
+        <view class='com-box1-right'>
+          <view class='box1-right-top'>
+            <text>{{item.title}}</text>
+            <view class='cha-img' bindtap="hideModal">
+              <image src='{{chaimg}}'></image>
+            </view>
+          </view>
+          <text class='money-red'>￥{{item.price}}</text>
+        </view>
+      </view>
+      <view class='commodity-box2'>
+        <text>规格：</text>
+        <view class='commod' style='display:flex;'>
+          <view class='specification' wx:for="{{item.commo}}" wx:key="{{commo}}">{{item}}</view>
+        </view>
+      </view>
+      <view class='commodity-box3'>
+        <text>购买数量：</text>
+        <view class='btn'>
+          <view id='del1' type="default">-</view>
+          <input value='2'></input>
+          <view id='add1' type='defalut'>+</view>
+        </view>
+      </view>
+      <view class='commodity-box4'>
+        <text>留言：</text>
+        <view class='leave'>
+          <input placeholder="点击填写留言"></input>
+        </view>
+      </view>
+    </view>
+    <view class='commodity-box5' bindtap='next'>下一步</view>
+  </view>
+  <!-- 模态框结束 -->
+  <!--砍价隐藏-->
+  <block wx:if="{{isjoin}}">  
+
+  <view class='help'>
+    <view class='h-img'>
+      <image src='{{memberCut.face}}'></image>
+    </view>
+    <view class='h-txt'>
+      <view class='phone'>
+        <text>{{memberCut.uname}}</text>
+        <text style='color:red;'> 成功参加活动</text>
+      </view>
+      <text class='frd'>快让好友助自己一臂之力</text>
+    </view>
+  </view>
+  <!--进度条  -->
+  <view class='box'>
+    <view class='small-box1'>
+      <view class='small-top' style="left:{{percent-9}}%">
+        <view class='top_bcg'>
+         <image src='{{smallimg}}'></image>
+        </view> 
+        <view class='top-tu'>￥{{cutTotal}}</view>
+      </view>
+      <view class='small-cont'>
+        <progress class="progress" percent="{{percent}}" radius="50px" show-info="{{isSi}}" stroke-width="{{sw}}" activeColor="{{pc}}" backgroundColor="{{pbc}}" active="{{isActive}}" active-mode="forwards">
+        </progress>
+      </view>
+      <view class='small-bottom'>
+        <text>原价：￥{{cutGood.initPrice}}</text>
+        <text>最低：￥{{cutGood.belowPrice}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 一共砍掉-->
+  <view class='prune-box'>
+    <view class='prune-left'>
+      <view class='pruneImg' wx:for="{{memberCut.cutHistoryDOs}}">
+        <image src='{{item.face}}'></image>
+      </view>
+    </view>
+    <view class='prune-right'>{{memberCut.cutHistoryDOs.length}}人一共砍掉了
+      <text class='mone-red'>￥{{cutTotal}}</text>
+    </view>
+  </view>
+</block> 
+
+
+  <!--砍价流程  -->
+  <view class='flow-path'>
+    <view class='g-line'>
+      <view class='line'></view>
+      <text>砍价流程</text>
+    </view>
+    <view class='path-box'>
+      <view class='path'>
+        <image src='{{path1}}'></image>
+        <text class='path-text'>点击砍价</text>
+      </view>
+      <image src='{{path2}}' class='path-img'></image>
+      <view class='path'>
+        <image src='{{path3}}'></image>
+        <text class='path-text'>分享砍价</text>
+      </view>
+      <image src='{{path2}}' class='path-img'></image>
+      <view class='path'>
+        <image src='{{path4}}'></image>
+        <text class='path-text'>好友帮砍</text>
+      </view>
+      <image src='{{path2}}' class='path-img'></image>
+      <view class='path'>
+        <image src='{{path5}}'></image>
+        <text class='path-text'>砍价成功</text>
+      </view>
+    </view>
+  </view>
+  <!--活动说明  -->
+  <view class='state-box'>
+    <view class='g-line'>
+      <view class='line'></view>
+      <text>活动说明</text>
+    </view>
+    <view class='state'>
+      <text>{{cutGood.cutRemark}}</text>
+    </view>
+  </view>
+
+  <!-- 商品详情  -->
+  <view class='g-line'>
+    <view class='line'></view>
+    <text>商品详情</text>
+  </view>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  <!--null  -->
+  <view class='null'></view>
+  <!--底部按钮  -->
+  <view class='footer'>
+    <!-- <view class='footer-left'>
+     
+      <view class='homepage' bindtap='zhuye'>
+        <image src='{{homepage}}'></image>
+        <text>主页</text>
+      </view>
+      <view class='foo-line'></view>
+      
+      <button class='homepage custom' open-type="contact" session-from="weapp">
+        <image src='{{custom}}'></image>
+        <text>客服</text>
+      </button>
+      <view class='foo-line'></view>
+      
+      <view class='homepage' bindtap='gochart'>
+        <image src='{{gocart}}'></image>
+        <text>购物车</text>
+      </view>
+
+    </view> -->
+    <!-- 立即砍价 -->
+     <view class='promptly' bindtap="powerDrawer" data-statu="open" wx:if="{{!isjoin&&!iscutOk}}">
+      <text>我要参与</text>
+    </view> 
+    <view class='promptly' wx:if="{{isjoin&&!iscutOk}}">
+      <div class="nowprice" bindtap="payorder">
+       现价入手￥{{cutFinalAmount}} 
+      </div>
+      <button class="forhelp" open-type='share'>找人帮砍</button>
+    </view>
+    <view class='promptly'wx:if="{{iscutOk}}" bindtap="payorder">砍价成功立即购买</view>
+  </view>
+  <!--分享砍价模态框-->
+  <view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus1}}"></view>
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus1}}">
+    <view class='cular' bindtap="modelClose" data-statu="close">
+      <image src='{{close}}'></image>
+    </view>
+    <text class='mueb'>{{cutResult.cutHistoryDOs[0].cutPersAmount}}<text class='yuan'>元</text></text>
+    <button class='broken' open-type='share'>找人帮砍</button>
+  </view>
+  <!--分享砍价结束-->
+</view>

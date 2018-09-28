@@ -1,0 +1,167 @@
+/* pages/search/search.wxss */
+@import "../shoucan/shoucan.wxss";
+page{
+  background: #fff;
+}
+/* 首页搜索框 */
+.searchTop{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:120rpx;
+  border-bottom: 1px solid #ccc;
+}
+.m-searchTop {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 73%;
+    height:80rpx;
+    font-size: 30rpx;
+    background-color: #f2f2f2;
+    border-radius: 42rpx;
+    justify-content:  flex-start;
+    margin-left: 20rpx;
+}
+.m-searchTop input{
+    width: 100%;
+    font-size: 32rpx;
+    color: #7d7d7d;
+}
+.cell{
+   /* width: 15%; */
+  height: 75rpx;
+  line-height: 73rpx; 
+  font-size: 30rpx;
+  border: 2rpx solid #eee;
+  border-radius:3px;
+  color: #7d7d7d;
+}
+.m-searchTop .icon-search {
+    display: inline-block;
+    width: 62rpx;
+    height: 75rpx;
+    vertical-align: top;
+    background-image: url(http://img02.camel.com.cn/image/zw_search.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-left: 15rpx;
+}
+
+.m-searchTop .placeholder {
+    color: #d9d9d9;
+    vertical-align: top;
+}
+/* end */
+/* .search{
+    padding: 1% 3%;
+    display: flex;
+}
+.search input{
+  background-color:#f2f2f2;
+    width: 75%;
+    border-radius: 13px;
+    background: #fff;
+    border: 1px solid #DDD;
+    font-size: 12px;
+    padding:1% 2.5%;
+    margin-right: 5px;
+    }
+.search button{
+    height: 63rpx;
+    line-height:48rpx;
+    text-align: center;
+    background: #eee;
+    color: #5c5c5c;
+    border: none;
+    padding: 3px;
+    width: 100rpx;
+    border-radius: 4rpx;
+    font-size:30rpx;
+} 
+ .search button::after{
+    content: none;
+}
+.searchcion{
+    width: 24px;
+    height: 24px;
+    text-align: center
+} */
+.cont{
+     padding: 3%;     
+}
+.cont-top{
+  display: flex;
+  justify-content: space-between;
+}
+.font_14{
+ font-size: 34rpx;
+}
+.font_13{
+  font-size: 30rpx;
+  color: red;
+}
+.w100{ 
+    width: 100%;
+    padding-bottom: 10px;
+}
+.w100 button{
+    text-align: center;
+    line-height: 60rpx;
+    margin: 5% 3% 0 0;
+    display: inline-table;
+    padding:5px 10px;
+    font-size: 14px;
+    border-radius: 2rpx;
+    background:#f2f2f2;
+}
+.shop{
+    width: 49%;
+    background: #fff;
+    float: left;
+    margin-bottom: 4%;
+}
+.shop:nth-child(even){
+    margin-right: 2%;
+}
+.sh_slt{
+    width: 100%;
+    height: 370rpx;
+    overflow: hidden;
+}
+.sp_text{
+    float: left;
+    line-height: 25px;
+    width: 92%;
+    padding: 4%;
+    }
+.sp_tit{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+}
+.sp_jg{
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #fc0628;
+    line-height: 30px;
+}
+.mt10{
+  margin: 0 auto;
+  text-align: center;
+  height: 70rpx;
+  width: 450rpx;
+  line-height: 70rpx;
+  border-radius:10rpx; 
+  border: 1px solid #999;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+.row{
+  text-align: center;
+  color: #7d7d7d;
+}

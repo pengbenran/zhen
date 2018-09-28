@@ -1,0 +1,124 @@
+<import src="../../utils/switch/switch.wxml" />
+<view class="container">
+  <!--头部  -->
+  
+  <view class="payment" bindtap='admin'  wx:if="{{isAddr}}">
+    <image class="head" src='{{head}}'></image>
+     <view class='payment_addr'>
+      <view class="payment-top">
+      <image class='pay-img' src='{{imgpay}}'></image>
+      收货人：
+      <text>{{addr.name}}</text>
+      <text class='phone'>{{addr.mobile}}</text>
+    </view>
+    <view class="payment-bottom">
+     <view class='adess'>
+      <image class='pay-img' src='{{payimg}}'></image>
+      收货地址：
+      </view>
+      <view class='adesstext'>
+          <text>{{addr.province}}{{addr.city}}{{addr.region}}{{addr.addr}}</text>
+      </view>
+    </view>
+     </view>
+  </view>
+  <view class='adderr' bindtap='admin' wx:if="{{!isAddr}}">+点击新增地址</view>
+  <!--编辑  -->
+  <view class='shops'>
+  <view class='shopping'>
+    <view class='shop-left'>
+      <image class='yes' src='{{yes}}'></image>
+      <text>{{indexdata.shopname}}</text>
+      <image class='ind' src='{{ind}}'></image>
+    </view>
+  </view>
+  <!-- 商品 -->
+  <view class='Spcart'wx:for="{{list}}">
+    <view class='box2'>
+      <image src='{{item.image}}'></image>
+    </view>
+    <view class='box6'>
+      <view class='character'>{{item.name}}</view>
+      <view class='numb-boot'>
+        <text>{{Goods.specvalue}}</text>
+      </view>
+    </view>
+    <view class='box5'> 
+      <view class='box5-text'>
+        <text class='box5-one'>￥{{item.price}}</text>
+        <text class='box5-two'>x{{item.num}}</text>
+      </view>
+      <view class='box5-two'>
+        <image src='{{bao}}' class='baozhang'></image>
+        <text class='bao'>正品保证</text>
+      </view>
+    </view>
+
+  </view>
+  <view class='leave'>
+    <text class='language'>留言：</text>
+    <input placeholder="点击填写留言" placeholder-style="color:#8d8d8d;" bindinput='clickd' ></input>
+  </view>
+  <!-- <view class='way way-boder'>
+    <text class='way-text5'>{{waytext}}</text>
+    <view class="body-view" wx:for="{{switchData}}">
+      <template is="switch" data="{{isOn: item.isOn, id:item.id, onTintColor:item.color}}"/>
+    </view>
+  </view> -->
+  <view class='way' bindtap='youhui'>
+    <text class='way-text1'>{{youhui}}</text>
+    <view class="inte-rightimg">
+      <text class="core-red"  wx:if="{{pars==0||pars==2}}">优惠券</text>
+       <text class="core-red" wx:if="{{pars==1}}">已使用优惠券-{{facevalue}}</text>
+      <image src='{{coreimg}}'></image>
+    </view>
+  </view>
+  <!-- 红包 -->
+  <view class='way' bindtap='hongbao'>
+    <text class='way-text1'>红包</text>
+    <view class="inte-rightimg">
+      <text class="core-red"  wx:if="{{pars==0||pars==1}}">使用红包</text>
+       <text class="core-red" wx:if="{{pars==2}}">已使用红包-{{redamount}}</text>
+      <image src='{{coreimg}}'></image>
+    </view>
+  </view>
+  <view class='way'>
+    <text class='way-text1'>积分</text>
+    <view class='jifen'>
+      <view class="inte-rightimg" style='color:#DBAF50;font-size:30rpx;'>
+      可用{{point}}积分兑换{{point_price}}元
+      </view>
+      <view class='approve' bindtap='select' id="{{select}}">
+          <icon wx:if="{{select}}" type="success" color="red" id="{{select}}"  class="cart-pro-select" bindtap="selectList"/>
+          <icon wx:else type="circle" class="cart-pro-select" id="{{select}}"  bindtap="selectList"/>
+      </view>
+    </view>
+  </view>
+  <view class='mode'>
+    <view class='mode-top'>
+      <text class='way-text1'>商品金额：</text>
+      <text class='way-text4'>￥{{goodsAmount}}</text>
+    </view>
+    <view class='mode-botom'>
+      <text class='way-text1'>运费：</text>
+      <text class='way-text4'>￥0</text>
+    </view>
+  </view>
+</view>
+  <!--底部  -->
+  <view class='footerbox'></view>
+  <view class='footers'>
+    <view class="cart-foot">
+      <view class="foot-cont">
+          <text class="cont-tone" >合计：{{orderAmount}}元</text>  
+          <!-- <block wx:if="{{pars==1}}">
+              <text style='color:red'>-{{facevalue}}</text>
+          </block>  -->
+      </view>
+      <view class="foot-right" bindtap="toast">
+        <text>{{tijiao}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

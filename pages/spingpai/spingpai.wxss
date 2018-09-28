@@ -1,0 +1,103 @@
+/* 首页搜索框 */
+.searchTop{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:130rpx;
+  border-bottom: 1px solid #ccc;
+}
+.m-searchTop {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 73%;
+    height:80rpx;
+    font-size: 32rpx;
+    background-color: #f2f2f2;
+    border-radius: 50rpx;
+    justify-content: center;
+    margin-left: 20rpx;
+}
+.null{
+  text-align: center;
+  width: 100%;
+  height: 60rpx;
+  color: #b3b3b3;
+  font-size: 17px;
+}
+.cell{
+height:75rpx;
+line-height:73rpx;
+font-size:30rpx;
+border:2rpx solid #eee;
+border-radius:3px;
+color:#7d7d7d;
+
+}
+.m-searchTop .icon-search {
+    display: inline-block;
+    width: 62rpx;
+    height: 75rpx;
+    vertical-align: top;
+    background-image: url(http://img02.camel.com.cn/image/zw_search.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-left: 15rpx;
+}
+
+.m-searchTop .placeholder {
+    color: #d9d9d9;
+    vertical-align: top;
+}
+/* end */
+.hot{
+  padding-top: 20rpx;
+  background: #fff;
+}
+.hot-top{
+  padding:0 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.hot-bottom{
+ display: flex;
+ width: 100%;
+ margin-top: 20rpx;
+ flex-wrap:wrap;
+
+}
+.one{ 
+  width:20%;
+  height:70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.oppo{
+  margin-bottom: 20rpx;
+}
+.one image{
+height:70%;
+width:70%;
+}
+.classify{
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  background: #fff;
+}
+.hot-text1{
+ font-size: 14px;
+ color: #4b4b4b;
+}
+.hot-text2{
+ font-size: 13px;
+ color:red;
+}
+.hot-text3{
+ font-size: 13px;
+ color: #b3b3b3;
+ text-align: center;
+ margin-top: 20rpx;
+}

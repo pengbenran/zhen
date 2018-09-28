@@ -1,0 +1,19 @@
+<!--pages/membership/membership.wxml-->
+<view class='membership'>
+  <view class='membershipForm'>
+    <view class='membershipIcon'>
+      <image src='https://shop.guqinet.com/html/images/shanquan/memberIcon.jpg'></image>
+    </view>
+    <view class='membershiptitle'>微分销信息提交</view>
+    <form bindsubmit='btnform'>
+      <view class='membershipFormList'>
+        <input placeholder='姓名' name="username"></input>
+      </view>
+      <view class='membershipFormList'>
+        <input placeholder='联系方式' name="tel" type='number'></input>
+      </view>
+      <button class='formBtn' form-type='submit'>提交</button>
+    </form>
+   
+  </view>
+</view>

@@ -1,0 +1,268 @@
+/* pages/cart/cart.wxss */
+.container{
+   background: #F2F2F2;
+}
+.cart-no-data {
+  padding:40rpx 0;
+color:#999;
+text-align:center;
+}
+/*编辑*/
+ .shopping{
+  background: #FFF;
+  height: 95rpx;
+  display: flex;
+  padding-left: 8rpx;
+  padding-right: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  border: 1rpx solid #eee;
+}
+.shop-left{
+  font-size: 15px;
+  width: 43%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.yes{
+  height: 36rpx;
+  width:40rpx;
+}
+.ind{
+  height: 28rpx;
+  width:16rpx;
+}
+
+.shop-r{
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+/* 商品 */
+.Spcart{
+  background: #FFF;
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  height: 260rpx;
+  
+}
+.box1{
+  margin-right: 18rpx;
+}
+.box2{
+height:205rpx;
+width: 205rpx;
+display:inline-block;
+}
+
+.btn{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.btn input{
+margin:0;
+width:30px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+font-size:15px;
+height:45rpx;
+min-height: 40rpx;
+}
+.del1{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  height:45rpx;
+  width:55rpx;
+  border: 1px solid #DDD;
+}
+.add1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+ height:45rpx;
+width:55rpx;
+  border: 1px solid #DDD;
+}
+.price{
+  color: red;
+  font-size: 15px;
+  height: 25%;
+}
+/*编辑新增css  */
+.character{
+   display:-webkit-box;
+word-break:break-all;
+text-overflow:ellipsis;
+overflow:hidden;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:2;
+  overflow-wrap: break-word;
+  font-size: 15px;
+}
+.box5{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 20%;
+  
+}
+.box5-one{
+font-size: 15px;
+color: red;
+}
+.box5-two{
+font-size: 15px;
+color: #b3b3b3;
+}
+.numb-boot{
+  display: flex;
+  flex-direction: row;
+  justify-content:  flex-start;
+  align-items:flex-end;
+  height: 50%;
+}
+.box6{
+margin-left:30rpx;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+width:55%;
+margin-right:30rpx;
+height: 200rpx;
+}
+/* 购物车底部*/
+.footerTxte{
+  margin-left: 10rpx;
+}
+.cart-foot{
+display:flex;
+height: 110rpx;
+position:fixed;
+bottom:0;
+width: 100%;
+}
+.foot-left{
+  width: 20%;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 25rpx;
+  color: #000;
+  font-size: 15px;
+}
+.quanxuan{
+  width: 50rpx;
+  height: 50rpx;
+}
+.foot-right{
+width: 80%;
+display: flex;
+}
+.cont{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #fff;
+} 
+.wind{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:#3394ff;
+  color: #fff;
+}
+.foot-del{
+  width: 80%;
+display: flex;
+}
+.cont1{
+  width: 65%;
+  background: #fff;
+ 
+}
+.cancel{
+width: 35%;
+background: #ff4f4f;
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+/*文字颜色  */
+.cont-tone{
+  color: red;
+  font-size: 15px;
+}
+.cont-ttwo{
+  color:#ccc;
+  font-size: 14px;
+}
+.cont-three{
+font-size: 34rpx;
+background: orangered;
+}
+
+/* 滑动删除 */
+.touch-item {
+ font-size: 14px;
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ overflow: hidden;
+ margin-top: 15rpx;
+}
+.content {
+ width: 95%;
+ padding: 10px;
+ line-height: 22px;
+ margin-right:0;
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+ -webkit-transform: translateX(90px);
+ transform: translateX(90px);
+ margin-left: -90px
+}
+.del {
+ background-color: orangered;
+ width: 90px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ -webkit-transform: translateX(90px);
+ transform: translateX(90px);
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+}
+.touch-move-active .content,
+.touch-move-active .del {
+ -webkit-transform: translateX(0);
+ transform: translateX(0);
+}
+/*.null  */
+.null{
+  height: 200rpx;
+}

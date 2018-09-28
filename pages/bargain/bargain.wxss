@@ -1,0 +1,64 @@
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.memberIntro{
+  width: 100%;
+  background: #fff;
+  margin-top:20rpx; 
+}
+.memberIntrotitle{
+  text-align: center;
+  font-weight: bold;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.memberIntroList{
+ position:relative;
+ margin-bottom: 40rpx;
+}
+.memberIntroListBcg{
+  width: 626rpx;
+  height: 330rpx;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.memberIntroListDetail{
+  position: absolute;
+  top: 20rpx;
+  left: 100rpx;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.memberIntroListDetailtitle{
+  font-size: 1.2rem;
+}
+.openMemberBtn{
+  position: absolute;
+  bottom: 20rpx;
+  right: 120rpx;
+  font-size: 0.8rem;
+  height: 80rpx;
+  line-height: 80rpx;
+color: #fff;
+}
+.memberstatu{
+  text-align: center;
+  font-size:0.9rem;
+}
+.memberstatu view{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.jupminfodetail{
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #F5E698;
+  color: #fff;
+  margin: 0 auto;
+  border-radius: 200rpx;
+  margin-top: 40rpx;
+}

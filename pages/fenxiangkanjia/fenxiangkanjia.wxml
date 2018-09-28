@@ -1,0 +1,57 @@
+<view  class='content'>
+  <view class='cutpanel'>
+    <view class='userInfo'>
+      <view class='userImg'>
+        <image src="{{memberCut.face}}"></image>
+      </view>
+      <text>{{memberCut.uname}}</text>
+    </view>
+    <view class='title'>我发现一件好货，请大侠帮忙步一刀</view>
+    <view class='good'>
+      <view class='goodleft'>
+        <view class='goodImg'>
+          <image src='{{goodImg}}'></image>
+        </view>
+      </view>
+      <view class='goodright'>
+        <view>{{goodname}}</view>
+        <view class='acttime'>距离活动剩余{{countDownDay}}天{{countDownHour}}小时{{countDownMinute}}分
+         {{countDownSecond}}秒</view>
+      </view>
+    </view>
+    <view class='box'>
+    <view class='small-box1'>
+      <view class='small-top' style="left:{{percent-9}}%">
+        <view class='top_bcg'>
+         <image src='https://shop.yogain.cn/simages/image/group/06.png'></image>
+        </view> 
+        <!-- <view class='top-tu'>￥{{cutTotal}}</view> -->
+        <view class='top-tu'>￥{{cutTotal}}</view>
+      </view>
+      <view class='small-cont'>
+        <progress class="progress" percent="{{percent}}" radius="50px" show-info="{{isSi}}" stroke-width="{{sw}}" activeColor="{{pc}}" backgroundColor="{{pbc}}" active="{{isActive}}" active-mode="forwards">
+        </progress>
+      </view>
+      <view class='small-bottom'>
+        <text>原价：￥{{cutGood.initPrice}}.00</text>
+        <text>最低：￥{{cutGood.belowPrice}}.00</text>
+      </view>
+    </view>
+  </view>
+  <view class='tip'>{{cutStatus}} </view>
+   <view class='btngroup' wx:if="{{!isCut}}">
+      <view class='help' bindtap='helpcut' data-statu="open">帮他补一刀</view>
+      <view class='needmyself' bindtap='gocutlist'>我也想要</view>
+  </view> 
+  <view class='btnmyslf'  bindtap='gocutlist' wx:if="{{isCut}}">我也想要</view>
+
+  </view>
+ <!--分享砍价模态框-->
+  <view class="drawer_screen" data-statu="close" wx:if="{{showModalStatus1}}"></view>
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus1}}">
+    <view class='cular' bindtap="modelClose" data-statu="close">
+      <image src='https://shop.yogain.cn/simages/imgs/kx.png'></image>
+    </view>
+    <text class='mueb'>{{cutResult.cutMoney}}<text class='yuan'>元</text></text>
+  </view>
+</view>

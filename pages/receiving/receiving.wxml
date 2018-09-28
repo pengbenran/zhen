@@ -1,0 +1,68 @@
+<!--pages/pin/pin.wxml-->
+<!--介绍  -->
+<view class="cantuan" bindtap='gotuan'>
+  <!--图片-->
+  <view class='can-image'>
+    <view class='red-box'>团购</view>
+    <image src='{{pingData.img}}'></image>
+  </view>
+  <!-- 标题，价钱-->
+  <view class='can-tit'>
+    <text class='can-title'>{{pingData.goodsName}}</text>
+    <!--价钱  -->
+    <view class='price'>
+      <text class='money'>￥{{pingData.activityPrice}}</text>
+      <text class='discount'>￥{{pingData.price}}</text>
+      <!-- <button class='fenxiang' open-type='share'>
+        <image src='{{fenxiang}}'></image>
+        <text>分享</text>
+      </button> -->
+    </view>
+  </view>
+  <!--标题end  -->
+</view>
+<!--介绍end  -->
+
+<!--等待开团  -->
+<view class='wait'>
+  <view class='wait-tit'>
+    <image class='watch' src='{{watch}}'></image>
+    <text>等待开团,仅剩<text class='number'>{{pingData.shortPerson}}</text>个名额</text>
+  </view>
+  <!-- <view class='time'>
+    <text class='end'>距结束仅剩</text> -->
+  <!--计时  -->
+  <!-- <view class="countDownTimeView countDownAllView"> -->
+  <!-- <view class="voteText countDownTimeText">{{countDownDay}}天</view>   -->
+  <!-- <view class="voteText countDownTimeText">{{countDownHour}}</view>
+      <text>时</text>
+      <view class="voteText countDownTimeText">{{countDownMinute}}</view>
+      <text>分</text>
+      <view class="voteText countDownTimeText">{{countDownSecond}}</view>
+      <text>秒</text>
+    </view> -->
+  <!--  -->
+  <!-- </view> -->
+  <view class='head-img'>
+    <view class='box-img'>
+       <image class='headimg01' src='{{pingData.face}}'></image> 
+      <view class='noun'>团长</view> 
+    </view>
+  </view>
+
+  <!--按钮 -->
+  <view class='Offered'>
+    <button class='btn' open-type='share'>分享好友参团</button>
+
+  </view>
+</view>
+<!--拼团玩法 -->
+<view class='paly'>
+  <view class='paly-left'>
+    <image src='{{paly}}'></image>
+    <text>拼团玩法?</text>
+  </view>
+  <view class='paly-right'>
+    支付开团/参团>邀请参团>人满成团
+  </view>
+</view>

@@ -1,0 +1,230 @@
+.cantuan{
+  display: flex;
+  justify-content:  flex-start;
+  align-items: center;
+  height: 300rpx;
+  padding: 20rpx;
+  background: #FFF;
+  border-top:1px solid #DDD;
+}
+.can-image{
+  height: 240rpx;
+  width: 26%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.red-box{
+  width: 80rpx;
+  height:80rpx;
+  background:#ff4546;
+  border-radius: 50%;
+  position: absolute;
+  left:-8rpx;
+  top: -15rpx;
+  font-size: 14px;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+}
+.can-image image{
+    height:90%;
+  width: 88%;
+}
+/*产品介绍  */
+.can-tit{
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250rpx;
+}
+.can-title{
+  font-size: 15px;
+  width: 82%;
+  padding: 20rpx;
+}
+
+/* 价钱 */
+.price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}
+.money{
+  color: red;
+  font-size: 14px;
+}
+
+.discount{
+  margin-left: 10rpx;
+  font-size: 13px;
+  color: #b3b3b3;
+  text-decoration:line-through;
+}
+.fenxiang{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fenxiang image{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 5rpx;
+}
+.fenxiang text{
+  font-size: 13px;
+  color: #b6b6b6;
+}
+/*计时器*/
+.gotime-right{
+font-size:14px;
+}
+.one{
+ color: red;
+}
+
+.jiontime{
+  background: #FFF;
+  height: 60rpx;
+  padding: 20rpx;
+  font-size: 14px;
+  margin-top:22rpx;
+  color: #27b5fd;
+  line-height: 60rpx;
+}
+/*正品保证  */
+.genuine{
+  border-top: 1px solid #DDD;
+  background: #FFF;
+  display: flex;
+  height: 60rpx;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.g1{
+  display: flex;
+  font-size: 12px;
+  color:#6d6d6d;
+  align-items: center;
+}
+.g1 image{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 8rpx;
+}
+/*等待开团  */
+.wait{
+  height: 280rpx;
+  margin-top: 22rpx;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx;
+}
+    /* 计时 */
+
+.time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.end{
+  font-size: 13px;
+  color: #6d6d6d;
+  margin-right: 15rpx;
+}
+.countDownTimeView{
+  display: flex;
+  height:50rpx;
+  line-height:48rpx;
+   font-size:14px;
+}
+.countDownTimeView text{
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+.voteText{
+  color:#FFF;
+background:#000;
+height:40rpx;
+width:40rpx;
+border-radius:3px;
+font-size:13px;
+line-height:46rpx;
+text-align:center;
+}
+      /* 参与人头像  */
+.head-img{
+   width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-img{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-img image{
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 50px;
+  border: 1px solid #FFF;
+}
+.headimg01{
+  position: absolute;
+  right: 470rpx;
+}
+.headimg02{
+  position: absolute;
+  right: 420rpx;
+}
+.headimg03{
+  position: absolute;
+  right: 370rpx;
+}
+.headimg04{
+  position: absolute;
+  right: 320rpx;
+}
+.headimg05{
+  position: absolute;
+  right: 270rpx;
+}
+.dian{
+  width:46rpx;
+  height: 10rpx;
+}
+/* 一键参团按钮 */
+.Offered{
+ width: 100%;
+ height: 100rpx;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 84rpx;
+  background: #26b4fe;
+  color: #fff;
+  border-radius: 45rpx;
+}
+.btn image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 18rpx;
+}

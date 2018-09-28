@@ -1,0 +1,87 @@
+<!--介绍  -->
+<view class="cantuan" bindtap='gotuan'>
+  <!--图片  -->
+  <view class='can-image'>
+    <view class='red-box'>团购</view>
+    <image src='{{pingtuandetail.img}}'></image>
+  </view>
+  <!-- 标题，价钱  -->
+  <view class='can-tit'>
+    <view class='can-title'>{{pingtuandetail.goodsName}}</view>
+    <!--价钱-->
+    <view class='price'>
+      <view class='price-left'>
+        <text class='money'>￥{{pingtuandetail.activityPrice}}</text>
+        <text class='discount' style='text-decoration:line-through;'>￥{{pingtuandetail.price}}</text>
+      </view>
+               <block wx:if="{{pingtuandetail.iscollage==0}}">
+                  <view class='price-right' style="color:#ccc">
+                    拼团失败
+                  </view>
+                </block>
+                <block wx:elif="{{pingtuandetail.iscollage==1}}">
+                  <view class='price-right' style="color:red}">
+                    拼团成功
+                  </view>
+                </block>
+                <block wx:elif="{{pingtuandetail.iscollage==2}}">
+                  <view class='price-right' style="color:#59d867}">
+                    等待拼团
+                  </view>
+                </block>
+    </view>
+  </view>
+  <!--标题end  -->
+</view>
+<!--介绍end  -->
+  <view wx:if="{{pingtuandetail.iscollage==2}}" class='writeping'>等待开团,仅剩<text class='number'>{{pingtuandetail.shortPerson}}</text>个名额</view>
+
+<!--等待开团  -->
+
+<view class='phimg'>
+  <view class='conel' wx:for="{{collageSucceed}}">
+    <image src='{{item.face}}' bindtap="powerDrawer" data-statu="open"></image>
+    <block wx:if="{{item.isStarter}}">
+     <view class='noun'>团长</view> 
+     </block>
+  </view>  
+</view>
+
+<!--按钮 -->
+<view class='Offered' wx:if="{{pingtuandetail.iscollage==1||pingtuandetail.iscollage==0}}">
+  <button class='btn' bindtap='gotuan'>再开一团</button>
+</view>
+<view class='Offered' wx:elif="{{pingtuandetail.iscollage==2}}">
+  <button class='btn' open-type='share'>邀请好友参团</button>
+</view>
+
+<!--拼团玩法 -->
+<view class='paly'>
+  <view class='paly-left'>
+    <image src='{{paly}}'></image>
+    <text>拼团玩法?</text>
+  </view>
+  <view class='paly-right'>
+    支付开团/参团>邀请参团>人满成团
+  </view>
+</view>
+<view>
+
+</view>
+<!--点击模态框-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus1}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus1}}">
+  <view class='cular' bindtap="powerDrawer" data-statu="close">
+    <image src='/image/bi.png'></image>
+  </view>
+  <view class='headtop' wx:for="{{collageSucceed}}">
+  <view class='pture'>
+  <image src='{{item.face}}'></image>
+  <block wx:if = "{{item.isStarter}}">
+    <view class='tuan'>团长</view>
+  </block>
+  </view>
+  <text class='open'>{{item.uname}}</text>
+  <text class='open'>{{item.entertime}}参团</text>
+  </view>
+</view>

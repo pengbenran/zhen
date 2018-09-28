@@ -1,0 +1,48 @@
+<view class="carts">
+    <!-- 头部 -->
+    <view class='shopping'>
+      <view class='shop-left'>
+        <image class='yes'></image>
+        <text>手机专卖商城</text>
+        <image class='ind' src='{{indimg}}'></image>
+      </view>
+      <view class='shop-r'>
+        <text>完成</text>
+      </view>
+    </view>
+    <!-- 商品 -->
+    <view class='Spcart'>
+      <view class='box1'>
+        <image class='yes'></image>
+      </view>
+      <image class='box2' src="{{box2}}" bindtap='swiperbind'></image>
+      <!-- 数量加减 -->
+      <view class='box3'>
+        <view class='numb'>
+          <view class='btn'>
+            <view id='del1' type="default">-</view>
+            <input value='2'></input>
+            <view id='add1' type='defalut'>+</view>
+          </view>
+        </view>
+        <!-- 价钱 -->
+        <text class='price'>￥1165.00</text>
+      </view>
+      <view class='box4'>
+        删除
+      </view>
+    </view>
+  </view>
+  <!--购物车底部  -->
+  <view class='footers'>
+    <view class="cart-foot">
+      <view class="foot-left">
+      <image class='quanxuan'></image>
+      <text>全选</text>
+      </view>
+      <view class="foot-right">
+      <text>删除</text>
+      </view>
+    </view>
+  </view>
+  

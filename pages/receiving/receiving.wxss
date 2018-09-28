@@ -1,0 +1,288 @@
+/* pages/pin/pin.wxss */
+/* pages/receiving/receiving.wxss */
+/*  */
+.cantuan{
+  display: flex;
+  justify-content:  flex-start;
+  align-items: center;
+  height: 300rpx;
+  padding: 20rpx;
+  background: #FFF;
+  border-top:1px solid #DDD;
+}
+.can-image{
+  height: 240rpx;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.red-box{
+  width: 80rpx;
+  height:80rpx;
+  background:#ff4546;
+  border-radius: 50%;
+  position: absolute;
+  left:-8rpx;
+  top: -15rpx;
+  font-size: 14px;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+}
+.can-image image{
+    height:90%;
+  width: 88%;
+}
+/*产品介绍  */
+.can-tit{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 218rpx;
+  justify-content: space-between;
+}
+.can-title{
+  font-size: 15px;
+  /* width: 82%; */
+  /* padding: 20rpx; */
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+}
+.nub-text{
+  font-size: 12px;
+  color: #b3b3b3;
+  padding: 20rpx;
+}
+.nub-text text{
+  margin-right: 20rpx;
+}
+/* 价钱 */
+.price{
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding-left: 20rpx;
+}
+.money{
+  color: red;
+  font-size: 14px;
+}
+
+.discount{
+  margin-left: 12rpx;
+  font-size: 13px;
+  color: #b3b3b3;
+  text-decoration:line-through;
+}
+.fenxiang{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFF;
+  margin-left: 15rpx;
+}
+.fenxiang image{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 5rpx;
+}
+.fenxiang text{
+  font-size: 13px;
+  color: #b6b6b6;
+}
+
+/*正品保证  */
+
+.genuine{
+  border-top: 1px solid #DDD;
+  background: #FFF;
+  display: flex;
+  height: 60rpx;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.g1{
+  display: flex;
+  font-size: 12px;
+  color: #6d6d6d;
+  align-items: center;
+}
+.g1 image{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 8rpx;
+}
+/*等待开团  */
+.wait{
+  height: 400rpx;
+  margin-top: 22rpx;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx;
+}
+.wait-tit{
+  height: 50rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.watch{
+  height: 34rpx;
+  width: 34rpx;
+  margin-right: 10rpx;
+}
+.wait-tit text{
+  font-size: 16px;
+}
+.number{
+  color: red;
+}
+
+    /* 计时 */
+
+.time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.end{
+  font-size: 12px;
+  color: #b3b3b3;
+  margin-right: 15rpx;
+}
+.countDownTimeView{
+  display: flex;
+  height:50rpx;
+   font-size:14px;
+   line-height: 48rpx;
+}
+.countDownTimeView text{
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+.voteText{
+color:#FFF;
+background:#000;
+height:40rpx;
+width:40rpx;
+border-radius:3px;
+font-size:13px;
+line-height:46rpx;
+text-align:center;
+
+}
+
+      /* 参与人头像  */
+
+.head-img{
+   width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-img{
+  /* width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: relative;
+}
+.box-img image{
+  height:100rpx;
+  width:100rpx;
+  border-radius: 50%;
+  border: 1px solid #FFF;
+}
+.headimg01{
+  /* position:relative; */
+  /* right: 470rpx; */
+}
+.headimg02{
+  position: absolute;
+  right: 420rpx;
+}
+.headimg03{
+  position: absolute;
+  right: 370rpx;
+}
+.headimg04{
+  position: absolute;
+  right: 320rpx;
+}
+.headimg05{
+  position: absolute;
+  right: 270rpx;
+}
+.dian{
+  width:46rpx;
+  height: 10rpx;
+}
+/* 一键参团按钮 */
+.Offered{
+ width: 100%;
+ height: 100rpx;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.btn{
+  width: 80%;
+  height: 84rpx;
+  background: #26b4fe;
+  color: #fff;
+  border-radius: 45rpx;
+  line-height: 84rpx;
+  text-align: center;
+}
+/*拼团玩法  */
+.paly{
+  padding: 20rpx;
+  background: #fff;
+  margin-top:1rpx;
+
+ height: 40rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.paly-left{
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #27b5fd;
+}
+.paly-left image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+}
+.paly-right{
+font-size: 12px;
+color: #6d6d6d;
+}
+.noun{
+width: 70rpx;
+height:40rpx;
+line-height: 40rpx;
+text-align: center;
+ background:#efb336;
+ font-size: 10px;
+ color: #fff;
+ border-radius:46%;
+ position: absolute;
+ top: -7rpx;
+ left:-12rpx;
+}

@@ -1,0 +1,326 @@
+ /* pages/active/active.wxss */
+/*头部导航*/
+.swiper-tab{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    text-align: center;
+    height:100rpx;
+    line-height:98rpx;
+    padding-bottom: 2px;
+    background: #fff;
+    padding: 0 5%;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+
+}
+.container{
+  height:100%;
+      overflow: hidden;
+}
+.cart-no-data {
+  padding:40rpx 0;
+color:#999;
+text-align:center;
+}
+page{
+      height: 100%;
+    font-size: 32rpx;
+    font-family: "微软雅黑";
+    overflow: hidden;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+ .name{
+   display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+ }
+ .swbox{
+   height: 200rpx;
+ }
+/* 滑动区域 */
+ 
+.scrollers, .scrollView {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.swiper-tab-item{
+    display: inline-block;
+    font-size: 16px;
+}
+/* 选项卡被选中 */
+.active{
+    color:#1b86f8;
+    border-bottom: 3px solid #1b86f8 ;
+}
+/* 选项卡没有被选中 */
+.disActive{
+  color:#000;
+}
+/* 限时折扣css */
+/*图片*/
+.discount-img{
+  width: 100%;
+  height: 300rpx;
+  display: block;
+}
+/*商品列表 */
+.mark-down{
+  background: #fff;
+  height: 268rpx;
+  display: flex;
+  margin-top: 15rpx;
+}
+
+.markdown-left{
+display: flex;
+justify-content: center;
+align-items: center;
+width:32%;
+position: relative;
+}
+.markdown-left image{
+ width:60%;
+ height: 70%
+}
+.markdown-conte{
+padding: 35rpx 0;
+width:65%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.markdown-right{
+width:26%;
+}
+/* 手机介绍标题 */
+.conte-top{
+  width: 74%;
+ font-size: 34rpx;
+}
+.conte-bottom{
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+}
+.conte-one{
+font-size: 34rpx;
+color: red;
+}
+.conte-two{
+  font-size:30rpx;
+  color: #ccc;
+  margin-left: 15rpx;
+  text-decoration:line-through;
+}
+/* 减价图片css */
+.price{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+ width:140rpx;
+ height: 106rpx;
+}
+.priceimg{
+ width: 100%;
+ height: 100%;
+ position: relative;
+}
+.price-muber{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top:6rpx;
+  left:8rpx;
+  font-size: 24rpx;
+  color: #fff;
+   width:120rpx;
+  height:100rpx; 
+}
+.btn{
+  width: 29%;
+  height: 48rpx;
+}
+.btn image{
+  width: 100%;
+  height: 100%;
+}
+.markdown-right{
+padding: 14px 0 14px 14px;
+display: flex;
+justify-content: center;
+align-items:flex-end;
+}
+
+/* 一起拼团css */
+.spell-down{
+  background: #fff;
+  height: 300rpx;
+  display: flex;
+  margin-top: 15rpx;
+  align-items: center;
+}
+.spell-img{
+  width: 100%;
+  height: 300rpx;
+  
+}
+.spell-left{
+display: flex;
+justify-content: center;
+align-items: center;
+width:300rpx;
+position: relative;
+height: 300rpx;
+}
+.spellimg {
+  width: 100%;
+  height: 100%;
+}
+.spellimg image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.spot{
+  width: 88rpx;
+  height: 88rpx;
+  background: #ff4546;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+  position: absolute;
+  left: 4rpx;
+  top: 10rpx;
+}
+.spell-right{
+ /* padding: 30rpx 0; */
+ display: flex;
+ flex-direction: column;
+ flex: 1;
+ justify-content: space-around;
+ height: 228rpx;
+}
+.spell-top{
+  width: 70%;
+  height: 100rpx;
+  font-size: 34rpx;
+}
+.spell-conten{
+  width: 30%;
+  font-size: 30rpx;
+  color: #2f96fd;
+}
+.spell-bottom{
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.spetext-one{
+ font-size: 34rpx;
+ color: red;
+}
+.spetext-two{
+  margin-left:10rpx;
+  font-size: 30rpx;
+  color: #ccc;
+  text-decoration:line-through;
+}
+.spell-btn{
+  width:28%;
+  height:52rpx;
+  margin-right: 20rpx;
+}
+.spell-btn image{
+  width: 100%;
+  height: 92%;
+}
+.spe-left{
+ width:64%;
+}
+/*帮忙砍价css  */
+.join{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20rpx; 
+  margin-top:30rpx;
+ 
+}
+.joinImg{
+  height: 365rpx;
+  width: 365rpx;
+  margin: 0 auto;
+}
+.joinImg image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.j-tit{
+  font-size: 34rpx;
+  margin-top: 20rpx;
+}
+.Arrimg{
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+.headimg{
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+}
+.headimg image{
+  position: absolute;
+  height: 50rpx;
+  width: 50rpx;
+  border-radius:50%;
+
+}
+.people{
+  font-size: 30rpx;
+  color: #3394ff;
+  margin-left: 10rpx;
+}
+.j-footer{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: red;
+  justify-content: space-between;
+  font-size: 34rpx;
+}
+
+.footer-left{
+  width: 70%;
+}
+.discount{
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  color: #b3b3b3;
+  text-decoration:line-through;
+}
+.footer-img{
+  width:20%;
+  height: 48rpx;
+}
+.footer-img image{
+  width: 100%;
+  height: 100%;
+}

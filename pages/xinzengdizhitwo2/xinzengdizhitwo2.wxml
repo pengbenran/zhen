@@ -1,0 +1,45 @@
+<import src="../../utils/switch/switch.wxml" />
+<import src="../../model/model.wxml"/>
+<view class='receiving'>
+  <view class='lianxi'>
+    <view class='Contacts'>
+      <text>联系人</text>
+    </view>
+    <input class='con-input' type='button' name="name" placeholder='请输入联系人'maxlength='6' placeholder-style="color:#b3b3b3;" bindinput ="userNameInput"></input>
+  </view>
+  <view class='lianxi'>
+    <view class='Contacts'>
+      <text>联系电话</text>
+    </view>
+    <input class='con-input' type='button' data-name='mobile' name="mobile" placeholder='请输入联系电话' placeholder-style="color:#b3b3b3;" bindinput='mobileInput'></input>
+  </view>
+  <view class='lianxi'>
+    <view class='lian'>
+      <text>省 市 区</text>
+    </view>
+    <view bindtap="translate" class='lianbox'>
+      <view class='dong'>
+        {{province}} {{city}} {{county}}
+      </view>
+      <image class='iconed' src='{{iconed}}'></image>
+      <template is="areaData" data="{{...item}}" />
+    </view>
+  </view>
+  <view class='detailed'>
+    <view class='add-taea'>
+      <textarea placeholder="请输入详细地址信息" class='add-input'  name="addr"placeholder-style="color:#b3b3b3;" bindinput='addrInput' />
+    </view>
+  </view>
+  <view class='moren'>
+    <text>设为默认地址</text>
+    <view class='moren-turn' wx:for="{{switchData}}">
+      <template is="switch" data="{{isOn: item.isOn, id:item.id, onTintColor:item.color}}"  />
+    </view>
+  </view>
+</view>
+<view class='cellbtn'>
+  <button class='com-input01' bindtap='add'>确认</button>
+</view>
+<view class='cellbtn'>
+  <button class='cell' bindtap='cell'>取消</button>
+</view>

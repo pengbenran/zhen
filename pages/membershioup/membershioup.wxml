@@ -1,0 +1,39 @@
+<!--pages/membershioup/membershioup.wxml-->
+<view class='membershioup'>
+  <view class='membershiouphead'>
+    <view class='membershioupbcg' style="width:{{ImageWidth}};height:{{ImageHeight}}">
+      <image src='https://shop.guqinet.com/html/images/shanquan/membershipup.jpg'></image>
+    </view>
+    <view class='membershioupname'>
+      {{name}}
+    </view>
+    <view class='membershioupavator'>
+      <image src='{{face}}'></image>
+    </view> 
+    <!-- <view class='membergard'>
+      <view>大众</view>
+      <view>金卡</view>
+    </view> -->
+    <view class='membershioupIntro'>
+      <view class='membershioupIntroleft'>
+        当前会员等级为{{name}}，查{{needpay}}元就能成为{{memberLvList[1].name}}，享受更多分润
+      </view>
+      <view class='membershioupIntroright' bindtap='membershioup'>
+        立即升级
+      </view>
+    </view>
+  </view>
+  <view class='membergarddetail'>
+    <view class='title'>成长介绍</view>
+    <view class='membergardtitle'>
+      <view>会员</view>
+      <view>分润</view>
+      <view>价格</view>
+    </view>
+    <view class='membergardlist' wx:for="{{memberLvList}}">
+      <view>{{item.name}}</view>
+      <view>{{item.discount}}%</view>
+      <view style='color: #C19657'>{{item.point}}元</view>
+    </view>
+  </view>
+</view>

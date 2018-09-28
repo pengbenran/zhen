@@ -1,0 +1,20 @@
+<!--pages/morepoint/morepoint.wxml-->
+<view class='morepoint'>
+  <view class='top'>
+    <view class='bcg'>
+      <image src="{{bcg}}"></image>
+    </view>
+  </view>
+  <view class='morepointconent'>
+    <view class='title'>
+      <view class='line'></view>
+      <view>充值积分</view>
+    </view>
+    <view class='lineone'>
+      <view class='list1' wx:for="{{pointRechargeList}}" bindtap='pointrecharge' data-id="{{item.id}}" data-money="{{item.recharge}}">
+        <view>{{item.point}}积分</view>
+        <view>售价:{{item.recharge}}元</view>
+      </view>
+    </view>
+  </view>
+</view>

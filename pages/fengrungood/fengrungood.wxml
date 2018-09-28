@@ -1,0 +1,15 @@
+<!--pages/fengrungood/fengrungood.wxml-->
+<!-- 分润商品 -->
+<view class='fengrungood'>
+  <view class='fengrungoodlist' wx:for="{{goodsList}}" bindtap='jumpdetail' data-goodsid="{{item.goodsId}}">
+    <view class='fengrungoodlistImg'>
+      <image src='{{item.thumbnail}}'></image>
+    </view>
+    <view class='fengrungooddetail'> 
+      <view class='goodname'>{{item.name}}</view>
+      <view class='price'>商品价格:{{item.price}}</view>
+      <view class='fenrun'>分润:{{item.fenrunAmount}}</view>
+    </view>   
+  </view>
+
+</view>

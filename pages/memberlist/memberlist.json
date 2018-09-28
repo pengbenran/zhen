@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "我的会员",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black"
+}

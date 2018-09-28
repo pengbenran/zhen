@@ -1,0 +1,14 @@
+/* pages/distribeposter/distribeposter.wxss */
+.btn{
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #F33F40;
+  color: #fff;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+}
+canvas{
+  margin: 0 auto;
+}

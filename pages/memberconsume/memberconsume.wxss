@@ -1,0 +1,25 @@
+/* pages/memberconsume/memberconsume.wxss */
+.memberconsumetitle,.memberconsumelist{
+  display: flex;
+  width: 100%;
+ text-align: center;
+ border: 1rpx solid #ddd;
+ background: #fff;
+}
+.memberconsumetitle view{
+  width: 18%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.memberconsumelist view{
+  width: 18%;
+  font-size: 0.8rem;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.memberconsumetitle .line4{
+ flex-grow: 1;
+}
+.memberconsumelist .line4{
+  flex-grow: 1;
+}

@@ -1,0 +1,84 @@
+/* pages/tui/tui.wxss */
+/*  */
+@import '../fivefahuo/fivefahuo.wxss';
+.weui-navbar__item_search {
+  position: relative;
+  display: block;
+  padding: 13px 6px;
+  text-align: center;
+  font-size: 0;
+}
+.weui-tab {
+position:relative;
+height:100%;
+
+}
+.swiper-tab{
+  display:flex;
+width:90%;
+text-align:center;
+height:100rpx;
+line-height:98rpx;
+padding-bottom:2px;
+background:#fff;
+padding:0 5%;
+border-top:1rpx solid #eee;
+flex:1;
+flex-wrap:wrap;
+
+}
+.active {
+color:#1b86f8;
+border-bottom:3px solid #1b86f8;
+width: 50%
+}
+
+.disActive {
+  width: 50%;
+}
+.weui-navbar {
+display:-webkit-box;
+display:-webkit-flex;
+display:flex;
+position:absolute;
+z-index:500;
+top:0;
+width:100%;
+border-bottom:1rpx solid #CCCCCC;
+
+}
+.weui-navbar__item {
+position:relative;
+display:block;
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1;
+padding:13px 0;
+text-align:center;
+font-size:0;
+
+}
+.weui-navbar__item.weui-bar__item_on {
+color:#1AAD19;
+
+}
+.weui-navbar__title {
+display:inline-block;
+font-size:15px;
+max-width:8em;
+width:auto;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+word-wrap:normal;
+
+}
+.weui-tab__panel {
+box-sizing:border-box;
+height:100%;
+padding-top:50px;
+overflow:auto;
+-webkit-overflow-scrolling:touch;
+
+}
+

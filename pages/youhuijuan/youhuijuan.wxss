@@ -1,0 +1,126 @@
+.swiper-tab{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0 5%;
+    text-align: center;
+    height:100rpx;
+    line-height:98rpx;
+    padding-bottom: 2px;
+    background: #fff;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+}
+.gun{
+  height: 553px;
+  display: block;
+}
+.box{
+  height: 40rpx;
+}
+.container{
+  height:100%;
+  overflow: hidden;
+}
+page{
+      height: 100%;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    overflow: hidden;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+ 
+ .swbox{
+   height: 200rpx;
+ }
+/* 滑动区域 */
+ 
+.scrollers, .scrollView {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.swiper-tab-item{
+    display: inline-block;
+    font-size: 16px;
+}
+/* 选项卡被选中 */
+.active{
+    color:#1b86f8;
+    border-bottom: 3px solid #1b86f8 ;
+}
+/* 选项卡没有被选中 */
+.disActive{
+  color:#000;
+}
+/*会员卡0  */
+.members{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.members image{
+  height: 258rpx;
+  width: 100%;
+}
+.preferences{
+  position: absolute;
+  display: flex;
+  height: 258rpx;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.pre-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+}
+.moneyleft{
+  font-size: 26px;
+}
+.pres{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:  baseline;
+  width: 60%;
+  padding: 30rpx;
+  height: 75%;
+}
+.youhui{
+  font-size: 16px;
+}
+.presinput{
+height:43rpx;
+width:160rpx;
+background:#FFF;
+color:#DDD;
+font-size:10px;
+min-height:10rpx;
+text-align:center;
+border-radius:4px;
+
+}
+.pres-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  font-size: 17px;
+}
+.pretext{
+  font-size: 13px;
+}
+.data{
+  font-size: 11px;
+}

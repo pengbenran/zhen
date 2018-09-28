@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "优惠分类",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black"
+}

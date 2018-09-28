@@ -1,0 +1,30 @@
+/* pages/listgruop/listgruop.wxss */
+@import "../quzhifu/quzhifu.wxss";
+.complete-box4{
+   padding: 20rpx;
+ background: #fff;
+ height: 80rpx;
+ display: flex;
+align-items: center;
+justify-content:  flex-end;
+}
+.com-input01{
+  border: 1px solid #b3b3b3;
+  height: 60rpx;
+  width: 140rpx;
+  border-radius: 45rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  font-size: 14px;
+  line-height: 60rpx;
+}
+.com-input02{
+  border: 1px solid red;
+  height: 60rpx;
+  width: 140rpx;
+  font-size: 14px;
+  color: red;
+  border-radius: 50rpx;
+  text-align: center;
+  line-height: 60rpx;
+}

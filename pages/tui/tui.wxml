@@ -1,0 +1,131 @@
+<view class="container">
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'':'disActive'}} {{currentTab==0?'active':''}}" data-current="0" id='0' bindtap="all">退款</view>
+    <view class="swiper-tab-item {{currentTab==1?'':'disActive'}} {{currentTab==1?'active':''}}" data-current="1" id="1" bindtap="clickTab2">退货</view>
+  </view>
+  <block wx:if="{{orderList}}">
+    <scroll-view scroll-y="true" class='gun'>
+      <!--全部页面 -->
+      <view class='complete'>
+        <view wx:for="{{orderList}}" data-index="{{index}}" wx:for-item="i">
+          <view class='complete-box1' data-index="{{index}}">
+            <view class='box1-left'>
+              <image src='https://shop.yogain.cn/simages/images/quzhifu/shang.png'></image>
+            </view>
+            <view class='box1-right'>
+              <view class='box1-top'>
+                <text class='toptext1'>{{toptext1}}</text>
+                  <block wx:if="{{i.status==9 }}">
+                    <text class='toptext2'>退款中</text>
+                  </block>
+                  <block wx:elif="{{i.status==11}}">
+                    <text class='toptext2' style='color:#888'>退款失败</text>
+                  </block>
+                  <block wx:elif="{{i.status==12}}">
+                    <text class='toptext2' style='color:green'>退款成功</text>
+                  </block>
+                  <block wx:elif="{{i.status==10}}">
+                    <text class='toptext2'>退货中</text>
+                  </block>
+                  <block wx:elif="{{i.status==13}}">
+                    <text class='toptext2' style='color:green'>退货成功</text>
+                  </block>
+                  <block wx:elif="{{i.status==14}}">
+                    <text class='toptext2' style='color:#888'>退货失败</text>
+                  </block>
+              </view>
+              <view class='times'>
+                <text class='box1-bootom'>订单编号{{i.sn}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='complete-box2' wx:for="{{i.item}}" wx:for-item="j">
+            <view class='box2-left'>
+              <image src='{{j.image}}' bindtap='swiperbind'></image>
+            </view>
+            <view class='box2-conter'>
+              <text class='context1'>{{j.name}}</text>
+              <text class='context2'>{{context2}}</text>
+            </view>
+            <view class='box2-right'>
+              <text class='rigtext1'>￥{{j.price}}</text>
+              <text class='rigtext3'>x{{j.num}}</text>
+            </view>
+          </view>
+          <view class='complete-box3'>
+             <text class='tex01'>共{{j.num}}件商品 合计:</text> 
+            <text class='tex02'>￥{{i.goodsAmount}} </text>
+          </view>
+
+
+          <block wx:if="{{i.status==0&i.shipStatus==0}}">
+            <view class='complete-box4'>
+              <view class='com-input01' data-statu="open" bindtap='quxiao' data-value="取消订单" data-index="{{index}}" data-orderId="{{i.orderId}}">取消订单</view>
+              <view class='com-input02' id="{{i.goodsAmount}}" data-value="确认付款" data-orderId="{{i.orderId}}" data-index="{{index}}" data-status='{{i.status}}' bindtap='payoff'>确认付款</view>
+            </view>
+          </block>
+
+
+          <block wx:elif="{{i.status==1 || i.status == 2&i.shipStatus==0&i.payStatus==2}}">
+            <view class='complete-box4'>
+              <view class='com-input01' data-statu="{{i.status}}" bindtap='quxiao' data-value="查看订单" data-index="{{index}}" data-orderId="{{i.orderId}}">查看订单</view>
+              <view class='com-input02' id="{{i.goodsAmount}}" data-value="申请退款" data-orderId="{{i.orderId}}" data-goodssn="{{j.goodssn}}" data-sn="{{i.sn}}" data-index="{{index}}" data-status='{{i.status}}' bindtap='payoff'>申请退款</view>
+            </view>
+          </block>
+
+
+
+          <block wx:elif="{{i.status==3&i.shipStatus==1&i.payStatus==2}}">
+            <view class='complete-box4'>
+              <view class='com-input01' data-statu="open" bindtap='quxiao' data-value="查看物流" data-index="{{index}}" data-orderId="{{i.orderId}}">查看物流</view>
+              <view class='com-input02' id="{{i.goodsAmount}}" data-value="确认收货" data-orderId="{{i.orderId}}" data-index="{{index}}" data-status='{{i.status}}' bindtap='payoff'>确认收货</view>
+            </view>
+          </block>
+
+
+
+          <block wx:elif="{{i.status==4||i.status == 3&i.shipStatus==2&i.payStatus==2}}">
+            <view class='complete-box4'>
+              <view class='com-input01' data-statu="open" bindtap='quxiao' data-value="删除订单" data-index="{{index}}" data-orderId="{{i.orderId}}">删除订单</view>
+              <view class='com-input02' id="{{i.goodsAmount}}" data-value="查看订单" data-orderId="{{i.orderId}}" data-index="{{index}}" data-status='{{i.status}}' bindtap='payoff'>查看订单</view>
+            </view>
+          </block>
+
+
+        </view>
+      </view>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <view class="cart-no-data">你还没有订单哦！~~</view>
+  </block>
+</view>
+
+<!--取消订单模态框  -->
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <image src='trueimg' class='cell-img'></image>
+  <text>订单还未付款，确定取消吗？</text>
+  <view class='cell-btn'>
+    <view class='cell-input1' bindtap="powerDrawer" data-statu="close1">取消订单</view>
+    <view class='cell-input2' bindtap="powerDrawer" data-statu="close">在考虑一下</view>
+  </view>
+</view>
+
+<!--删除订单模态框  -->
+<view class="drawer_screen" bindtap="powerDrawer4" data-statu="close4" wx:if="{{showModalStatus4}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus4}}">
+  <!--drawer content-->
+  <image src='{{delimg}}' class='cell-img'></image>
+  <text>确定删除吗？</text>
+  <view class='cell-btn'>
+    <view class='cell-input1' bindtap="powerDrawer4" data-statu="close5">确定</view>
+    <view class='cell-input2' bindtap="powerDrawer4" data-statu="close4">取消</view>
+  </view>
+</view>

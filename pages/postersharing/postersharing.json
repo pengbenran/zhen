@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "生成海报",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black"
+}

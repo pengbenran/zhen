@@ -1,0 +1,129 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 搜索  -->
+  <!-- <official-account>我问问</official-account> -->
+  <view class='searchTop' bindtap='sousuo'>
+    <view class="m-searchTop">
+      <view class="icon-search"></view>
+      <view class="input">搜索商品</view>
+    </view>
+  </view>
+  <!-- <view><image src="{{userImageBase64}}"></image></view> -->
+  <!-- 搜索底、公告 -->
+  <view class='Announcement' bindtap='gao'>
+    <!-- 喇叭img -->
+    <!-- <image src='{{data.Announimg}}' class='Img'></image> -->
+    <image src='{{labaimg}}' class='Img'></image>
+    <!-- 公告 -->
+    <view class="example">
+      <view class="marquee_box">
+        <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
+          <!-- {{data.indexNotice.content}} -->
+          {{gonggao}}
+        </view>
+      </view>
+    </view>
+    <!-- <view class='Announ-text'>
+      <text>{{data.indexNotice.content}}</text>
+    </view> -->
+  </view>
+  <view class='Rotation'>
+    <swiper class="swiper_box" indicator-color='gray' indicator-active-color='#fff' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="5000" duration="{{duration}}" bindtap="swiperbind">
+      <view wx:for="{{data.imgurl}}">
+        <swiper-item>
+          <image src="{{item.imageUrl}}" />
+        </swiper-item>
+      </view>
+    </swiper>
+  </view>
+  <!-- 菜单选项-->
+  <view class='menu'>
+    <view class='df nav'>
+      <view class='df_1' bindtap='phonefenlei' wx:for="{{menus}}" id='{{item.catId}}' data-item="{{item.name}}">
+        <image src='{{item.image}}'></image>
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <!-- 品牌馆 -->
+  <view class='Brand'>
+    <view class='B-tit'>
+      <view class='txt pin'>品牌馆</view>
+    </view>
+    <!-- <web-view src="https://www.guqinjiujiang.xyz:8444/guqinzhen/"></web-view> -->
+  </view>
+  <view class='Brand_2'>
+    <view class='B-img'>
+      <image src="{{bimg}}"></image>
+    </view>
+  </view>
+  <!-- 横向滚动 -->
+  <scroll-view scroll-x="true" class="sc">
+    <navigator class="one" hover-class="none" wx:for="{{brand}}" url="../phonefenlei/phonefenlei?brandId={{item.brandId}}">
+      <image src="{{item.logo}}"></image>
+    </navigator>
+  </scroll-view>
+  <view class='more' bindtap='pingpai'>
+    <text>查看更多</text>
+    <image src='{{moreimg}}'></image>
+  </view>
+  <!-- 商品分类 -->
+<view  wx:for="{{data.menus}}" wx:for-item="i">
+
+<block wx:if="{{i.list.length}}">
+  <view class='shop'>
+    <view class='B-tit'>
+      <view class='txt shan'>{{i.name}}</view>
+    </view>
+  </view>
+  <view class='Brand_2'>
+      <view class='B-img'>
+        <image src='{{bimg2}}'></image>
+      </view>
+  </view>
+    <view class='commoditys'>
+        <view class='commodity' wx:for="{{i.list}}" wx:for-item="j">
+          <navigator class='cod-1' hover-class="none" url="../group/group?goodid={{j.goodsId}}&catId={{j.catId}}"  item-id="{{j.goodsId}}">
+              <image class='codImg' src='{{j.thumbnail}}'></image>
+              <view class='box'>
+                      <text class='copy'>{{j.name}}</text>
+                      <view class='jia'>
+                        <text class='money'>￥{{j.price}}</text> 
+                        <image src='{{jiahao}}' style='height:50rpx;width:50rpx;float:right'></image>                       
+                      </view>  
+              </view>
+          </navigator>
+        </view>
+    </view>
+    <!-- 了解更多 -->
+      <navigator class='more' url='../phonefenlei/phonefenlei?catId={{i.catId}}&titlebar={{i.name}}'>
+        <text>了解更多</text>
+        <image src='{{mores}}'></image>
+      </navigator>
+      </block>
+      </view>
+
+<!-- 新人领取专享红包模态框 -->
+ <!--  -->
+<view class='newmodel' wx:if="{{sModalStatus}}">
+  <view class='mask'></view>
+  <view class='bcgImg' animation="{{animationData}}">
+    <image src='https://shop.guqinet.com/html/images/shanquan/hong.jpg'></image>
+  </view>
+  <view class='closebtn' bindtap='hModal' animation="{{animationData}}">
+  <image src='/image/bi.png'></image>
+  </view>
+  <view class='telphone' animation="{{animationData}}">
+    <view class='inputBcg'>
+      {{mobile}}
+    </view>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class='getphoneBtn'>验证号码</button>
+  </view>
+  <view class='getbtn' animation="{{animationData}}" bindtap='receiveRed'>立即领取{{faceValue}}元新人红包</view>
+</view>
+
+<!-- 弹出领取红包界面 -->
+<view class='showredpack' bindtap='showredpack' wx:if="{{iscanGet}}">
+  <image src='/image/gethong.png'></image>
+</view>
+</view>

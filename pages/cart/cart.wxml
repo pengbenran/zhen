@@ -1,0 +1,89 @@
+<view class='container'>
+  <!--购物车编辑  -->
+  <view class="carts">
+    <!-- 头部 -->
+    <view class='shopping'>
+    <view class='shop-left'>
+      <image class='yes' src='{{yes}}'></image>
+      <text>{{indexdata.shopname}}</text>
+      <image class='ind' src='{{ind}}'></image>
+    </view>
+    <view class='shop-r' bindtap='edit'>
+      <text>编辑</text>
+    </view>
+  </view>
+    <!-- 商品 -->
+    <view wx:if="{{hasList}}">
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart"  bindtouchmove="touchmove" wx:for="{{cartgoods}}" wx:key="dd">
+        <view class='Spcart content'>
+          <view class='box1'>
+            <icon wx:if="{{item.selected}}" type="success" color="red" size="21" data-index="{{index}}" id="{{item.cartId}}" class="cart-pro-select" bindtap="selectList" />
+            <icon wx:else type="circle" color="#DDD" class="cart-pro-select"  data-index="{{index}}" id="{{item.cartId}}" bindtap="selectList" />
+          </view>
+
+          <navigator class='nav'url='../group/group?goodid={{item.goodsId}}&catId={{item.cartId}}'>
+          <image class='box2' src="{{item.image}}" bindtap='swiperbind'></image>
+          <!-- 数量加减 -->
+           </navigator>
+          <view class='box6'>
+            <view class='character' bindtap='swiperbind'>{{item.name}}</view>
+            <view class='numb-boot'>
+              <view class='btn'>
+                <view class='del1'id='{{item.cartId}}' type="default" bindtap='minusCount' data-index="{{index}}" >-</view>
+                <input value='{{item.num}}'></input>
+                <view class='add1' id='{{item.cartId}}' type='defalut' bindtap='addCount' data-index="{{index}}" >+</view>
+              </view>
+            </view>
+
+          </view>
+
+          <view class='box5'>
+            <text class='box5-one'>￥{{item.price}}</text>
+            <text class='box5-two'>x{{item.num}}</text>
+          </view>
+        </view>
+
+        <view class="del" catchtap="del" data-index="{{index}}" id="{{item.cartId}}">删除</view>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+  </view>
+  <view class='null'></view>
+  <!--购物车底部  -->
+
+  <view class="cart-foot">
+    <view class="foot-left" bindtap="selectAll">
+      <icon wx:if="{{selectAllStatus}}" type="success" color="red" size="21" class="total-select" />
+      <icon wx:else type="circle" color="#DDD"  class="total-select"  />
+      <text class='footerTxte'>全选</text>
+    </view>
+    <view class='foot-right' wx:if="{{edit}}">
+      <view class='cont'>
+        <text class="cont-tone">合计：￥{{totalPrice}}元</text>
+        <!-- <text class="cont-ttwo">运费￥{{}}</text> -->
+      </view>
+      <view class="wind" bindtap='next'>
+        <text>去结算</text>
+      </view>
+    </view>
+    <view class='foot-del' wx:else>
+     <view class='cont1'></view>
+      <view class="cancel" bindtap='deled' >
+        <text>删除</text>
+      </view>
+    </view>
+    <!-- 去结算 -->
+    <!-- <view class='footbox'>
+    <view bindtap='next' wx:if="{{edit}}">
+      <text>去结算</text>
+    </view>
+    <!--删除-->
+    <!-- <view class="cont-three" wx:else>
+      <text>删除</text>
+    </view> -->
+
+
+</view>
+</view>

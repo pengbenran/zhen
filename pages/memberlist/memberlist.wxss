@@ -1,0 +1,50 @@
+/* pages/memberlist/memberlist.wxss */
+image{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.memberContain{
+ background: #fff;
+ padding-top:20rpx;
+ box-sizing: border-box;
+}
+.membertitle{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.memberList{
+ width: 95%;
+ margin: 10rpx auto;
+ border: 1rpx solid #F1F1F1;
+ border-radius:10rpx;
+  
+}
+.memberuser{
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+  border-bottom:1rpx solid #F1F1F1; 
+  
+}
+.memberuseravator{
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  margin: 20rpx;
+  border-radius:50%; 
+}
+.memberName{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 0.9rem;
+}
+
+.tip{
+  height: 100vh;
+  background: #fff;
+  text-align: center;
+  color: #B0B0B0;
+}

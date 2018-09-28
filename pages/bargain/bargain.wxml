@@ -1,0 +1,39 @@
+<!-- 未开通微分销界面 -->
+<view class='bargaincontain'>
+<view class='headImg' style="width:{{ImageWidth}};height:{{ImageHeight}}">
+  <image src='/image/member.jpg'></image>
+</view>
+<view class='headImg' style="width:{{ImageWidth}};height:{{introImageHeight}}">
+  <image src='/image/intro.jpg'></image>
+</view>
+<view class='memberIntro' style="min-height:{{introHeight}}" wx:if='{{!isSubmit}}'>
+  <view class='memberIntrotitle'>
+    开通会员
+  </view>
+  <view class='memberIntroList' wx:for="{{memberLvList}}">
+    <view class='memberIntroListBcg'>
+      <image src='{{item.lvpicurl}}'></image>
+    </view>
+    <view class='memberIntroListDetail'>
+      <view class='memberIntroListDetailtitle'>{{item.name}}</view>
+      <view>大众会员享受待遇</view>
+      <view>大众会员享受待遇</view>
+      <view>大众会员享受待遇</view>
+      <view>大众会员享受待遇</view>
+    </view>
+    <view class='openMemberBtn' bindtap='jump' data-ivId="{{item.lvId}}">
+      立即开通
+    </view>
+  </view>  
+</view>
+<view wx:if='{{isSubmit}}' class='memberstatu'>
+  <view wx:if='{{!isPass}}'>
+   {{tip}}
+  </view>
+  <view wx:if='{{isPass}}'>
+    微分销会员审核已通过，请完善信息
+    <view class='jupminfodetail' bindtap='jupminfodetail'>立即完善</view>
+  </view>
+  <view></view>
+</view>
+</view>

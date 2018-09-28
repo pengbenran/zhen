@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "收藏",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black"
+}

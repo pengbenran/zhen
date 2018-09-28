@@ -1,0 +1,25 @@
+<view class="container">
+  <!--头部-->
+  <!-- 导航条 -->
+    <!--商品列表-->
+    <block wx:if="{{Goods.length != 0}}">
+  <view class='commodity'>
+    <view class='cod-1' wx:for="{{Goods}}" >
+    <navigator url="../group/group?goodid={{item.goodsId}}&catId={{item.catId}}" hover-class="none">
+      <image class='codImg' src='{{item.thumbnail}}'></image>
+      <text class='copy'>{{item.name}}</text>
+      <view class='money-gou'>
+        <text class='money'>￥{{item.price}}</text>
+        <view class='jia-boder' bindtap='addToFavorite'>
+        <image src='{{boder}}' class='jiahao'></image>
+        </view>
+      </view>
+      </navigator>
+    </view>
+  </view>
+  </block>
+    <block wx:else>
+      <view class="cart-no-data">该分类商品是空的哦~</view>
+    </block>
+   <view class='swbox'></view>
+</view>

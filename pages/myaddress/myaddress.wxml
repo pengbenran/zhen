@@ -1,0 +1,35 @@
+<view class="container">
+  <view class='address' wx:for="{{memberAddressList}}">
+    <view class='shipping-top' bindtap='moren' id="{{item.addrId}}" data-name="{{item.name}}" data-mobile='{{item.mobile}}' data-province="{{item.province}}" data-city="{{item.city}}" data-region="{{item.region}}" data-addr="{{item.addr}}">
+      <view class='names'>
+        <text>{{item.name}}</text>
+        <text class='name-text1'>{{item.mobile}}</text>
+      </view>
+      <text class='name-text2'>{{item.province}}{{item.city}}{{item.region}}{{item.addr}}</text>
+    </view>
+     <view class='shipping-bottom'>
+      <view class='approve' bindtap='select' id="{{item.addrId}}">
+        <icon wx:if="{{item.defAddr}}" type="success" color="#26b4fe" id="{{item.defAddr}}"  class="cart-pro-select" bindtap="selectList"/>
+        <icon wx:else type="circle" class="cart-pro-select" id="{{item.defAddr}}"  bindtap="selectList"/>
+
+        <text class='approve-text text2'>默认地址</text>
+      </view>
+      <view class='edit'>
+        <view class='edit-left' bindtap='edit' id="{{item.addrId}}">
+          <image src='{{item.leftimg}}'></image>
+          <text class='edit-text1'>编辑</text>
+        </view>
+        <view class='edit-right' id="{{item.addrId}}" data-index='index' data-del="{{item.defAddr}}" bindtap='del'>
+          <image src='{{item.textimg}}'></image>
+          <text class='edit-text2'>删除</text>
+        </view>
+      </view>
+      <view></view> 
+  </view>
+
+  </view>
+ <!--按钮  -->
+ <view class='cellbtn'>
+  <button  class='com-input01' bindtap='add'>新增收货地址</button> 
+ </view>
+</view>

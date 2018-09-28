@@ -1,0 +1,152 @@
+
+.logistics{
+height: 200rpx;
+background: #26b4fe;
+display: flex;
+align-items: center;
+padding-left: 40rpx;
+}
+.log-left{
+ width:170rpx;
+ height: 160rpx;
+ position: relative;
+}
+.log-left image{
+ width: 100%;
+ height: 100%;
+}
+.shop-name{
+ text-align: center;
+ line-height: 40rpx;
+ width: 170rpx;
+ height: 40rpx;
+ font-size: 14px;
+ color: #fff;
+ background: rgba(0, 0, 0, 0.5);
+ position: absolute;
+ bottom: 0;
+}
+.log-right{
+height: 80%;
+display: flex;
+flex-direction: column;
+color: #fff;
+font-size: 16px;
+justify-content: space-around;
+margin-left: 30rpx;
+}
+/*流程条  */
+.material{
+height: 300rpx;
+background: #fff;
+display: flex;
+align-items: center;
+}
+
+
+.order_process {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10rpx 10rpx 20rpx 10rpx;
+  background-color: #fff;
+  width: 100%;
+}
+
+.process_wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.process {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.process_icon {
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.process_line {
+  background: #eff3f6;
+  flex: 1;
+  height:3rpx;
+}
+
+.process_name {
+  font-size: 13px;
+  color: #d3d3d3;
+   margin-bottom:18rpx;
+}
+.process_addree {
+  font-size: 13px;
+  color: #797979;
+  margin-top:10rpx;
+
+}
+
+
+
+
+
+/*物流详情  */
+.details{
+  margin-top: 20rpx;
+}
+.details-top{
+  padding: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  height: 55rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+/*订单流程*/
+.details-bottom{
+  background: #fff;
+  padding-top:20rpx
+}
+.detabox{
+  height:130rpx;
+  display: flex;
+  padding-left: 20rpx;
+}
+.deta-img{
+ width: 10%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.deta-img image{
+ width: 30rpx;
+ height: 30rpx;
+ margin-top: 6rpx;
+}
+.line{
+  width: 3rpx;
+  height: 100rpx;
+  background:#eee;
+}
+
+.deta-right{
+width: 88%;
+display: flex;
+flex-direction: column;
+}
+.deta-text1{
+ font-size: 13px;
+ color: #565656;
+}
+.deta-text2{
+font-size: 12px;
+margin-top: 15rpx;
+color: #a0a0a0;
+}
+.active-text{
+  color:#22b3ff;
+}

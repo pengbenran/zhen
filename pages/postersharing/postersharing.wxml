@@ -1,0 +1,6 @@
+<!--pages/postersharing/postersharing.wxml-->
+<view>
+  <canvas style="width:{{screenWidth}}px;height:500px" canvas-id="firstCanvas"></canvas>
+  <view class='btn' bindtap='saveImg' wx:if="{{isOk}}">立即生成商品海报</view>
+</view>
+

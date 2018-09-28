@@ -1,0 +1,33 @@
+<import src="../../addone/wetoast.wxml"/>
+<view class="container">
+  <!--签到背景图-->
+  <image class="head" src="{{headimg}}"></image>
+  <view class='integral'>
+    <text class='int-text1'>{{mp}}</text>
+    <text class='int-text2'>我的积分</text>
+    <view class='qiandao' bindtap='onTimeToast'>
+      <image class='qian-img' src='{{qianimg}}'></image>
+      <block wx:if = "{{signStatus == 1}}">
+        <text>签到</text>
+      </block>
+      <block wx:if = "{{signStatus == 2}}">
+        <text>已签到</text>
+      </block>
+    </view>
+    <template is="wetoast" data="{{...__wetoast__}}"/>
+  </view>
+ 
+    <!--积分-->
+      <view class='total-box'>
+        <view class='total' wx:for="{{pointSign}}">
+          <text>签到积分</text>
+          <text class='total-text1'>+{{item.signPoint}}</text>
+          <text class='total-text2'>{{item.signTime}}</text>
+        </view>
+      </view>
+      <view class='boxd'>
+        <text>. . .</text>
+      </view>
+
+
+</view>

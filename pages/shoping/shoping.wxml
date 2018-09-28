@@ -1,0 +1,40 @@
+<view class='ddd' bindtap='showModal'>
+  点击</view>
+
+
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class='commodity-box'>
+    <view class='commodity-box1'>
+      <view class='com-box1-left'>
+        <image src='{{comimg}}'></image>
+      </view>
+      <view class='com-box1-right'>
+        <view class='box1-right-top'>
+          <text>这里是货物名称</text>
+          <view class='cha-img' bindtap="hideModal">
+            <image src='{{cha}}'></image>
+          </view>
+        </view>
+       <text class='money-red'>￥2666.00</text>
+      </view>
+    </view>
+    <view class='commodity-box2'>
+    <text>规格：</text>
+    <view class='specification'>1/双</view>
+    </view>
+    <view class='commodity-box3'>
+    <text>购买数量：</text>
+    <view class='btn'>
+            <view id='del1' type="default">-</view>
+            <input value='2'></input>
+            <view id='add1' type='defalut'>+</view>
+          </view>
+    </view>
+    <view class='commodity-box4'>
+    <text>留言：</text>
+    <view class='leave'><textarea  auto-height  placeholder="点击填写留言"/></view>
+    </view>
+  </view>
+  <view class='commodity-box5'>下一步</view>
+</view>

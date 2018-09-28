@@ -1,0 +1,83 @@
+<view class="cantuan">
+  <!--图片  -->
+  <view class='can-image'>
+    <view class='red-box'>现货</view>
+    <image src='{{canimg}}'></image>
+  </view>
+  <!-- 标题，价钱  -->
+  <view class='can-tit'>
+    <text class='can-title'>vivo X20 双摄像头智能大屏手机前置2000万像素</text>
+    <!--价钱  -->
+    <view class='price'>
+      <text class='money'>￥{{money}}</text>
+      <text class='discount'>￥{{discount}}</text>
+      <view class='fenxiang'>
+        <image src='{{fenimg}}'></image>
+        <text>{{fenxiang}}</text>
+        <!--分享-->
+      </view>
+    </view>
+  </view>
+</view>
+<!--去开团计时器  -->
+<view class='genuine'>
+  <view class='time'>
+    <text class='end'>仅剩</text>
+    <!--计时  -->
+    <view class="countDownTimeView countDownAllView">
+      <!-- <view class="voteText countDownTimeText">{{countDownDay}}天</view>   -->
+      <view class="voteText countDownTimeText">{{countDownHour}}</view>
+      <text>时</text>
+      <view class="voteText countDownTimeText">{{countDownMinute}}</view>
+      <text>分</text>
+      <view class="voteText countDownTimeText">{{countDownSecond}}</view>
+      <text>秒</text>
+    </view>
+  </view>
+  <view class='gotime-right'>仅剩
+    <text class='one'>{{shuzi}}</text>个名额</view>
+</view>
+
+<!-- 产品保证 -->
+<view class='genuine'>
+  <view class='g1'>
+    <image src='{{gimg}}'></image>
+    <text>{{gtext}}</text>
+  </view>
+  <view class='g1'>
+    <image src='{{gimg}}'></image>
+    <text>{{gtext2}}</text>
+  </view>
+  <view class='g1'>
+    <image src='{{gimg}}'></image>
+    <text>{{gtext3}}</text>
+  </view>
+  <view class='g1'>
+    <image src='{{gimg}}'></image>
+    <text>{{gtext4}}</text>
+  </view>
+</view>
+<!--参团时间 -->
+<view class='jiontime'>
+    {{jointime}}
+</view>
+<!--等待开团  -->
+<view class='wait'>
+  <view class='head-img'>
+    <view class='box-img'>
+      <image class='headimg01' src='{{headimg}}'></image>
+      <image class='headimg02' src='{{headimg}}'></image>
+      <image class='headimg03' src='{{headimg}}'></image>
+      <image class='headimg04' src='{{headimg}}'></image>
+      <image class='headimg05' src='{{headimg}}'></image>
+    </view>
+    <image class='dian' src='{{dian}}'></image>
+  </view>
+  <!--按钮 -->
+  <view class='Offered'>
+    <view class='btn'>
+    <image src='{{btn}}'></image>
+    {{yao}}</view>
+  </view>
+
+</view>

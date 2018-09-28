@@ -1,0 +1,17 @@
+<view class="container">
+  <view class='member-top'>
+    <image src='{{memberInfo.lvpicurl}}'></image>
+  </view>
+
+<view class='member-botom'>
+  <view class='member'>
+    <text>{{vip}}</text>
+  </view>
+</view>
+<view class='member-text'>
+  <!-- <text>1、{{text1}}</text>
+  <text>2、{{context2}}</text>
+  <text>3、{{context3}}</text>
+  <text>4、{{context4}}</text> -->
+</view>
+</view>

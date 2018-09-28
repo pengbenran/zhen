@@ -1,0 +1,16 @@
+<!--pages/memberconsume/memberconsume.wxml-->
+<view class='memberconsume'>
+<view class='memberconsumetitle'>
+    <view class='line1'>订单号</view>
+    <view class='line2'>消费额</view>
+    <view class='line3'>分润</view>
+    <view class='line4'>消费日期</view>
+</view>
+   
+  <view class='memberconsumelist' wx:for="{{expense}}">
+    <view class='line1'>{{item.shareId}}</view>
+    <view class='line2'>{{item.monetary}}</view>
+    <view class='line3'>{{item.shareMoney}}</view>
+    <view class='line4'>{{item.shareTime}}</view>
+  </view>
+</view>

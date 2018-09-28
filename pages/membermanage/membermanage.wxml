@@ -1,0 +1,40 @@
+<!--pages/membermanage/membermanage.wxml-->
+<view class='membermanage'>
+  <view class='list1' bindtap='change' data-index="0">
+    <view class="title">待打款提现申请</view>
+    <view class='downicon' style='transform:rotate({{rot[0]}}deg)'><image src='/image/down.png'></image></view>
+  </view>
+  <view class='detail' style='height:{{hei[0]}}rpx'>
+    <view class='detaillist' wx:for="{{Notforward}}">
+      <view>{{item.withdrawId}}</view>
+       <view>{{item.name}}</view>
+      <view>{{item.amount}}元</view>
+      <view>{{item.withdrawTime}}</view>   
+    </view>
+  </view>
+  <view class='list1' bindtap='change' data-index="1">
+    <view class="title">已打款提现申请</view>
+    <view class='downicon'style='transform:rotate({{rot[1]}}deg)'><image src='/image/down.png'></image></view>
+  </view>
+<view class='detail'style='height:{{hei[1]}}rpx'>
+ 
+    <view class='detaillist'  wx:for="{{Alreadyforward}}">
+    <view>{{item.withdrawId}}</view>
+      <view>{{item.name}}</view>
+      <view>{{item.amount}}元</view>
+      <view>{{item.withdrawTime}}</view>
+    </view>
+  </view>
+  <view class='list1' bindtap='change' data-index="2">
+    <view class="title">无效提现申请</view>
+    <view class='downicon' style='transform:rotate({{rot[2]}}deg)'><image src='/image/down.png'></image></view>
+  </view>
+  <view class='detail' style='height:{{hei[2]}}rpx'>
+    <view class='detaillist' wx:for="{{noUserforward}}">
+    <view>{{item.withdrawId}}</view>
+       <view>{{item.name}}</view>
+      <view>{{item.amount}}元</view>
+      <view>{{item.withdrawTime}}</view>
+    </view>
+  </view>
+</view>
