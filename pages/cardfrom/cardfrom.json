@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "名片提交",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

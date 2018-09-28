@@ -14,6 +14,8 @@
     "pages/membershipdetail/membershipdetail",  
     "pages/bargain/bargain",
     "pages/my/my",
+    "pages/mycard/mycard",
+    "pages/cardfrom/cardfrom",
     "pages/membershioup/membershioup",
     "pages/pintuanxiangqing/pintuanxiangqing",
     "pages/cart/cart",

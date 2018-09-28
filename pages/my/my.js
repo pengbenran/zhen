@@ -265,6 +265,12 @@ Page({
     let url = '../wodejifen/wodejifen'
     that.jump(url)
   },
+  // 名片跳转
+  mingpan: function () {
+    var that = this;
+    let url = '../mycard/mycard'
+    that.jump(url)
+  },
   // 会员卡跳转
   huiyuanka: function () {
     var that = this;

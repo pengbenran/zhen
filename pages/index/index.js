@@ -33,7 +33,6 @@ Page({
     extension:'',
     faceValue:'',
     mobile:'请点击验证号码',
-    gonggao:'',
     marqueePace: 1,//滚动速度
     marqueeDistance: 0,//初始滚动距离
     marquee2copy_status: false,
@@ -77,23 +76,23 @@ Page({
     that.getMain();
     that.userLogin();
   },
-  run1: function () {
-    var that = this;
-    var interval = setInterval(function () {
-      if (-that.data.marqueeDistance < that.data.length) {
-        that.setData({
-          marqueeDistance: that.data.marqueeDistance - that.data.marqueePace,
-        });
-      } else {
-        clearInterval(interval);
-        that.setData({
-          marqueeDistance: that.data.windowWidth
-        });
-        // that.run1();
+  // run1: function () {
+  //   var that = this;
+  //   var interval = setInterval(function () {
+  //     if (-that.data.marqueeDistance < that.data.length) {
+  //       that.setData({
+  //         marqueeDistance: that.data.marqueeDistance - that.data.marqueePace,
+  //       });
+  //     } else {
+  //       clearInterval(interval);
+  //       that.setData({
+  //         marqueeDistance: that.data.windowWidth
+  //       });
+  //       // that.run1();
       
-      }
-    }, that.data.interval);
-  },
+  //     }
+  //   }, that.data.interval);
+  // },
   // 获得商品详情
   getMain:function(){
     // 获取商品详情
@@ -109,17 +108,19 @@ Page({
           menus: res.data.data.menus,
           brand: res.data.data.brand,
           data: res.data.data,
-          gonggao: res.data.data.indexNotice.content,
+          indexNotice:res.data.data.indexNotice
           //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
         })
-        var length = that.data.gonggao.length * that.data.size;//文字长度
-        var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
-        that.setData({
-          length: length,
-          windowWidth: windowWidth,
-          marquee2_margin: length < windowWidth ? windowWidth - length : that.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
-        });
-        that.run1();
+        console.log(res.data.data.indexNotice);
+
+        // var length = that.data.gonggao.length * that.data.size;//文字长度
+        // var windowWidth = wx.getSystemInfoSync().windowWidth;// 屏幕宽度
+        // that.setData({
+        //   length: length,
+        //   windowWidth: windowWidth,
+        //   marquee2_margin: length < windowWidth ? windowWidth - length : that.data.marquee2_margin//当文字长度小于屏幕长度时，需要增加补白
+        // });
+
         wx.setStorageSync('indexdata', res.data.data.message, )
         // 判断是否注册过
       },
