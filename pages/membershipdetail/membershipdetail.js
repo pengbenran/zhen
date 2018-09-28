@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    money:''
+    money:'',
+    ivid:''
   },
 
   /**
@@ -18,7 +19,8 @@ Page({
     var memberId = wx.getStorageSync('memberId')
     that.setData({
      money:options.money,
-     memberId: memberId
+     memberId: memberId,
+     ivid: options.ivid
     })
   },
   btnform:function(e){
@@ -26,6 +28,17 @@ Page({
     if (e.detail.value.IDcard == "" || e.detail.value.IDcard.length!=18) {
       wx.showToast({
         title: '身份证格式错误',
+        icon: 'loading'
+      })
+    }
+    else if (e.detail.value.name == '') {
+      wx.showToast({
+        title: '姓名不能为空',
+        icon: 'loading'
+      })
+    } else if (e.detail.value.mobile == '') {
+      wx.showToast({
+        title: '电话不能为空',
         icon: 'loading'
       })
     }
@@ -45,12 +58,16 @@ Page({
         title: '请稍等',
       })
       var parms = {}
+      parms.name = e.detail.value.name
+      parms.referrer = wx.getStorageSync('isisAgent')
+      parms.lvid = that.data.ivid; 
+      parms.mobile = e.detail.value.mobile
       parms.memberId = that.data.memberId
       parms.midentity = e.detail.value.IDcard
       parms.cardno = e.detail.value.bankcard
       parms.depositBank = e.detail.value.depositBlank
       wx.request({
-        url: api + '/api/distribe/submitDistribe',
+        url: api + '/api/distribe/submitDistribeApply',
         data: {
           params: JSON.stringify(parms)
         },
