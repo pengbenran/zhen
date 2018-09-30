@@ -7,6 +7,12 @@
     </view>
     <view class='membershiptitle'>微分销详细信息提交</view>
     <form bindsubmit='btnform'>
+        <view class='membershipFormList'>
+        <input placeholder='姓名' name="name"></input>
+      </view>
+          <view class='membershipFormList'>
+        <input placeholder='电话' name="mobile"></input>
+      </view>
       <view class='membershipFormList'>
         <input placeholder='身份证号码' name="IDcard"></input>
       </view>

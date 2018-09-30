@@ -587,6 +587,7 @@ Page({
                           data: {
                             code: res.code,
                             parms: parms,
+                            memberCollageId: that.data.memberCollageId
                           },
                           method: 'GET',
                           success: function (res) {

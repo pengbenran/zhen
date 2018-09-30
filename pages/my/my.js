@@ -209,9 +209,12 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        if(res.data.code==1){
+        if(res.data.code==0){
+          // wx.navigateTo({
+          //   url: '../membershipdetail/membershipdetail?money=' + res.data.money,
+          // })
           wx.navigateTo({
-                url: '../bargain/bargain',
+            url: '../bargain/bargain',
           })
         }
         else{
