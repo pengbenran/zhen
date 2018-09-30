@@ -66,7 +66,7 @@ Page({
  
   onLoad: function (options) {
     var that = this
-  
+    // console.log(options.scene == undefined)
     if (options.scene == undefined) {
       wx.setStorageSync('distribeId', null)
     }
@@ -249,7 +249,7 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 500)
-    this.onLoad();
+    // that.onLoad();
   },
   receiveRed:function(){
     var that=this

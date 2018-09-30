@@ -222,6 +222,7 @@ Page({
           success: function (res) {
             res.data.Goods.num = that.data.goodlist[0].pic
             res.data.Goods.image = res.data.Goods.thumbnail
+            res.data.Goods.price=that.data.goodlist[0].price
             goodArr.push(res.data.Goods) 
             let ordermount = Number(that.data.goodlist[0].pic * res.data.Goods.price - that.data.facevalue - that.data.redamount).toFixed(2)
             if(ordermount<=0){

@@ -122,10 +122,20 @@ Page({
     ctx.setFillStyle('rgb(255,255,255)')
     ctx.fillRect(0, 0, WIDTH, 500)
     ctx.drawImage(ImgArr[1], 40, 70, screenWidth - 95, screenWidth - 95);
-    ctx.setTextAlign('left')
-    ctx.setFontSize(16);
+    // ctx.setTextAlign('left')
+    // ctx.setFontSize(16);
     ctx.setFillStyle('rgba(34,34,34,.64)')
-    ctx.fillText(`${that.data.userName}给您分享了一件商品`, 80, 40);
+    // ctx.fillText(`${that.data.userName}给您分享了一件商品`, 80, 40);
+
+
+    const CONTENT_ROW_LENGTH1 = 30;  // 正文 单行显示字符长度
+    let [contentLeng1, contentArray1, contentRows1] = that.textByteLength(`${that.data.userName}给您分享了一件商品`, CONTENT_ROW_LENGTH1);
+    ctx.setTextAlign('left')
+    ctx.setFontSize(20);
+    let contentHh1 = 20 * 1.3;
+    for (let n = 0; n < contentArray1.length; n++) {
+      ctx.fillText(contentArray1[n], 80, 35 + contentHh1 * n);
+    }
     // ctx.setTextAlign('left')
     // ctx.setFontSize(16);
     // ctx.setFillStyle('rgba(34,34,34,.64)')

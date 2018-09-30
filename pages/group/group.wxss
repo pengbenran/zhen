@@ -307,8 +307,12 @@ border-radius:5rpx;
 background: #f2f2f2;
 color: #000;
 }
-.spebox{display: flex;
-
+.spebox{
+  margin: 10rpx;
+}
+.specconent{
+  display: flex;
+ flex-wrap: wrap;
 }
 .specification{
  margin-top: 10rpx;
