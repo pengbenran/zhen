@@ -1,0 +1,62 @@
+<view class='top'>
+  <view class="item {{likebool?'active':''}}" bindtap='clickTab'>谁看过我</view>
+  <view class="item {{!likebool?'active':''}}" bindtap='clickTab'>我看过谁</view>
+</view>
+
+
+<view class='list'>
+  <view class='listitem'>
+   <view class='info'>
+    <view class='infoimg'><image src='{{face}}'></image></view>
+    <view class='infoname'>
+      <text class='name'>卢某人</text>
+      <text>你好世界</text><text>谷琴网络公司</text>
+      <view class='infolist'><view><text>4</text>关注</view><view><text>4</text>点赞</view><view><text>4</text>人气</view></view>
+    </view>
+    <view class='infoweixing'><image src='{{weiimg}}'></image><view class='btn'>取消关注</view></view>
+   </view>
+  </view>
+</view>
+
+
+<view class='list'>
+  <view class='listitem'>
+   <view class='info'>
+    <view class='infoimg'><image src='{{face}}'></image></view>
+    <view class='infoname'>
+      <text class='name'>卢某人</text>
+      <text>你好世界</text><text>谷琴网络公司</text>
+      <view class='infolist'><view><text>4</text>关注</view><view><text>4</text>点赞</view><view><text>4</text>人气</view></view>
+    </view>
+    <view class='infoweixing'><image src='{{weiimg}}'></image><view class='btn'>取消关注</view></view>
+   </view>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

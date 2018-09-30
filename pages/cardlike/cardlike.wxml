@@ -1,0 +1,59 @@
+<view class='top'>
+  <view class="item {{likebool?'active':''}}" bindtap='clickTab'>谁{{listfont}}过我</view>
+  <view class="item {{!likebool?'active':''}}" bindtap='clickTab'>我{{listfont}}过谁</view>
+</view>
+
+
+<view class='listwarp' wx:if='{{likebool}}'>
+<view class='list' bindtap='tocardinfo' wx:for='{{wholikeme}}'>
+  <view class='listitem'>
+   <text class='time'>{{item.liketime}}</text>
+   <view class='info'>
+    <view class='infoimg'><image src='{{item.cardImg}}'></image></view>
+    <view class='infoname'><text>{{item.cardName}}</text><text class='tishi'>{{item.cardName}}</text></view>
+    <view class='infoweixing'><image src='{{weiimg}}'></image></view>
+   </view>
+  </view>
+</view>
+</view>
+
+
+<view class='listwarp' wx:else>
+<view class='list' bindtap='tocardinfo' wx:for='{{ilike}}'>
+  <view class='listitem'>
+   <text class='time'>{{item.liketime}}</text>
+   <view class='info'>
+    <view class='infoimg'><image src='{{item.cardImg}}'></image></view>
+    <view class='infoname'><text>{{item.cardName}}</text><text class='tishi'>{{item.cardName}}</text></view>
+    <view class='infoweixing'><image src='{{weiimg}}'></image></view>
+   </view>
+  </view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

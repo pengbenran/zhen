@@ -111,6 +111,7 @@ Page({
           indexNotice:res.data.data.indexNotice
           //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
         })
+
         console.log(res.data.data.indexNotice);
 
         // var length = that.data.gonggao.length * that.data.size;//文字长度
