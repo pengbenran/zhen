@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "人气",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

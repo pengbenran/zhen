@@ -1,0 +1,32 @@
+<view class='container'>
+  <view class='warpBox'>
+    <view class='boxbg'><image src='{{cardbg}}'></image></view>
+
+    <view class='box2'>
+      <view class='box2top'>
+       <view class='left'>
+         <view class='name'>{{userinfo.cardname}}</view>
+         <view class='zhiwei'><text>{{userinfo.companys}}</text><text>{{userinfo.jobs}}</text></view>
+         <view class='gs'>{{userinfo.companys}}</view>
+       </view> 
+       <view class='right'><image src='{{userinfo.cardimg}}'></image></view>
+      </view>
+      <view class='dizhi'>地址：{{userinfo.region}}</view>
+      <view class='phone'>电话：<text>15623140205</text></view>
+    </view>
+
+
+    <view class='info'>
+     <view><text>{{userinfo.attention}}</text>人气</view> <view><text>{{userinfo.clicks}}</text>点赞</view> <view><text>{{userinfo.industryid}}</text>关注</view>
+    </view>
+
+   
+    <!--item end-->
+  </view>
+  <view class='btnlist'>
+       <view class='btnitem' bindtap='zan'>赞</view>
+       <view class='btnitem'>关注</view>
+       <view class='btnitem'>分享</view>
+     </view>
+
+</view>
