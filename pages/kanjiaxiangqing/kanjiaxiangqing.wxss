@@ -625,7 +625,7 @@ background: #ff3b3c;
    flex-direction: column; 
   align-items: center;
   justify-content:center;
-  background: url(https://shop.yogain.cn/simages/imgs/ka06.png)no-repeat; 
+  background: url(https://shop.guqinet.com/html/images/ka06.png)no-repeat; 
   background-size: 74% 90%;
   background-position: center center;
 }  

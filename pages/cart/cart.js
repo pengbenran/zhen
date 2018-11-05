@@ -4,36 +4,25 @@ var zhihu=""
 Page({
   data: {
     yes:apimg+"/images/quzhifu/shang.png",
-    ind:apimg+"/images/quzhifu/8.png",
-    
+    ind:apimg+"/images/quzhifu/8.png",   
     cartgoods: [],
     startX: 0, //开始坐标
     startY: 0,
     hasList:true,
     selected:true,
-    "selects":[],
+    selects:'',
     edit:true,
   },
   // 编辑跳转删除页面js
   toast: function (e) {
     wx.navigateTo({
-      url: '../shopingcart/shopingcart',
-      success: function (res) {
-        // success
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
+      url: '../shopingcart/shopingcart'
     })
   },
   edit:function(){
    var edit=this.data.edit
     if(edit==true){
         edit=!this.data.edit
- 
     }else{
         edit=!this.data.edit
     }

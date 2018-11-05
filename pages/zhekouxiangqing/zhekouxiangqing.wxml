@@ -76,61 +76,6 @@
       </view>
     </view>
   </view>
-  <!-- 选择规格 -->
-  <!-- <view class='spec' bindtap='sModal'>
-    <text>选择： 规格</text>
-    <image src='{{specimg}}'></image>
-  </view> -->
-  <!--下一步选规格模态框-->
-  <!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
-  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-    <view class='commodity-box'>
-      <view class='commodity-box1'>
-            <view class='com-box1-left'>
-              <image src='{{comimg}}'></image>
-            </view>
-          <view class='com-box1-right'>
-            <view class='box1-right-top'>
-              <text>￥{{Goods.name}}</text>
-              <view class='cha-img' bindtap="hideModal">
-                <image src='{{chaimg}}'></image>
-              </view>
-            </view>
-            <text class='money-red'>￥{{goodsList.finalAmount}}</text>
-          </view>
-      </view> -->
-       <!--规格  -->
-<!-- <view class='commodity-box2'>
-    <text>{{twoList[0].specName}}</text>
-    <view class='spebox'>
-      <view class='specification' wx:for='{{twoList[0].value}}'>
-        <button class="spebtn {{current == item.specValueId?'active':''}}" data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='chang'>{{item.specvalue}}</button>
-      </view>
-    </view>
-</view> -->
-
-
-<!-- 颜色 -->
- <!-- <view class='commodity-box2'>
-    <text>{{twoList[1].specName}}</text>
-       <view class='spebox'>
-      <view class='specification' wx:for='{{twoList[1].value}}'>
-        <button class="spebtn {{currentItem == item.specValueId?'active':''}}" data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='changColor'>{{item.specvalue}}</button>
-      </view>
-    </view>
-</view>  -->
-        <!-- <view class='commodity-box3'>
-          <text>购买数量：</text>
-              <view class='btn'>
-                <view id='del1' type="default">-</view>
-                <input value='2'></input>
-                <view id='add1' type='defalut'>+</view>
-              </view>
-        </view>
-    </view>
-    <view class='commodity-box5' bindtap='next'>下一步</view> -->
-  <!-- </view> -->
-  <!-- 模态框结束 -->
 
   <!--立即购买模态框  -->
   <view class="commodity_screen" bindtap="hModal" wx:if="{{sModalStatus}}"></view>

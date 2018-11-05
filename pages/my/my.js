@@ -80,9 +80,19 @@ Page({
   onLoad: function () {
 
   },
+  jumpdynamic:function(){
+    wx.navigateTo({
+      url: '../dynamic/dynamic',
+    })
+  },
   jumprechge:function(){
     wx.navigateTo({
       url: '../morepoint/morepoint',
+    })
+  },
+  jumpcomment:function(){
+    wx.navigateTo({
+      url: '../comment/comment',
     })
   },
   // 获取会员信息

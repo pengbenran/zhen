@@ -1,0 +1,199 @@
+/* pages/seedetail/seedetail.wxss */
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.user{
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.userAvator{
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.userName{
+  line-height: 60px;
+  padding-left:20rpx;
+  padding-right: 20rpx; 
+  flex-grow: 1;
+}
+.postcontent{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+.content{ 
+  background: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  padding-top: 0rpx;
+}
+.imagesList{
+ width: 95%;
+  margin: 30rpx auto
+}
+.imagesList image{
+  width: 100%;
+}
+.posttime{
+  width: 200rpx;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 60px;
+  color: #596289;
+}
+.find_count{
+  height: 100rpx;
+  width: 300rpx;
+  margin: 30rpx auto;
+  border-radius:50rpx;
+  border: 1rpx solid #FF9736; 
+  color: #596289;
+  font-size: 0.8rem;
+  line-height: 100rpx;
+  text-align: center;
+}
+.find_count_icon{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  vertical-align: text-top;
+  margin-right: 20px;
+  margin-top:20rpx; 
+}
+.tab{
+  width: 100%;
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  justify-content: space-around;
+  text-align: center;
+  border-bottom: 1rpx solid #596289;
+}
+.msgList{
+  display: flex;
+  margin-top: 20rpx;
+  background: #E6E6E6;
+  box-sizing: border-box;
+}
+.msguserAvator{
+  width: 60px;
+  height: 60px;
+  border-radius:50%;
+  overflow: hidden;
+  /* padding: 20rpx; */
+  box-sizing: border-box; 
+  margin: 20rpx;
+}
+.msgListRight{
+ width: 75%;
+ margin: 0 auto;
+}
+.username{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.time{
+  font-size: 0.8rem;
+  color: #596289;
+  text-align: right;
+}
+.msgcontent{
+  font-size: 0.9rem;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.find_img{
+  display: flex;
+  flex-wrap:wrap;
+  margin-bottom: 20rpx;
+}
+.find_img_list{
+  display: block;
+  margin-bottom: 10rpx;
+  margin-right: 10rpx;
+  overflow: hidden;
+}
+.find_img_one{
+  width: 300rpx;
+  overflow: hidden;
+}
+.find_img_one image{
+  width: 100%;
+  display: block;
+}
+.zancontent{
+  display: flex;
+}
+.zanavator{
+    flex-grow: 1;
+  /* display: flex; */
+  
+   overflow: hidden;
+ 
+}
+.zanlist{
+  width: 60rpx;
+  height: 60rpx;
+  overflow: hidden;
+}
+.zancount{
+  font-size: 14px;
+  color: #949494;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  width: 200rpx;
+  text-align: center;
+}
+.apply_msg_list{
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  background: #E6E6E6;
+  font-size: 0.8rem;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.nameMsg{
+  color: #6D7687;
+}
+.find_mode{
+  position: relative;
+}
+.modebcg{
+    /* display: none; */
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 100rpx;
+    background: rgba(0,0,0,.5);
+  
+}
+.find_input{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #F6F6F6;
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+}
+.find_input input{
+  width: 100%;
+  border: 1rpx solid #ddd;
+  background: #fff;
+  height: 100rpx;
+  padding: 0 20rpx;
+  border: none;
+  outline: 0;
+  color: #949494;
+}

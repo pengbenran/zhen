@@ -1,0 +1,24 @@
+<view class='addContent'>
+  <view class='addInput'>
+    <textarea placeholder='要发布的内容...' bindinput='getContent'></textarea>
+  </view>
+  <view class='imgContent'>
+    <view class='imgLists'wx:for="{{tempFilePaths}}" style="width:{{ImageWidth}};height:{{ImageWidth}}">
+     <image src='{{item}}'></image>
+    </view>
+    <view class='imgList' bindtap='chooseImg' style="width:{{ImageWidth}};height:{{ImageWidth}}" wx:if="{{tempFilePaths.length!=9}}">
+      <image src='/image/add.png'></image>
+    </view>
+  </view>
+  <view class='address' bindtap='chooseAddr'>
+     <view class='icon'>
+        <image src='/image/address.png'></image>     
+     </view> 
+     <view class='addr'>{{address}}</view>
+     <view class='lefticon'>
+       <image src="{{clor}}"></image> 
+     </view>
+  </view>
+  <view class='btn' bindtap='btn'>立即发布</view>
+</view>
+  

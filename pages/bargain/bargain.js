@@ -1,5 +1,6 @@
 var apimg = getApp().globalData.apimg;
 var api = getApp().globalData.api;
+const request = require('../../utils/request.js')
 Page({
   data: {
     head: apimg + "/image/wode/zu17.png",
@@ -27,17 +28,11 @@ Page({
         })
       }
     })
-    wx.request({
-      url: api + '/api/distribe/memberLvList',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          that.setData({
-            memberLvList: res.data.memberLvList
-          })
-        }
+    request.moregets('/api/distribe/memberLvList').then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          memberLvList: res.memberLvList
+        })
       }
     })
   },

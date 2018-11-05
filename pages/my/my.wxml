@@ -71,8 +71,32 @@
     </view>
   </view>
   <!--列表区域  -->
+  <!-- 我的动态 -->
+  <view class="integral int-top" bindtap='jumpdynamic'>
+    <view class="integral-left">
+      <image src="{{myping}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde">
+      <text>我的动态</text>
+        <view class="inte-rightimg">
+          <image src="{{inteping}}"></image>
+        </view>
+    </view>
+  </view>
+  <!-- 点赞评论 -->
+  <view class="integral " bindtap='jumpcomment'>
+    <view class="integral-left">
+      <image src="{{myping}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde">
+      <text>点赞评论</text>
+        <view class="inte-rightimg">
+          <image src="{{inteping}}"></image>
+        </view>
+    </view>
+  </view>
   <!-- 微分销 -->
-   <view class="integral int-top" bindtap='openMember'>
+   <view class="integral" bindtap='openMember'>
     <view class="integral-left">
       <image src="{{myping}}" class="integral-image"></image>
     </view>

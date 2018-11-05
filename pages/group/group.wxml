@@ -1,5 +1,4 @@
-<!--pages/group/group.wxml-->
- <import src="../../wxParse/wxParse.wxml" /> 
+<import src="../../wxParse/wxParse.wxml" /> 
 <view class='container'>
   <!-- 详情页轮播 -->
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:{{ImageWidth}};height:{{ImageHeight}}">
@@ -56,7 +55,7 @@
     <image src='{{specimg}}'></image>
   </view> -->
   <!--下一步选规格模态框-->
-  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
   <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
     <view class='commodity-box'>
       <view class='commodity-box1'>
@@ -72,8 +71,29 @@
             </view>
             <text class='money-red'>￥{{goodDetail.price}}</text>
           </view>
+      </view> -->
+
+            <!--规格  -->
+      <!-- <view class='commodity-box2'>
+          <text>{{twoList[0].specName}}</text>
+          <view class='spebox'>
+            <view class='specification' wx:for='{{twoList[0].value}}'>
+              <button class="spebtn {{current == item.specValueId?'active':''}}" data-text='{{item.specvalue}}' data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='changs'>{{item.specvalue}}</button>
+            </view>
+          </view>
       </view>
-      <view class='commodity-box3'>
+
+
+      <!-- 颜色 -->
+      <!-- <view class='commodity-box2'>
+          <text>{{twoList[1].specName}}</text>
+            <view class='spebox'>
+            <view class='specification' wx:for='{{twoList[1].value}}'>
+              <button class="spebtn {{currentItem == item.specValueId?'active':''}}" data-text='{{item.specvalue}}' data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='changColors'>{{item.specvalue}}</button>
+            </view>
+          </view>
+      </view>   -->
+      <!-- <view class='commodity-box3'>
         <text>购买数量：</text>
             <view class='btn'>
               <view id='del1' type="default">-</view>
@@ -83,7 +103,7 @@
       </view>
     </view>
     <view class='commodity-box5' bindtap='next'>下一步</view>
-  </view>
+  </view> -->
   <!-- 模态框结束 -->
 <!-- 分享模态框 -->
   <view class="commodity_screen" bindtap="hideshareModal" wx:if="{{showshareModal}}"></view>
@@ -125,7 +145,16 @@
         </view>
 
       </view>
-
+      <view class='commodity-box2' wx:for='{{adjuncts}}' wx:for-item="i" wx:for-index="indexi" data-id="{{index}}">
+        <text> {{i.specName}}</text>
+        <view class='specconent'>
+          <view class='spebox' wx:for='{{i.value}}' wx:for-item="j" wx:for-index="indexj">
+            <view class='specification' >
+              <button class="spebtn {{j.flag?'active':''}}" data-id="{{indexi}}" data-item="{{indexj}}"  bindtap='changColor'>{{j.specvalue}}</button> 
+            </view>
+          </view>
+        </view>  
+      </view> 
       <view class='commodity-box3'>
         <text>购买数量：</text>
         <view class='btn'>
@@ -159,7 +188,8 @@
   <!--null  -->
   <view class='null'></view>
   <!--底部按钮  -->
-  <view class='footer'>
+  <form bindsubmit="sModal" report-submit="true">
+    <view class='footer'>
     <view class='footer-left'>
       <!-- 主页 -->
       <view class='homepage' bindtap='zhuye'>
@@ -181,15 +211,13 @@
 
     </view>
     <!-- 单独购买 -->
-
-    <view class='foo-box' bindtap='sModal'>
-      <text class='foo-two'>加入购物车</text>
-
-
-    </view>
-    <view class='foo-box boxone' bindtap='sModal'>
-      <text class='foo-two'>立即购买</text>
-    </view>
+      <button class='foo-box' formType="submit">
+        <text class='foo-two'>加入购物车</text>
+      </button>
+      <button class='foo-box boxone'formType="submit">
+        <text class='foo-two'>立即购买</text>
+      </button>
   </view>
+  </form>
 
 </view>

@@ -179,8 +179,8 @@ swiper-item image{
 }
 .one{
     background: white; 
- width:20%;
-height:70px;
+    width:20%;
+    height:70px;
     display: inline-block;
     line-height: 240rpx;
     padding: 10px;

@@ -2,69 +2,18 @@
 var util = require('../../utils/util.js');
 var apimg = getApp().globalData.apimg;
 var api = getApp().globalData.api;
+const request = require('../../utils/request.js')
 // var apis = getApp().globalData.apis;
 //获取应用实例
 var app = getApp()
 Page({
   //页面的初始化数据
   data: {
-    trues: true,
     apiLimit:[],
     pingtuanList:[],
     currentTab: 0,
-    disimg: apimg + "/image/treeyiqi/banner.png",
     marimg: apimg + "/image/treeyiqi/yuan2.png",
-    btnimg: apimg + "/image/treeyiqi/kan.png",
-    speimg: apimg + "/image/treeyiqi/banner.png",
-    "pingimg": apimg + "/image/treeyiqi/tu1.png",
-    tuanimg: apimg + "/image/treeyiqi/tuan.png",
-    joinimg: apimg + "/image/treeyiqi/tu2.png",
-    headimg: apimg + "/image/wode/zu18.png",
-    headimgtwo: apimg + "/images/quanbufeilei/zu31.png",
     footerimg: apimg + "/image/treeyiqi/jia.png",
-  },
-  onShareAppMessage: function () {
-    return {
-      title: '微鑫云小程序',
-      desc: '最具吸引力的人气小程序',
-      path: '/page/user?id=123'
-  }
-  },
-  //下拉刷新
-  onPullDownRefresh() {
-    wx.stopPullDownRefresh()
-    wx.hideNavigationBarLoading()
-    wx.showLoading({
-      title: '加载中',
-    })
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 500)
-    this.onShow();
-  },
-  dist: function () {
-    wx.navigateTo({
-      url: '../dist/dist',
-    })
-  },
-  onShow:function(){
-    if (wx.getStorageSync('memberId') == "00") {
-      wx.showModal({
-        title: '提示',
-        content: '你还未登录，是否登录',
-        success: function (res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url: '../my/my',
-            })
-          } else if (res.cancel) {
-            wx.switchTab({
-              url: '../index/index',
-            })
-          }
-        }
-      })
-    }
   },
   onLoad: function () {
     var that = this
@@ -72,95 +21,58 @@ Page({
       memberId: wx.getStorageSync('memberId'),
       memberIdlvId:wx.getStorageSync('memberIdlvId')
     })
-    if (wx.getStorageSync('memberId') != "00") {
-      // 说明已经是会员了，可以看到活动
-      wx.request({
-        url: api + '/api/activity/limit',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          // 拼团活动没有添加商品 
-          var limitActive=[];
-          for(var i=0;i<res.data.apiLimit.length;i++){
-            limitActive=limitActive.concat(res.data.apiLimit[i].apilimitGoods)
-          }
-          that.setData({
-            apiLimit: limitActive,
-            limitActive:res.data.apiLimit
-          })
-        }
-      });
-    }
-    var that = this
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          winWidth: res.windowWidth,
-          winHeight: res.windowHeight
-        });
+    that.getLimit()
+  },
+// 封装获取限时折扣方法
+  getLimit:function(){
+    //  请求限时折扣的列表
+    let that=this
+    request.moregets('/api/activity/limit').then(function (res) {
+      let limitActive = [];
+      for (var i = 0; i < res.apiLimit.length; i++) {
+        limitActive = limitActive.concat(res.apiLimit[i].apilimitGoods)
       }
-    });
+      that.setData({
+        apiLimit: limitActive,
+        limitActive: res.apiLimit
+      })
+    })
+  },
+  getColloageList:function(){
+    let that = this
+    request.moregets('/api/collage/collageGoodsList').then(function (res) {
+      that.setData({
+        pingtuanList: res
+      })
+    })
+  },
+  getCutList:function(){
+    let that = this
+    request.moregets('/api/cut/cutList').then(function (res) {
+      that.setData({
+        data: res.data
+      })
+    })
   },
   // 滑动切换
   changes: function (e) {
-  
     var that = this;
     that.setData({
       currentTab: e.detail.current
     });
     var memberId = wx.getStorageSync('memberId')
     if (e.detail.current == 0) {
-      wx.request({
-        url: api + '/api/activity/limit',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          var limitActive = [];
-          for (var i = 0; i < res.data.apiLimit.length; i++) {
-            limitActive = limitActive.concat(res.data.apiLimit[i].apilimitGoods)
-          }
-          that.setData({
-            apiLimit: limitActive
-          })
-        }  
-      });
+      that.getLimit();
     }
     else if(e.detail.current == 1) {
-      wx.request({
-        url: api + '/api/collage/collageGoodsList',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          that.setData({
-            pingtuanList: res.data
-          })
-        }
-      });
+      that.getColloageList();
     }
     else if (e.detail.current == 2){
-      wx.request({
-        url: api + '/api/cut/cutList',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-            that.setData({
-              data: res.data.data
-            })
-        },
-      });
+     that.getCutList();
     }
    },
   //点击切换
   clickTab: function (e) {
-  
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
@@ -170,50 +82,13 @@ Page({
       })
     }
     if (e.target.dataset.current == 0) {
-      wx.request({
-        url: api + '/api/activity/limit',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          var limitActive = [];
-          for (var i = 0; i < res.data.apiLimit.length; i++) {
-            limitActive = limitActive.concat(res.data.apiLimit[i].apilimitGoods)
-          }
-          that.setData({
-            apiLimit: limitActive
-          })
-        }
-      });
+      that.getLimit();
     }
     else if (e.target.dataset.current == 1) {
-      wx.request({
-        url: api + '/api/collage/collageGoodsList',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          that.setData({
-            pingtuanList: res.data
-          })
-        }
-      });
+      that.getColloageList();
     }
     else if (e.target.dataset.current == 2) {
-      wx.request({
-        url: api + '/api/cut/cutList',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          that.setData({
-            data: res.data.data
-          })
-        },
-      });
+      that.getCutList();
     }
 
   },
@@ -261,10 +136,12 @@ Page({
       wx.showToast({
         title: '该活动已结束',
       });
+    }else{
+      wx.navigateTo({
+        url: '../zhekouxiangqing/zhekouxiangqing?xianshidetail=' + JSON.stringify(xianshidetail)
+      })
     }
-    wx.navigateTo({
-      url: '../zhekouxiangqing/zhekouxiangqing?xianshidetail=' + JSON.stringify( xianshidetail)
-    })
+   
   },
   //拼团 编辑跳转js
   pingtuan: function (e) {

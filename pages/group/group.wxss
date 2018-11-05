@@ -12,9 +12,12 @@ swiper{
 button{
   margin: 0;
   padding: 0;
+  border-radius:0; 
 }
 
-
+button::after {
+  border: none;
+}
 /*团购  */
 .group{
   display: flex;
@@ -149,7 +152,10 @@ position: fixed;
   align-items: center;
   color: #fff;
   background: #feba33;
+  border: none;
+  outline: 0;
 }
+
 .boxone{
 background: #ff3b3c;
   }
@@ -307,8 +313,12 @@ border-radius:5rpx;
 background: #f2f2f2;
 color: #000;
 }
-.spebox{display: flex;
-
+.spebox{
+  margin: 10rpx;
+}
+.specconent{
+  display: flex;
+ flex-wrap: wrap;
 }
 .specification{
  margin-top: 10rpx;
