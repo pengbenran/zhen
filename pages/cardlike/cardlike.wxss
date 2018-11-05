@@ -7,7 +7,7 @@ page{background: #fff;}
 .item{font-size: 32rpx;color: #8e8e8e;}
 
 .list{padding: 15rpx 30rpx; }
-.time{font-size: 28rpx;font-weight: 100;color: #8e8e8e;}
+.time{font-size: 28rpx;font-weight: 100;color: #8e8e8e;margin-top: 20rpx;}
 .info{display: flex;margin-top: 15rpx;border-bottom: 1px solid #e9e9e9;}
 .infoimg{width: 165rpx;text-align: center;}
 .infoimg image{width: 120rpx;height: 120rpx;border-radius: 50%;}

@@ -15,7 +15,7 @@
        <view class='right'><image src='{{userinfo.cardimg}}'></image></view>
       </view>
       <view class='dizhi'>地址：{{userinfo.region}}</view>
-      <view class='phone'>电话：<text>15623140205</text></view>
+      <view class='phone'>电话：<text>{{userinfo.p1}}</text></view>
     </view>
 
     <!--box1 end-->
@@ -32,8 +32,19 @@
   <button class='btn' open-type='share'>给好友递名片</button>
 </view>
 
-<view class='haibao'>
-  <view class='haibaobtn'>生成海报</view>
+<view class='haibao' bindtap='shenImg'>
+  <view class='haibaobtn' bind:tap="eventDraw">生成海报</view>
+</view>
 </view>
 
+<view class='canvas' wx:if='{{maskmodel}}'>
+<view class='modelcard'>
+  <view class='model'>
+     <image src="{{shareImage}}" class="share-image"></image>
+     <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+  </view> 
+  <view class='modelbtn'  bind:tap="eventSave">保存本地</view>
+  <view class='modelbtn modelbtntop' bindtap='guanbi'>关闭</view>
+  </view>
 </view>
+<!-- <canvas canvas-id="shareCanvas" style="width:600px;height:900px"></canvas> -->

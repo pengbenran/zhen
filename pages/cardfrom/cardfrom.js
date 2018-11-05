@@ -54,6 +54,7 @@ Page({
     parms.contents = e.detail.value.wofuze
     parms.region = e.detail.value.address
     parms.industry = e.detail.value.hy
+    parms.p1 = e.detail.value.dh
     businesscardDo.businesscardDo = parms;
     console.log(businesscardDo);
     //判断数据是否为空
@@ -92,7 +93,13 @@ Page({
         title: '行业不能为空',
         icon: 'loading'
       })
-    }else{
+    } else if (e.detail.value.dh == ''){
+      wx.showToast({
+        title: '电话不能为空',
+        icon: 'loading'
+      })
+    }
+    else{
       //请求提交数据
 
       let msg = request.post(url, JSON.stringify(businesscardDo))

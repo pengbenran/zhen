@@ -46,6 +46,12 @@ height: 95rpx;line-height: 95rpx;
 .haibaobtn{width: 90%;margin: auto;color: #8e8e8e;border-radius: 50rpx;
 height: 95rpx;line-height: 95rpx;border:1px solid #8e8e8e;}
 
+/* 海报样式 */
+.canvas{z-index: 10;position: absolute;top: 0;left: 0;background: rgba(0, 0, 0, 0.600);height: 100vh;width: 750rpx;}
+/* .model{height: 700rpx;width: 100%;} */
+.model{width: 750rpx;}
+.model image{width:750rpx;height: 720rpx;}
 
-
-
+.modelbtn{width: 85%;line-height: 75rpx;background:#ff7903;color:#fff;margin: auto;text-align: center;margin-top: 80rpx;border-radius: 20rpx;}
+.modelcard{padding-top: 95rpx;}
+.modelbtntop{margin-top: 40rpx;}

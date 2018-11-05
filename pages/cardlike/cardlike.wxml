@@ -1,36 +1,70 @@
 <view class='top'>
-  <view class="item {{likebool?'active':''}}" bindtap='clickTab'>谁{{listfont}}过我</view>
-  <view class="item {{!likebool?'active':''}}" bindtap='clickTab'>我{{listfont}}过谁</view>
+  <view wx:for='{{listtop}}' wx:for-index='index' class="item {{item.topbool?'active':''}}" bindtap='seleclickTab' data-index='{{index}}' >{{item.names}}</view>
 </view>
 
 
-<view class='listwarp' wx:if='{{likebool}}'>
-<view class='list' bindtap='tocardinfo' wx:for='{{wholikeme}}'>
+<view class='renqi' wx:if="{{bartitle=='我的人气'}}">
+<view class='listwarp' wx:if='{{indexs==0}}'>
+<view class='list' bindtap='tocardinfo' wx:for='{{whoLookMe}}' data-cardid='{{item.cardid}}' data-merberid='{{item.lookmemberid}}'>
   <view class='listitem'>
-   <text class='time'>{{item.liketime}}</text>
+   
    <view class='info'>
-    <view class='infoimg'><image src='{{item.cardImg}}'></image></view>
-    <view class='infoname'><text>{{item.cardName}}</text><text class='tishi'>{{item.cardName}}</text></view>
-    <view class='infoweixing'><image src='{{weiimg}}'></image></view>
+    <view class='infoimg'><image src='{{item.face}}'></image></view>
+    <view class='infoname'><text>{{item.nickName?item.nickName:item.uname}}</text><!--<text class='tishi'>{{item.cardName}}</text>-->
+      <text class='time'>{{item.looktime}}</text>
+    </view>
+    <!-- <view class='infoweixing'><image src='{{weiimg}}'></image></view> -->
    </view>
   </view>
 </view>
 </view>
 
 
-<view class='listwarp' wx:else>
-<view class='list' bindtap='tocardinfo' wx:for='{{ilike}}'>
+<view class='listwarp' wx:if='{{indexs==1}}'>
+<view class='list' bindtap='tocardinfo' wx:for='{{iLook}}' data-cardid='{{item.cardid}}' data-merberid='{{item.mermberId}}'>
   <view class='listitem'>
-   <text class='time'>{{item.liketime}}</text>
    <view class='info'>
     <view class='infoimg'><image src='{{item.cardImg}}'></image></view>
-    <view class='infoname'><text>{{item.cardName}}</text><text class='tishi'>{{item.cardName}}</text></view>
-    <view class='infoweixing'><image src='{{weiimg}}'></image></view>
+    <view class='infoname'><text>{{item.cardName}}</text><!--<text class='tishi'>{{item.cardName}}</text>-->
+      <text class='time'>{{item.looktime}}</text>
+    </view>
+    <!-- <view class='infoweixing'><image src='{{weiimg}}'></image></view> -->
+   </view>
+  </view>
+</view>
+</view>
+</view>
+
+<view class='dianzan' wx:if="{{bartitle=='我的点赞'}}">
+<view class='listwarp' wx:if='{{indexs==0}}'>
+<view class='list' bindtap='tocardinfo' wx:for='{{wholikeme}}'  data-cardid='{{item.cardid}}' data-merberid='{{item.likememberid}}'>
+  <view class='listitem'>
+   <view class='info'>
+    <view class='infoimg'><image src='{{item.face}}'></image></view>
+    <view class='infoname'><text>{{item.nickName?item.nickName:item.uname}}</text><!--<text class='tishi'>{{item.cardName}}</text>-->
+         <text class='time'>{{item.liketime}}</text>
+    </view>
+    <!-- <view class='infoweixing'><image src='{{weiimg}}'></image></view> -->
    </view>
   </view>
 </view>
 </view>
 
+
+<view class='listwarp' wx:if='{{indexs==1}}'>
+<view class='list' bindtap='tocardinfo' wx:for='{{ilike}}' data-cardid='{{item.cardid}}' data-merberid='{{item.mermberId}}'>
+  <view class='listitem'  data-cardid='{{item.cardid}}' data-merberid='{{item.mermberId}}'>
+   <view class='info'>
+    <view class='infoimg'><image src='{{item.cardImg}}'></image></view>
+    <view class='infoname'><text>{{item.cardName}}</text><!--<text class='tishi'>{{item.cardName}}</text>-->
+         <text class='time'>{{item.liketime}}</text>
+    </view>
+    <!-- <view class='infoweixing'><image src='{{weiimg}}'></image></view> -->
+   </view>
+  </view>
+</view>
+</view>
+</view>
 
 
 

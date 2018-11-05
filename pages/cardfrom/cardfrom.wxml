@@ -8,6 +8,9 @@
     <view class='item'><text>姓名</text> 
       <input type='text' placeholder="必填" name='name' placeholder-style='color:#ccc;font-size:30rpx;' />
     </view>
+     <view class='item'><text>电话</text> 
+      <input type='text' placeholder="请输入电话" name='dh' placeholder-style='color:#ccc;font-size:30rpx;' />
+    </view>
         <view class='item'><text>公司</text> 
       <input type='text' placeholder="请输入公司名称" name='gs' placeholder-style='color:#ccc;font-size:30rpx;' />
     </view>
@@ -27,6 +30,7 @@
       <view class='item'><text>行业</text> 
       <input type='text' placeholder="请选择行业" name='hy' placeholder-style='color:#ccc;font-size:30rpx;' />
     </view>
+    
     <view class='btnwarp'>
       <button formType="submit">保存</button>
     </view>

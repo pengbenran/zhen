@@ -37,9 +37,12 @@ height: 80rpx;width: 80rpx;border-radius: 50%;
 
 
 .btnlist{display: flex;justify-content: space-around;margin-top: 46rpx;}
-.btnitem{width: 150rpx;font-size: 28rpx;padding: 5rpx 0;color:#8e8e8e;border-radius: 35rpx;text-align: center;border:1px solid #8e8e8e; }
+.btnitem{width: 150rpx;font-size: 28rpx;padding: 5rpx 0;color:#8e8e8e;border-radius: 35rpx;text-align: center;border:1px solid #8e8e8e;margin: 0; line-height: 1.5;}
 
+.btnitem{background: #fff;}
+.zanbtn:active{border:1px solid #ff7903;color: #ff7903;background: #fff;}
 
+.infobtn{margin-top: 65rpx;width:90%;margin:auto;background:#ff7903;color:#fff;border-radius:50rpx;height:85rpx;
+line-height:85rpx;text-align: center;}
 
-
-
+.actives{border:1px solid #ff7903;color: #ff7903;background: #fff;}
