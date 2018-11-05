@@ -2,6 +2,7 @@ var apimg = getApp().globalData.apimg;
 var api = getApp().globalData.api;
 var apis = getApp().globalData.apis;
 const util = require('../../utils/util.js')
+const request = require('../../utils/request.js')
 var pay = ""
 var OrderId = ""
 var bean = ""
@@ -10,41 +11,15 @@ Page({
   data: {
     select: false,
     isAddr: true,
-    "payimg": [apimg + "/images/quzhifu/dizhi.png"],
+    payimg: apimg + "/images/quzhifu/dizhi.png",
     imgpay: apimg + "/images/quzhifu/ren.png",
     head: apimg + "/images/quzhifu/biankuang.png",
-    myaddress: "1",
-    "dizhi": ["湖南省长沙市天心区时代公寓A座1111公寓A座1111"],
-
-    "yes": [apimg + "/images/quzhifu/shang.png"],
-    "ind": [apimg + "/images/quzhifu/8.png"],
-    "h1": ["手机专卖商城"],
-    "chater": ["vivo X20双摄头智能大屏手机前置2000万像素"],
-    "numbtext": ["红色/4G+128GB"],
-    "price": ["998.00"],
-    "bao": [apimg + "/images/quzhifu/bao.png"],
-    "baotext": ["正平保障"],
-    "text": ["配送方式"],
-    "text2": ["普通快递￥0.00"],
-    "price": ["998.00"],
-    "waytext": ["可用积分812积分抵用8.12元"],
-    "youhui": ["优惠"],
-    "nothave": ["暂无可用"],
-    "coreimg": [apimg + "/images/quzhifu/8.png"],
-    "waymoney": ["998.00"],
-    "modemoney": ["0.00"],
-    "total": ["6800.00"],
-    "tijiao": ["提交订单"],
+    yes: apimg + "/images/quzhifu/shang.png",
+    ind: apimg + "/images/quzhifu/8.png",
+    bao: [apimg + "/images/quzhifu/bao.png"],
+    coreimg: apimg + "/images/quzhifu/8.png",
     memberAddressDO: "",
-
-    switchData: [
-      {
-        id: 1,
-        color: '#26b4fe',
-        isOn: false
-      }
-    ],
-    //   gooditem:gooditem
+    ordername:''
   },
 
   select: function (e) {
@@ -56,10 +31,20 @@ Page({
       that.setData({
         select : true
       })
+      if (that.data.goodsAmount - that.data.point_price <= 0) {
+        that.setData({
+          orderAmount: 0.01
+        })
+      } else {
+        that.setData({
+          orderAmount: that.data.orderAmount - that.data.point_price
+        })
+      }
     } else {
       select= false
       that.setData({
-        select: false
+        select: false,
+        orderAmount: that.data.goodsAmount
       })
     }
   },
@@ -67,13 +52,22 @@ Page({
 
   onLoad: function (options) {
     var that=this
-    console.log(options)
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          that.setData({
+            code: res.code
+          })
+        }
+      }
+    })
     wx.showLoading({
       title: '加载中',
     })
     var point = wx.getStorageSync('point')
     var indexdata = wx.getStorageSync('indexdata')
     var point_price = Number(point / indexdata.pointCash).toFixed(2)
+    // 判断是否是从购物车结算
     if (options.cart==undefined){
       that.setData({
         cart: wx.getStorageSync('cart')
@@ -84,8 +78,8 @@ Page({
        cart: options.cart       
       }) 
     }
+    // 判断是否使用了优惠劵
    if(options.pars!=undefined){
-    //  说明用了优惠劵
      if (options.pars==1){
        that.setData({
          pars: options.pars,
@@ -136,27 +130,19 @@ Page({
     // 加载地址
     if (wx.getStorageSync('addr') == '') {
       let addParms = {}
+      let parms={}
       addParms.memberId = that.data.memberId
-      wx.request({
-        url: api + '/api/address/defutaddress',
-        data: {
-          parms: addParms
-        },
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          // wx.setStorageSync('addr', res.data.memberAddressDO);
-          if (res.data.code == 1) {
-            that.setData({
-              isAddr: false
-            })
-          }
-          else {
-            that.setData({
-              addr: res.data.memberAddressDO
-            })
-          }
+      parms.parms = addParms
+      request.moregets('/api/address/defutaddress', parms).then(function (res) {
+        if (res.code == 1) {
+          that.setData({
+            isAddr: false
+          })
+        }
+        else {
+          that.setData({
+            addr: res.memberAddressDO
+          })
         }
       })
     }
@@ -165,6 +151,7 @@ Page({
         addr: wx.getStorageSync('addr')
       })
     }
+    // 根据是否是购物车提交
     if(that.data.cart==1){
       wx.hideLoading()
       if (options.gooditem==undefined){
@@ -208,34 +195,25 @@ Page({
         })
       }
         var goodArr = [];
-        var goodparms = {}
+        let goodparms = {}
+        let parms={}
         goodparms.goodsId = that.data.goodlist[0].goodsId
-        wx.request({
-          url: api + '/api/Goods/getGoods',
-          // url: 'http://192.168.2.144/api/index/getGoods/166993'
-          data: {
-            parms: goodparms
-          },
-          header: {
-            'Content-Type': 'json'
-          },
-          success: function (res) {
-            res.data.Goods.num = that.data.goodlist[0].pic
-            res.data.Goods.image = res.data.Goods.thumbnail
-            res.data.Goods.price=that.data.goodlist[0].price
-            goodArr.push(res.data.Goods) 
-            let ordermount = Number(that.data.goodlist[0].pic * res.data.Goods.price - that.data.facevalue - that.data.redamount).toFixed(2)
-            if(ordermount<=0){
-              ordermount=0.01
-            }
-            that.setData({
-              list: goodArr,
-              goodsAmount:  Number(that.data.goodlist[0].pic * res.data.Goods.price).toFixed(2),
-              orderAmount: ordermount
-            })
-       console.log(that.data.list)
-            wx.hideLoading()
+        parms.parms=goodparms
+        request.moregets('/api/Goods/getGoods', parms).then(function (res) {
+          res.Goods.num = that.data.goodlist[0].pic
+          res.Goods.image = res.Goods.thumbnail
+          res.Goods.price = that.data.goodlist[0].price
+          goodArr.push(res.Goods)
+          let ordermount = Number(that.data.goodlist[0].pic * res.Goods.price - that.data.facevalue - that.data.redamount).toFixed(2)
+          if (ordermount <= 0) {
+            ordermount = 0.01
           }
+          that.setData({
+            list: goodArr,
+            goodsAmount: Number(that.data.goodlist[0].pic * res.Goods.price).toFixed(2),
+            orderAmount: ordermount
+          })
+          wx.hideLoading()
         })
       }
   },
@@ -244,6 +222,126 @@ Page({
       clickd: e.detail.value
     })
   }, 
+  saveOrder: function (orderParms){
+    var that=this
+    request.morepost('/api/order/save', orderParms).then(function (res) {
+      wx.hideLoading()
+      if (res.code == 0) {
+        wx.showToast({
+          title: '订单提交成功',
+          icon: 'success',
+          duration: 2000
+        })
+        var parms = {}
+        that.setData({
+          order: res.order
+        })
+        if (that.data.pars == 1) {
+          wx.request({
+            url: api + '/api/vocher/usedState',
+            data: {
+              memberVoucherId: that.data.memberVoucherId
+            },
+            header: {
+              'Content-Type': 'json'
+            },
+            success: function (res) {
+
+            }
+          })
+        }
+        else if (that.data.pars == 2) {
+          wx.request({
+            url: api + '/api/redPacket/RedusedState',
+            data: {
+              memberRedpacketId: that.data.memberredpacketid
+            },
+            header: {
+              'Content-Type': 'json'
+            },
+            success: function (res) {
+
+            }
+          })
+        }
+        var orderId = res.orderId
+        var ordername = ''
+        for (var i = 0; i < res.order.item.length; i++) {
+          if (res.order.item.length == 1) {
+            ordername = res.order.item[i].name
+          }
+          else {
+            ordername = res.order.item[i].name + '...'
+          }
+        }
+        that.setData({
+          ordername: ordername
+        })
+        var payorderamount = res.order.orderAmount
+        var payordertime = util.formatTime(new Date(res.order.createTime))
+        parms.orderid = orderId
+        parms.sn = that.data.order.sn
+        parms.total_fee = payorderamount * 100
+        let payorderParm = {}
+        payorderParm.code = that.data.code;
+        payorderParm.parms = parms;
+        return request.moregets('/api/pay/prepay', payorderParm)
+      }
+    }).then(function (res) {
+      var pay = res
+      wx.requestPayment({
+        timeStamp: pay.timeStamp,
+        nonceStr: pay.nonceStr,
+        package: pay.package,
+        signType: pay.signType,
+        paySign: pay.paySign,
+        success: function (res) {
+          // 消息推送
+          util.sendMsg(pay.package, that.data.order.orderId, util.formatTime(new Date(that.data.order.createTime)), that.data.ordername, that.data.order.orderAmount)
+          wx.showToast({
+            title: '支付成功',
+            icon: 'success',
+            duration: 2000
+          })
+          let orderparms = {}
+          let order = {}
+          let parms = {}
+          order.orderId = that.data.order.orderId
+          orderparms.order = order
+          orderparms.code = 200
+          orderparms.gainedpoint = Number(that.data.order.gainedpoint)
+          orderparms.paymoney = that.data.order.orderAmount
+          parms.parms = JSON.stringify(orderparms)
+          request.moreput('/api/order/passOrder', parms).then(function (res) {
+            if (res.code == 0) {
+              if (wx.getStorageSync('isAgent') != null) {
+                let fenrunParm = {}
+                let params = {}
+                fenrunParm.memberId = that.data.memberId
+                fenrunParm.distribeId = wx.getStorageSync('isAgent')
+                fenrunParm.monetary = that.data.order.orderAmount
+                fenrunParm.shareMoney = that.data.list[0].fenrunAmount
+                params.params = JSON.stringify(fenrunParm)
+                return request.morepost('/api/distribe/shareProfit', params)
+              }
+              wx.showToast({
+                title: '订单成功',
+                icon: 'success',
+                duration: 2000
+              })
+              setTimeout(function () {
+                wx.switchTab({
+                  url: '../index/index',
+                })
+              }, 1000)
+            }
+          }).then(function (res) {
+            console.log(res)
+          })
+        }
+      })
+    })  
+  },
   toast: function () {
     var that = this
     if (that.data.addr == undefined) {
@@ -252,26 +350,29 @@ Page({
       })
     }
     else {
-      if (that.data.cart==0){
-      var bean = {}
-      var goodObj = {}
+      let bean = {}
+      let goodObj = {}
+      let orderParms = {}
       wx.showLoading({
         title: '请稍等',
       })
-      //  判断是否使用积分
-      if(that.data.select==true){
-        if (that.data.goodsAmount - that.data.point_price<=0){
-          bean.orderAmount =0.01
-          bean.consumepoint = parseInt((that.data.goodsAmount-0.01)*indexdata.pointCash)
-        }else{
+      // 判断是否使用积分抵扣
+      if (that.data.select == true) {
+        if (that.data.goodsAmount - that.data.point_price <= 0) {
+          bean.orderAmount = 0.01
+          bean.consumepoint = parseInt((that.data.goodsAmount - 0.01) * indexdata.pointCash)
+        } else {
           bean.orderAmount = that.data.orderAmount - that.data.point_price
           bean.consumepoint = that.data.point
-        }      
-      }
-      else{
-        bean.orderAmount = that.data.orderAmount 
-        bean.consumepoint =0
         }
+      }
+      else {
+        bean.orderAmount = that.data.orderAmount
+        bean.consumepoint = 0
+      }
+
+      if (that.data.cart==0){
+      //  判断是否使用积分   
         bean.memberId = that.data.memberId
         bean.image = that.data.list[0].image
         bean.weight = that.data.list[0].weight * that.data.list[0].num
@@ -299,188 +400,11 @@ Page({
         bean.clickd = that.data.clickd
         bean.goodsAmount = that.data.list[0].price * that.data.list[0].num
         bean = JSON.stringify(bean)
-        wx.request({
-        url: api + '/api/order/save',
-        method: 'POST',
-        header: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data: {
-          order: bean
-        },
-        success: function (res) {
-          wx.hideLoading()
-          if(res.data.code==0){
-            wx.showToast({
-              title: '订单提交成功',
-              icon: 'success',
-              duration: 2000
-            })
-            var parms = {}
-            that.setData({
-              order: res.data.order
-            })
-            if(that.data.pars==1){
-              wx.request({
-                url: api + '/api/vocher/usedState',
-                data: {
-                  memberVoucherId:that.data.memberVoucherId
-                },
-                header: {
-                  'Content-Type': 'json'
-                },
-                success: function (res) {
-                 console.log(res.data)
-                }
-              })
-            }
-            else if(that.data.pars==2){
-              wx.request({
-                url: api + '/api/redPacket/RedusedState',
-                data: {
-                  memberRedpacketId: that.data.memberredpacketid
-                },
-                header: {
-                  'Content-Type': 'json'
-                },
-                success: function (res) {
-                  console.log(res.data)
-                }
-              })
-            }
-            var orderId = res.data.order.orderId
-            var ordername =''
-            for(var i=0;i<res.data.order.item.length;i++){
-              if(res.data.order.item.length==1){
-                ordername = res.data.order.item[i].name 
-              }
-              else{
-                ordername = res.data.order.item[i].name + '...'
-              }
-            }
-            var payorderamount = res.data.order.orderAmount
-            var payordertime = util.formatTime(new Date(res.data.order.createTime))
-            parms.orderid = orderId
-            parms.sn=that.data.order.sn
-            parms.total_fee = payorderamount* 100
-            wx.login({
-              success: function (res) {
-                if (res.code) {
-                  //发起网络请求
-                  wx.request({
-                    url: api + "/api/pay/prepay",
-                    data: {
-                      code: res.code,
-                      parms: parms,
-                     
-                    },
-                    method: 'GET',
-                    success: function (res) {
-                      var pay = res.data
-                      wx.requestPayment({
-                        timeStamp: pay.timeStamp,
-                        nonceStr: pay.nonceStr,
-                        package: pay.package,
-                        signType: pay.signType,
-                        paySign: pay.paySign,
-                        success: function (res) {
-                          // 消息推送
-                          util.sendMsg(pay.package, orderId, payordertime, ordername, that.data.order.orderAmount)
-                          wx.showToast({
-                            title: '支付成功',
-                            icon: 'success',
-                            duration: 2000
-                          })
-                          var orderparms = {}
-                          var order={}
-                          order.orderId = that.data.order.orderId
-                          orderparms.order = order
-                          orderparms.code = 200
-                          orderparms.gainedpoint = Number(that.data.order.gainedpoint)
-                          orderparms.paymoney = that.data.order.orderAmount
-                          wx.request({
-                            url: api + "/api/order/passOrder",
-                            data: {
-                              parms: JSON.stringify(orderparms)
-                            },
-                            method: 'PUT',
-                            header: {
-                              'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            success: function (res) {
-                                if(res.data.code==0){
-                                 
-                                  if (wx.getStorageSync('isAgent')!=null){
-                                    let fenrunParm = {}
-                                    fenrunParm.memberId = that.data.memberId
-                                    fenrunParm.distribeId = wx.getStorageSync('isAgent')
-                                    fenrunParm.monetary = that.data.order.orderAmount
-                                    fenrunParm.shareMoney = that.data.list[0].fenrunAmount
-                                    wx.request({
-                                      url: api + "/api/distribe/shareProfit",
-                                      method: "POST",
-                                      data: {
-                                        params: JSON.stringify(fenrunParm)
-                                      },
-                                      header: {
-                                        'Content-Type': 'application/x-www-form-urlencoded'
-                                      },
-                                      method: "POST",
-                                      success: function (res) {
-                                        console.log(res.data)
-                                        if (res.data.code == 0) {
-
-                    
-                                        }
-                                      }
-                                    })
-                                  }
-                                  wx.showToast({
-                                    title: '订单成功',
-                                    icon: 'success',
-                                    duration: 2000
-                                  })
-                                  setTimeout(function () {
-                                    wx.switchTab({
-                                      url: '../index/index',
-                                    })
-                                  }, 1000)
-                                }
-                            }
-                          })
-                        }
-
-                      })
-                    }
-                  })
-                }
-               }
-          })
-      }
-      }
-        })
+        orderParms.order=bean
+        that.saveOrder(orderParms)
       }
       else{
         // 购物车提交订单
-        var bean = {}
-        var goodObj = {}
-        wx.showLoading({
-          title: '请稍等',
-        })
-        //  判断是否使用积分
-        if (that.data.select == true) {
-          if (that.data.goodsAmount - that.data.point_price <= 0) {
-            bean.orderAmount = 0.01
-            bean.consumepoint = parseInt((that.data.goodsAmount - 0.01) * indexdata.pointCash)
-          } else {
-            bean.orderAmount = that.data.orderAmount - that.data.point_price
-            bean.consumepoint = that.data.point
-          }
-        }
-        else {
-          bean.orderAmount = that.data.orderAmount
-          bean.consumepoint = 0
-        }
         bean.weight = that.data.weight
         bean.gainedpoint = that.data.gainedpoint
         bean.memberId = that.data.memberId
@@ -488,110 +412,8 @@ Page({
         bean.shippingAmount = 0
         bean.googitem = that.data.list
         bean = JSON.stringify(bean)
-        wx.request({
-          url: api + '/api/order/save',
-          method: 'POST',
-          header: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          data: {
-            order: bean
-          },
-          success: function (res) {
-            wx.hideLoading()
-            if (res.data.code == 0) {
-              wx.showToast({
-                title: '订单提交成功',
-                icon: 'success',
-                duration: 2000
-              })
-              var parms = {}
-              that.setData({
-                order: res.data.order
-              })
-              if (that.data.pars == 1) {
-                wx.request({
-                  url: api + '/api/vocher/usedState',
-                  data: {
-                    memberVoucherId: that.data.memberVoucherId
-                  },
-                  header: {
-                    'Content-Type': 'json'
-                  },
-                  success: function (res) {
-                    console.log(res.data)
-                  }
-                })
-              }
-              parms.orderid = res.data.order.orderId
-              parms.sn = that.data.order.sn
-              parms.total_fee = res.data.order.orderAmount * 100
-              wx.login({
-                success: function (res) {
-                  if (res.code) {
-                    //发起网络请求
-                    wx.request({
-                      url: api + "/api/pay/prepay",
-                      data: {
-                        code: res.code,
-                        parms: parms
-                      },
-                      method: 'GET',
-                      success: function (res) {
-                        var pay = res.data
-                        wx.requestPayment({
-                          timeStamp: pay.timeStamp,
-                          nonceStr: pay.nonceStr,
-                          package: pay.package,
-                          signType: pay.signType,
-                          paySign: pay.paySign,
-                          success: function (res) {
-
-                            wx.showToast({
-                              title: '支付成功',
-                              icon: 'success',
-                              duration: 2000
-                            })
-                            var orderparms = {}
-                            var order = {}
-                            order.orderId = that.data.order.orderId
-                            orderparms.order = order
-                            orderparms.code = 200
-                            orderparms.gainedpoint = Number(that.data.order.gainedpoint)
-                            orderparms.paymoney = that.data.order.orderAmount
-                            wx.request({
-                              url: api + "/api/order/passOrder",
-                              data: {
-                                parms: JSON.stringify(orderparms)
-                              },
-                              method: 'PUT',
-                              header: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                              },
-                              success: function (res) {
-                                if (res.data.code == 0) {
-                                  wx.showToast({
-                                    title: '订单成功',
-                                    icon: 'success',
-                                    duration: 2000
-                                  })
-                                  wx.switchTab({
-                                    url: '../index/index',
-                                  })
-                                }
-                              }
-                            })
-                          }
-
-                        })
-                      }
-                    })
-                  }
-                }
-              })
-            }
-          }
-        })
+        orderParms.order = bean
+        that.saveOrder(orderParms)
       }
    
     }

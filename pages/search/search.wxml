@@ -4,13 +4,15 @@
     <button>搜索</button>
 </view> -->
 <!-- 手机  -->
+<form bindsubmit="formSubmit" report-submit="true">
   <view class='searchTop'>
     <view class="m-searchTop">
       <view class="icon-search"></view>
       <input class="input" placeholder="搜索" bindinput ="serarchkey" />
     </view>
-    <button class="cell" bindtap='indexsou'>搜索</button>
+    <button class="cell" formType="submit">搜索</button>
   </view>
+</form>
 <view class="cont" wx:if="{{hotKeyShow}}">
   <view class='cont-top'>
   <text class="font_14">热门搜索</text>

@@ -1,6 +1,7 @@
- var apimg = getApp().globalData.apimg;
+var apimg = getApp().globalData.apimg;
 var api = getApp().globalData.api;
 var WxParse = require('/../../wxParse/wxParse.js');
+const request = require('../../utils/request.js')
 let actEndTimeLists = [];
 Page({
   data: {
@@ -14,64 +15,29 @@ Page({
     sModalStatuss:false,
     goodsId:'',
     collageGoodsId:'',
-    countDownList: [],
-    actEndTimeList: [],
-    coll:apimg+"/image/souc.png", 
-    shutiao:apimg+"/image/group/10.png",
     boxleft:apimg+"/image/group/9.png",
-    comimg:apimg+"/images/guige/zu01.png",
     chaimg:apimg+"/images/guige/xx.png",
-    huo:apimg+"/images/guige/zu01.png",
-    model:apimg+"/images/guige/xx.png",
     kefu:apimg+"/image/group/8.png",
-    
     //添加购物车提示 
-    item: {
-      title: 6666666,
-      price: 998.00,
-    }, 
+    item: {}, 
     pic:1,
-    maxtime: "",
-    isHiddenLoading: true,
-    isHiddenToast: true,
     flag: true,
-    dataList: {},
     countDownDay: 0,
     countDownHour: 0,
     countDownMinute: 0,
     countDownSecond: 0,
-    posts: false,
-    hidden:  false,
     indicatorDots: true,  //显示面板指示点
     autoplay: true,     //自动切换
     interval: 5000,    //自动切换时间间隔 
     duration: 1000,    //滑动动画时长
-    imgUrls: [
-      'https://shop.yogain.cn/simages/image/group/zu04.png',
-      'https://shop.yogain.cn/simages/image/group/zu04.png',
-      'https://shop.yogain.cn/simages/image/group/zu04.png'
-
-    ],
-    "gimg": [apimg+"/image/gotuan/6.png"],
-    "kefu": [apimg+"/image/group/8.png"],
-    "indeximg": [apimg+"/image/group/17.png"],
-    "xqimg": [apimg+"/image/group/04.jpg"],
-    "join": [apimg+"/image/group/14.png"],
-    "himg": [apimg+"/image/group/15.png"],
-    "chaimg": [apimg+"/images/guige/xx.png"],
-    "dityimg": [apimg+"/images/guige/zu01.png"],
-    "spec": [apimg+"/image/shouye/8.png"],
-    "sbox": [apimg+"/image/group/9.png"],
-    "shou": [apimg+"/image/group/10.png"],
-    "sharing": [apimg+"/image/group/5.png"],
-    "distance": [apimg+"/image/group/13.png"],
-    
-
-
+    gimg:apimg+"/image/gotuan/6.png",
+    indeximg: apimg+"/image/group/17.png",
+    join: apimg+"/image/group/14.png",
+    sharing:apimg+"/image/group/5.png",
+    distance: apimg+"/image/group/13.png",
   },
   // 刷新
   onPullDownRefresh() {
-
     wx.stopPullDownRefresh()
     wx.hideNavigationBarLoading()
     wx.showLoading({
@@ -80,7 +46,6 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 500)
-    this.onLoad();
   },
   //事件处理函数 
   collage: function () {
@@ -88,9 +53,6 @@ Page({
       url: '../cantuan/cantuan'
     })
   }, 
-  onPullDownRefresh: function () {
-    this.onLoad()
-  },
 
   onLoad: function (options) {
     var that = this;
@@ -107,91 +69,49 @@ Page({
       goodsId: options.goodsId,
       memberId: wx.getStorageSync('memberId')
     })
-   
     wx.showLoading({
       title: '加载中',
-    })
-    //上个页面传的开团活动商品数据
-  
-    
-    //商品详情
-    var goodsParms = {}
+    })  
+    let goodsParms = {}
+    let parms={}
     goodsParms.goodsId = that.data.goodsId
     goodsParms.memberId = that.data.memberId
-    wx.request({
-      url: api + '/api/Goods/getProduct',
-      data: {
-        parms: goodsParms
-      },
-      header: {
-        'Content-Type': 'json'
-      },
-      success: function (res) {
-        that.setData({
-          productId: res.data.product.productId,
-        })
-      }
+    parms.parms=goodsParms;
+    request.moregets('/api/Goods/getProduct', parms).then(function (res) {
+      that.setData({
+        productId: res.product.productId,
+      })
     })
-    wx.request({
-      url: api + '/api/Goods/getGoods',
-      // url: 'http://192.168.2.144/api/index/getGoods/166993'
-      data: {
-        parms: goodsParms
-      },
-      header: {
-        'Content-Type': 'json'
-      },
-      success: function (res) {   
-        wx.hideLoading()
-        that.setData({
-          Gallery: res.data.Gallery,
-          article:res.data.Goods.intro,
-          Goods:res.data.Goods,
-          tags:res.data.tags,
-        })
-        WxParse.wxParse('article', 'html', that.data.article, that, 25);
-      },
+    // 获取商品数据
+    request.moregets('/api/Goods/getGoods', parms).then(function (res) {
+      wx.hideLoading()
+      that.setData({
+        Gallery: res.Gallery,
+        article: res.Goods.intro,
+        Goods: res.Goods,
+        tags: res.tags,
+      })
+      WxParse.wxParse('article', 'html', that.data.article, that, 25);
     })
     // 获取拼团数据
-    wx.request({
-      url: api + '/api/collage/seleCollGoods/' + that.data.collageGoodsId, 
-      header: {
-        'Content-Type': 'json'
-      },
-      success: function (res) {
-        console.log(res.data)
-        if(res.data.code==0){
-          that.setData({
-            collageDo: res.data.collageDO,
-            collageGoodsDo: res.data.collageGoodsDO
-          })
-        }   
-      },
+    request.moregets('/api/collage/seleCollGoods/' + that.data.collageGoodsId).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          collageDo: res.collageDO,
+          collageGoodsDo: res.collageGoodsDO
+        })
+      }   
     })
-
-    // var goodsList = options.goodsList
-  //   var goodsList = JSON.parse(e.goodString);
-  //   console.log(goodsList);
-  // //请求获取正在开团的数据
-    wx.request({
-      url: api +'/api/collage/allStartCollage', 
-      data: {
-        goodsId: that.data.goodsId
-      },
-      header: {
-        "Content-Type": "application/json"
-      },
-      success: function (res) {  
-         that.setData({
-            collages: res.data
-          })
-       // console.log(res.data)
-       // that.countdown(that.data.collages[0].collageStarttime)
-        for (var i = 0; i < that.data.collages.length; i++) {
-          that.countdown(i,that.data.collages[i].collageStarttime)
-        }
+    let startCollage = {}
+    startCollage.goodsId = that.data.goodsId
+    request.moregets('/api/collage/allStartCollage', startCollage).then(function (res) {
+      that.setData({
+        collages: res
+      })
+      for (var i = 0; i < that.data.collages.length; i++) {
+        that.countdown(i, that.data.collages[i].collageStarttime)
       }
-    })  
+    })
   },
   timeFormat(param) {//小于10的格式化函数
     return param < 10 ? '0' + param : param;

@@ -1,7 +1,6 @@
 <import src="../../utils/switch/switch.wxml" />
 <view class="container">
-  <!--头部  -->
-  
+  <!--头部  --> 
   <view class="payment" bindtap='admin'  wx:if="{{isAddr}}">
     <image class="head" src='{{head}}'></image>
      <view class='payment_addr'>
@@ -66,7 +65,7 @@
     </view>
   </view> -->
   <view class='way' bindtap='youhui'>
-    <text class='way-text1'>{{youhui}}</text>
+    <text class='way-text1'>优惠劵</text>
     <view class="inte-rightimg">
       <text class="core-red"  wx:if="{{pars==0||pars==2}}">优惠券</text>
        <text class="core-red" wx:if="{{pars==1}}">已使用优惠券-{{facevalue}}</text>
@@ -116,7 +115,7 @@
           </block>  -->
       </view>
       <view class="foot-right" bindtap="toast">
-        <text>{{tijiao}}</text>
+        <text>提交订单</text>
       </view>
     </view>
   </view>

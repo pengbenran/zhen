@@ -1,0 +1,78 @@
+   	<view class="find_content">
+      <view wx:for="{{tuijian_list}}" wx:for-index="outindex"  wx:for-item="outItem" class='see_content'>
+        <view class='left'>
+          <view class="find_user_avator">
+            <image src="{{outItem.face}}" alt=""></image>
+          </view>
+        </view>
+        <view class='right'>      
+            <view class="find_user_name">
+            <text>{{outItem.uname}}</text>
+            <text class='find_loca'>{{outItem.posttime}}</text>
+            </view>
+            <view class="find_title {{openClose=='全文'? 'isClose':''}}" bindtap='jumpseeDetail' data-postId="{{outItem.postinfoid}}">
+            {{outItem.postcontent}}
+            </view> 
+            <view wx:if="{{outItem.postcontent.length>60}}" class="openClose" bindtap="openClose">
+              {{openClose}}
+            </view>
+            <view  class="find_img"  wx:if="{{outItem.imagesDOList.length==1}}" >
+              <view class='find_img_one' data-outIndex="{{outindex}}" data-innerIndex="0" bindtap='previewImg'>
+                <image src="{{outItem.imagesDOList[0].imgpath}}" alt=""  mode="widthFix"></image>
+              </view>
+            </view>
+            <view class="find_img"  wx:if="{{outItem.imagesDOList.length>1}}">    
+              <view class="find_img_list" wx:for="{{outItem.imagesDOList}}"  wx:for-item="innerItem" wx:for-index="innerIndex" style="width:{{ImageWidth}};height:{{ImageWidth}}" bindtap='previewImg' data-outIndex="{{outindex}}" data-innerIndex="{{innerIndex}}">
+                <image src="{{innerItem.imgpath}}" alt=""></image>
+              </view>
+            </view>
+            <view class="find_loca">
+              {{outItem.postaddre}}
+            </view>
+             <view class="find_loca">
+             浏览{{outItem.lookcounts}}次
+             </view>
+            <view class="find_count">
+              <view class='zanAvator'>
+                <view class='avatorList' wx:for="{{outItem.zanDOList}}"  wx:for-item="innerzanItem" wx:for-index="innerzanIndex" >
+                  <image src='{{innerzanItem.face}}'></image>
+                </view>
+              </view>
+               <view class='zancount' wx:if="{{outItem.zanDOList.length>6}}">等{{outItem.zanDOList.length}}人已赞</view>
+              <view class="find_count_icon" bindtap="zan" data-index="{{outindex}}" wx:if="{{!outItem.like}}">
+                <image src="/image/zan.png" alt=""></image>
+              </view>
+              <view class="find_count_icon" bindtap="quxiaoZan" data-index="{{outindex}}" wx:if="{{outItem.like}}">
+                <image src="/image/zan1.png" alt=""></image>
+              </view>
+              <view class="find_count_icon"  data-index="{{outindex}}" bindtap='showApply'  data-postId="{{outItem.postinfoid}}" data-memberId="{{outItem.memberid}}">
+                <image src="/image/msg1.png" alt=""></image>
+              </view>
+            </view>
+            <view class="find_msg {{msgOpenClose=='展开'? 'msgIsClose':''}}">
+              <view class='find_msg_list'  wx:for="{{outItem.commentDOList}}"  wx:for-item="innermsgItem" wx:for-index="innermsgIndex" bindtap='apply' data-innermsgIndex="{{innermsgIndex}}" data-index="{{outindex}}"
+              data-applyName="{{innermsgItem.uname}}" data-id='{{innermsgItem.id}}'  data-postId="{{outItem.postinfoid}}"  data-toMemberid="{{innermsgItem.memberId}}">
+               <view>
+                 <text class='nameMsg'>{{innermsgItem.uname}}:</text>{{innermsgItem.content}}
+               </view>  
+               <view class='apply_msg_list'wx:for="{{innermsgItem.replyDOList}}"  wx:for-item="innerapplyItem" wx:for-index="innerapplyIndex" >
+                <text class='nameMsg'>{{innerapplyItem.fromUname}}@{{innerapplyItem.uname}}:</text>{{innerapplyItem.content}}
+               </view>
+              </view>
+            </view>
+             <view wx:if="{{outItem.commentDOList.length>10}}" class="openClose" bindtap="msgOpenClose">
+               {{msgOpenClose}}
+              </view>
+            <view class="find_count_input" bindtap='showApply' data-index="{{outindex}}" data-postId="{{outItem.postinfoid}}" data-memberId="{{outItem.memberid}}">
+              评论
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{!hasMore}}" class='tip'>谷琴有底线的~~~~</view>
+      <view class='find_mode' wx:if="{{canMsg}}">
+        <view class='modebcg' bindtap='hiddenApply'></view>
+        <view class='find_input'>
+          <input placeholder='{{placeholder}}' type='text' focus="{{canMsg}}" bindconfirm='postMsg' value='{{postMsg}}' bindinput='getMsgValue'></input>
+        </view>
+     </view>
+   	</view>

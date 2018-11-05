@@ -290,7 +290,8 @@ Page({
     }.bind(this), 200)
   },
 //立即购买模态框
-  sModal: function () {
+  sModal: function (e) {
+    console.log(e)
     // 显示遮罩层
     var animation = wx.createAnimation({
       duration: 200,
@@ -309,6 +310,20 @@ Page({
         animationData: animation.export()
       })
     }.bind(this), 200)
+    wx.request({
+      url: api + '/api/push/saveFormid',
+      data: {
+        formid: e.detail.formId,
+        memberId: wx.getStorageSync('memberId')
+      },
+      method: "POST",
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
   },
 
   hModal: function () {
@@ -584,7 +599,7 @@ Page({
     var current2 = options.currentTarget.dataset.item;
 
     for(var i in that.data.adjuncts){
-      for(var j in that.data.adjuncts[i].value){
+      for (var j in that.data.adjuncts[current1].value){
         that.data.adjuncts[current1].value[j].flag=false
       }
     }

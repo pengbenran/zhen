@@ -1,6 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/dynamic/dynamic",
+    "pages/comment/comment",
+    "pages/seedetail/seedetail",
+    "pages/see/see",
+    "pages/addDynamic/addDynamic",
     "pages/morepoint/morepoint",
     "pages/distribeposter/distribeposter",
     "pages/postersharing/postersharing",
@@ -31,7 +36,6 @@
     "pages/dist/dist",
     "pages/join/join",
     "pages/bigwheel/bigwheel",
-    "pages/guaguaka/guaguaka",
     "pages/huiyuan/huiyuan",
     "pages/myaddresstwo/myaddresstwo",
     "pages/xinzengdizhitwo/xinzengdizhitwo",
@@ -91,16 +95,16 @@
         "text": "首页"
       },
       {
-        "selectedIconPath": "/image/all1.png",
-        "iconPath": "/image/all.png",
-        "pagePath": "pages/shangfeilei/shangfeilei",
-        "text": "全部分类"
-      },
-      {
           "selectedIconPath": "/image/active01.png",
           "iconPath": "/image/active.png",
           "pagePath": "pages/active/active",
           "text": "活动"
+        },
+        {
+          "selectedIconPath": "/image/all1.png",
+          "iconPath": "/image/all.png",
+          "pagePath": "pages/see/see",
+          "text": "论坛"
         },
       {
          "selectedIconPath": "/image/chart01.png",

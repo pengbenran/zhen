@@ -4,70 +4,35 @@ var api = getApp().globalData.api;
 const  post=(url,data)=>{
   return new Promise((resolve, reject) => {
     wx.request({
-      url: api + url,
+      url:  url,
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      method:'post',
-      data: {
-        params: data
-      },
-      success: res => {
-        if (res.data.code == 0) {
-          resolve(res.data)
-          console.log(res.data.data)
-        } else {
-          reject(res.data)
-          console.log('请求失败')
-        }
+      method:'POST',
+      data: data,
+      success: res => {       
+      resolve(res.data)
       },
     });
   })
 }
 
 //封装一个get请求
-const gets = (url, data) => {
+const gets = (url) => {
   return new Promise((resolve, reject) => {
     wx.request({
-      url:api+url,
+      url:url,
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      method: 'get',
-      data: {
-        params: data
-      },
+      method: 'GET',
       success: res => {
-        if (res.data.code == 0) {
-          resolve(res.data)
-          console.log(res.data.data)
-        } else {
-          reject(res.data)
-          console.log('请求失败')
-        }
+        resolve(res.data)
       },
     });
   })
 }
 
-//封装单个get请求
-const onegets = (url, data) => {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: api + url,
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      method: 'get',
-      data: {
-        memberId: data
-      },
-      success: res => {
-          resolve(res.data)
-      },
-    });
-  })
-}
 
 //封装多个get请求
 const moregets = (url, data) => {
@@ -85,8 +50,38 @@ const moregets = (url, data) => {
     });
   })
 }
-
-
+//封装多个Post请求
+const morepost = (url, data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: api + url,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      data: data,
+      success: res => {
+        resolve(res.data)
+      },
+    });
+  })
+}
+//封装多个Put请求
+const moreput = (url, data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: api + url,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'PUT',
+      data: data,
+      success: res => {
+        resolve(res.data)
+      },
+    });
+  })
+}
 
 //封装一个弹出提示
 const showSuccess=(text,url)=>{
@@ -128,8 +123,9 @@ const showModels=(text,url01,url02)=>{
 module.exports = {
   post,
   gets,
-  onegets,
   moregets,
+  morepost,
   showSuccess,
-  showModels
+  showModels,
+  moreput
 }

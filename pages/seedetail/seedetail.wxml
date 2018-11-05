@@ -1,0 +1,74 @@
+<!--pages/seedetail/seedetail.wxml-->
+<view class='seedetail'>
+  <view class='user'>
+    <view class='userAvator'>
+      <image src='{{composeDO.face}}'></image>
+    </view>
+    <view class='userName'>
+      <!-- {{}} -->
+      {{composeDO.uname}}
+    </view>
+    <view class='posttime'>{{composeDO.posttime}}</view>
+  </view>
+  <view class='content'>
+    <view class='postcontent'>
+    {{composeDO.postcontent}}
+    </view>
+    <view  class="find_img"  wx:if="{{composeDO.imagesDOList.length==1}}" >
+      <view class='find_img_one' data-outIndex="{{outindex}}" data-innerIndex="0" bindtap='previewImg'>
+        <image src="{{composeDO.imagesDOList[0].imgpath}}" alt=""  mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="find_img"  wx:if="{{composeDO.imagesDOList.length>1}}">    
+      <view class="find_img_list" wx:for="{{composeDO.imagesDOList}}"  wx:for-item="innerItem" wx:for-index="innerIndex" style="width:{{ImageWidth}};height:{{ImageWidth}}" bindtap='previewImg' data-outIndex="{{outindex}}" data-innerIndex="{{innerIndex}}">
+        <image src="{{innerItem.imgpath}}" alt=""></image>
+      </view>
+    </view>
+    <view class="find_loca">
+    {{composeDO.postaddre}}
+    </view>
+    <view class="find_loca">
+    浏览{{composeDO.lookcounts}}次
+    </view>
+    <view class='zancontent'>
+     <view class='zanavator'>  
+        <view class='zanlist' wx:for="{{zanDOList}}" :index="index" :key="item">
+          <image src='{{item.face}}'></image>
+        </view>
+     </view>
+     <view class='zancount' wx:if="{{zanDOList.length>6}}">等{{outItem.zanDOList.length}}人已赞</view>
+     <view class="find_count_icon" bindtap="zan"  wx:if="{{!composeDO.like}}">
+        <image src="/image/zan.png" alt=""></image>
+      </view>
+      <view class="find_count_icon" bindtap="quxiaoZan" data-index="{{outindex}}" wx:if="{{composeDO.like}}">
+        <image src="/image/zan1.png" alt=""></image>
+      </view>
+      <view class="find_count_icon"  bindtap='showApply'  data-postId="{{composeDO.postinfoid}}">
+        <image src="/image/msg1.png" alt=""></image>
+      </view>
+    </view>
+     
+    <view wx:for="{{commentDOList}}" wx:for-index="innermsgIndex" wx:for-item="innermsgItem" bindtap='apply' data-innermsgIndex="{{innermsgIndex}}"
+              data-applyName="{{innermsgItem.uname}}" data-id='{{innermsgItem.id}}' data-toMemberid="{{innermsgItem.memberId}}" >
+      <view class='msgList'>
+        <view class='msguserAvator'>
+          <image src='{{innermsgItem.face}}'></image>
+      </view>
+      <view class='msgListRight'>
+        <view class='username'>{{innermsgItem.uname}}</view>
+        <view class='time'>{{innermsgItem.composeTime}}</view>
+        <view class='msgcontent'>评论:{{innermsgItem.content}}</view>
+      </view>
+      </view>
+      <view class='apply_msg_list'wx:for="{{innermsgItem.replyDOList}}"  wx:for-item="innerapplyItem" wx:for-index="innerapplyIndex" >
+        <text class='nameMsg'>{{innerapplyItem.fromUname}}@{{innerapplyItem.uname}}:</text>{{innerapplyItem.content}}
+      </view>
+    </view>
+  </view>
+  <view class='find_mode' wx:if="{{canMsg}}">
+    <view class='modebcg' bindtap='hiddenApply'></view>
+    <view class='find_input'>
+      <input placeholder='{{placeholder}}' type='text' focus="{{canMsg}}" bindconfirm='postMsg' value='{{postMsg}}' bindinput='getMsgValue'></input>
+    </view>
+  </view>
+</view>

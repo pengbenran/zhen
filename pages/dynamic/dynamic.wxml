@@ -1,0 +1,5 @@
+<!--pages/dynamic/dynamic.wxml-->
+<scroll-view class='dynamic' bindscrolltolower='pulldown' scroll-y style="height: 100vh;">
+  <bbslist tuijian_list="{{tuijian_list}}" hasMore="{{hasMore}}" ImageWidth="{{ImageWidth}}"/>
+</scroll-view>
+  

@@ -74,24 +74,7 @@
           </view>
           </view>
       </view>
-              <!--规格  -->
-        <!-- <view class='commodity-box2'>
-            <text>{{twoList[0].specName}}</text>
-            <view class='spebox'>
-              <view class='specification' wx:for='{{twoList[0].value}}'>
-                <button class="spebtn {{current == item.specValueId?'active':''}}" data-text='{{item.specvalue}}' data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='changs'>{{item.specvalue}}</button>
-              </view>
-            </view>
-        </view>
-       <!-- 颜色 -->
-        <!-- <view class='commodity-box2'>
-            <text>{{twoList[1].specName}}</text>
-              <view class='spebox'>
-              <view class='specification' wx:for='{{twoList[1].value}}'>
-                <button class="spebtn {{currentItem == item.specValueId?'active':''}}" data-text='{{item.specvalue}}' data-id="{{item.specValueId}}" wx:for-index="index" wx:for-item="j" bindtap='changColors'>{{item.specvalue}}</button>
-              </view>
-            </view>
-        </view>  -->
+    
         <view class='commodity-box3'>
           <text>购买数量：</text>
           <view class='btn'>

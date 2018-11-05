@@ -3,46 +3,26 @@ var api = getApp().globalData.api;
 var pay=""
 var OrderId=""
 var bean=""
-
+const request = require('../../utils/request.js')
 Page({
   data: {
-    productId:'',
-    price:'',
-    isKaituan:true,
-    isAddr:true,
-    "payimg": [apimg+"/images/quzhifu/dizhi.png"],
-    imgpay:apimg+"/images/quzhifu/ren.png",
-    head:apimg+"/images/quzhifu/biankuang.png",
-    myaddress: "1",
-    "yes": [apimg+"/images/quzhifu/shang.png"],
-    "ind": [apimg+"/images/quzhifu/8.png"],
-    "h1": ["手机专卖商城"],
-    // "spcart": ["../images/quzhifu/tu1.png"],
-    "price": ["998.00"],
-    "bao": [apimg+"/images/quzhifu/bao.png"],
-    "baotext": ["正品保障"],
-    "text": ["配送方式"],
-    "text2": ["普通快递￥0.00"],
-    "price": ["998.00"],
-    "waytext": ["可用积分812积分抵用8.12元"],
-    "youhui":["优惠"],
-    "nothave": ["暂无可用"],
-    "coreimg": [apimg+"/images/quzhifu/8.png"],
-    "modemoney": ["0.00"],
-    "total": ["6800.00"],
-    memberAddressDO:"",
-    
-     switchData: [ 
-      {
-        id: 1,
-        color: '#26b4fe',
-        isOn: false
-      }
-    ],
-  //   gooditem:gooditem
+    productId: '',
+    price: '',
+    isKaituan: true,
+    isAddr: true,
+    payimg: apimg + "/images/quzhifu/dizhi.png",
+    imgpay: apimg + "/images/quzhifu/ren.png",
+    head: apimg + "/images/quzhifu/biankuang.png",
+    yes: apimg + "/images/quzhifu/shang.png",
+    ind: apimg + "/images/quzhifu/8.png",
+    bao: apimg + "/images/quzhifu/bao.png",
+    finalAmount:0,
+    limitId:0,
+    Type:''
   },
   
   onLoad: function (options) {
+    console.log(options)
     var that = this
     if (options.price == undefined || options.pic == undefined || options.goodsId == undefined || options.Type == undefined){
       that.setData({
@@ -59,6 +39,7 @@ Page({
         Type:options.Type
       })
     }
+
     var totalPrice = that.data.price * that.data.pic
     that.setData({
       memberId: wx.getStorageSync('memberId'),
@@ -94,7 +75,7 @@ Page({
         isKaituan: false
       })
     }
-    else if(that.data.Type="KJ"){
+    else if(that.data.Type=="KJ"){
       // 砍价
       if (options.cutId == undefined) {
         that.setData({
@@ -124,28 +105,19 @@ Page({
     }
     if (wx.getStorageSync('addr') == '') {
       let addParms = {}
+      let parms = {}
       addParms.memberId = that.data.memberId
-      wx.request({
-        url: api + '/api/address/defutaddress',
-        data: {
-          parms: addParms
-        },
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          // wx.setStorageSync('addr', res.data.memberAddressDO);
-          if (res.data.code == 1) {
-            that.setData({
-              isAddr: false
-            })
-          }
-          else {  
-            that.setData({
-              addr: res.data.memberAddressDO
-            })
-          }
-
+      parms.parms = addParms
+      request.moregets('/api/address/defutaddress', parms).then(function (res) {
+        if (res.code == 1) {
+          that.setData({
+            isAddr: false
+          })
+        }
+        else {
+          that.setData({
+            addr: res.memberAddressDO
+          })
         }
       })
     }
@@ -154,37 +126,22 @@ Page({
         addr: wx.getStorageSync('addr')
       })
     }
-    var goodsParms = {}
+    let goodsParms = {}
+    let parms = {}
     goodsParms.goodsId = that.data.goodsId
-    wx.request({
-      url: api + '/api/Goods/getGoods',
-      // url: 'http://192.168.2.144/api/index/getGoods/166993'
-      data: {
-        parms: goodsParms
-      },
-      header: {
-        'Content-Type': 'json'
-      },
-      success: function (res) {
-        console.log(res.data.Goods)
-        that.setData({
-          Goods: res.data.Goods
-        })
-      },
+    goodsParms.memberId = that.data.memberId
+    parms.parms = goodsParms;
+    request.moregets('/api/Goods/getProduct', parms).then(function (res) {
+      that.setData({
+        productId: res.product.productId,
+      })
     })
-    wx.request({
-      url: api + '/api/Goods/getProduct',
-      data: {
-        parms: goodsParms
-      },
-      header: {
-        'Content-Type': 'json'
-      },
-      success: function (res) {
-        that.setData({
-          productId: res.data.product.productId
-        })
-      }
+    // 获取商品数据
+    request.moregets('/api/Goods/getGoods', parms).then(function (res) {
+      wx.hideLoading()
+      that.setData({
+        Goods: res.Goods,     
+      })
     })
   },
 

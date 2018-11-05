@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "点赞评论",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

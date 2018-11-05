@@ -52,7 +52,7 @@
       </view>
       <view class='box5-two'>
         <image src='{{bao}}' class='baozhang'></image>
-        <text class='bao'>{{baotext}}</text>
+        <text class='bao'>正品保障</text>
       </view>
     </view>
 

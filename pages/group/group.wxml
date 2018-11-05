@@ -188,7 +188,8 @@
   <!--null  -->
   <view class='null'></view>
   <!--底部按钮  -->
-  <view class='footer'>
+  <form bindsubmit="sModal" report-submit="true">
+    <view class='footer'>
     <view class='footer-left'>
       <!-- 主页 -->
       <view class='homepage' bindtap='zhuye'>
@@ -210,15 +211,13 @@
 
     </view>
     <!-- 单独购买 -->
-
-    <view class='foo-box' bindtap='sModal'>
-      <text class='foo-two'>加入购物车</text>
-
-
-    </view>
-    <view class='foo-box boxone' bindtap='sModal'>
-      <text class='foo-two'>立即购买</text>
-    </view>
+      <button class='foo-box' formType="submit">
+        <text class='foo-two'>加入购物车</text>
+      </button>
+      <button class='foo-box boxone'formType="submit">
+        <text class='foo-two'>立即购买</text>
+      </button>
   </view>
+  </form>
 
 </view>

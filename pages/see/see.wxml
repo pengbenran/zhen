@@ -1,0 +1,66 @@
+<!--pages/see/see.wxml-->
+  <view class="find_container">
+  	<!-- 发现页面头部 -->
+   	<view class="find_header">
+   		<view class="find_bcg">
+   			<image src="/image/bcg.png" alt=""></image>
+   		</view>
+   		<view class="find_panel">
+   			<view class="find_panel_title">谷琴生活优选</view>
+   			<view class="find_panel_list">
+   				<text>帖子:200</text>
+   				<text>人气:200</text>
+   				<text>成员:200</text>
+   			</view>
+   		</view>
+   	</view>
+   	<!-- 发现页面分类 -->
+  <!-- <view class="tab">  
+   		<view class="find_item_list {{item.selected ? 'select':''}}" wx:for="{{find_item}}" bindtap="changTab" data-index="{{index}}">
+   		{{item.name}}
+   		</view>
+  </view> -->
+     	
+   	<!-- 关注列表 -->
+   	<!-- <view class="find_content" wx:if="{{find_item[1].selected}}">
+        <view class="gz_list">
+          <view class="gz_list_left">
+            <view class="gz_list_left_logo">
+              <image src="/image/userlogo.png" alt=""></image>
+            </view>
+          </view>
+          <view class="gz_list_center">
+            <view>谷琴科技</view>
+            <view>主管</view>
+          </view>
+          <view class="gz_list_right">
+            <view class="gz_btn1">已关注</view>
+          </view>
+        </view>
+   	<view>
+   	<view>推荐关注</view>
+      <view class="gz_list">
+          <view class="gz_list_left">
+            <view class="gz_list_left_logo">
+              <image src="/image/userlogo.png" alt=""></image>
+            </view>
+          </view>
+          <view class="gz_list_center">
+            <view>谷琴科技</view>
+            <view>主管</view>
+          </view>
+          <view class="gz_list_right">
+            <view class="gz_btn">关注</view>
+          </view>
+        </view>
+      </view>
+   	</view> -->
+   	<!-- 推荐列表 -->
+     <view>
+        <bbslist tuijian_list="{{tuijian_list}}" hasMore="{{hasMore}}" ImageWidth="{{ImageWidth}}"/>
+     </view>
+     <view class='add' bindtap='jumpAddDynamic'>
+      <image src='/image/add.png'></image>
+     </view>
+    
+  </view>

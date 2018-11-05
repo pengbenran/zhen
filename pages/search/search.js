@@ -33,7 +33,9 @@ Page({
     })
   },
 
-  indexsou: function (e) {
+  formSubmit: function (e) {
+    
+    console.log(e)
     var that = this;
     var parms = {}
     var hide = that.data.hide
@@ -70,6 +72,21 @@ Page({
         // });
       },
     })
+    wx.request({
+      url: api + '/api/push/saveFormid',
+      data: {
+        formid:e.detail.formId,
+        memberId: wx.getStorageSync('memberId')
+      },
+      method:"POST",
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+    
   },
   onLoad:function(options){
     var that = this;

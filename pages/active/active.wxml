@@ -45,9 +45,9 @@
         <text class=" spetext-one">￥{{zhekou.finalAmount}}</text>
         <text class=" spetext-two">￥{{zhekou.goodsPrice}}</text>
       </view>
-    <view class="spell-btn">
+    <!-- <view class="spell-btn">
       <image src='https://shop.yogain.cn/simages/image/treeyiqi/kan.png'></image>
-    </view>
+    </view> -->
       </view>
       </view>
   </view>
@@ -85,9 +85,9 @@
           <text class=" spetext-one">￥{{pings.activityPrice}}</text>
           <text class=" spetext-two">￥{{pings.goodsPrice}}</text>
         </view>
-        <view class="spell-btn" >
+        <!-- <view class="spell-btn" >
         <image src='https://shop.yogain.cn/simages/image/treeyiqi/tuan.png'></image>
-        </view>
+        </view> -->
       </view>
     </view>
    </view>
@@ -130,9 +130,9 @@
   <text class='money' style='margin-right:10rpx;'>￥{{i.belowPrice}}</text>
     <text class='discount'>原价￥{{i.initPrice}}</text>
   </view>
-    <view class="footer-img">
+    <!-- <view class="footer-img">
     <image src='{{footerimg}}'></image>
-    </view>
+    </view> -->
   </view>
 </view>
 <view class='swbox'></view>
