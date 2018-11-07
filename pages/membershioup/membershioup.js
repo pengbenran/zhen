@@ -36,7 +36,7 @@ Page({
         if (res.data.code == 0) {
           that.setData({
             memberLvList: res.data.memberLvList,
-            needpay: res.data.memberLvList[1].point - res.data.memberLvList[0].point
+            needpay: Math.abs(res.data.memberLvList[1].point - res.data.memberLvList[0].point)
           })
         }
       }
@@ -98,7 +98,7 @@ Page({
                           title: '升级成功',
                         })
                         setTimeout(function(){
-                          wx.navigateTo({
+                          wx.redirectTo({
                             url: '../micromember/micromember',
                           })
                         },1000)

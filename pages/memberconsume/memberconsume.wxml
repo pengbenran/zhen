@@ -1,16 +1,16 @@
 <!--pages/memberconsume/memberconsume.wxml-->
-<view class='memberconsume'>
-<view class='memberconsumetitle'>
-    <view class='line1'>订单号</view>
-    <view class='line2'>消费额</view>
-    <view class='line3'>分润</view>
-    <view class='line4'>消费日期</view>
-</view>
-   
+<view class='memberconsume'>  
+<scroll-view  class='memberconten' bindscrolltolower='pulldown' scroll-y>
   <view class='memberconsumelist' wx:for="{{expense}}">
-    <view class='line1'>{{item.shareId}}</view>
-    <view class='line2'>{{item.monetary}}</view>
-    <view class='line3'>{{item.shareMoney}}</view>
-    <view class='line4'>{{item.shareTime}}</view>
+    <view class='left'>
+      <view class='line1'><text> 消费金额:</text>{{item.monetary}}元</view>
+      <view class='time'>{{item.shareTime}}</view>
+    </view>
+    <view class='fenrun'>+{{item.shareMoney}}</view>
   </view>
+  <view class='tip'wx:if="{{expense.length==0}}">该会员暂无消费记录</view>
+</scroll-view > 
+<view class='footer' wx:if="{{expense.length!=0}}">
+  总计:{{shareProfit}}元
+</view>
 </view>

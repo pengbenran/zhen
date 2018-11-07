@@ -83,6 +83,7 @@ Page({
             for (var i = 0; i < res.data.memberLvList.length;i++){
               if (res.data.memberLvList[i].discount > that.data.distribeDo.discount) {
                 flag=true
+                break
               }
               else{
                 flag=false

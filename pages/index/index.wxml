@@ -113,7 +113,7 @@
     <image src='https://shop.guqinet.com/html/images/shanquan/hong.jpg'></image>
   </view>
   <view class='closebtn' bindtap='hModal' animation="{{animationData}}">
-  <image src='/image/bi.png'></image>
+  <image src='{{bi}}'></image>
   </view>
   <view class='telphone' animation="{{animationData}}">
     <view class='inputBcg'>
@@ -126,6 +126,6 @@
 
 <!-- 弹出领取红包界面 -->
 <view class='showredpack' bindtap='showredpack' wx:if="{{iscanGet}}">
-  <image src='/image/gethong.png'></image>
+  <image src='{{gethong}}'></image>
 </view>
 </view>

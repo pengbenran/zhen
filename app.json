@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/membershioup/membershioup",
+    "pages/memberlist/memberlist",
+    "pages/memberconsume/memberconsume",
     "pages/dynamic/dynamic",
     "pages/comment/comment",
     "pages/seedetail/seedetail",
@@ -9,13 +12,10 @@
     "pages/morepoint/morepoint",
     "pages/distribeposter/distribeposter",
     "pages/postersharing/postersharing",
-    "pages/memberconsume/memberconsume",
     "pages/micromember/micromember",
     "pages/putforward/putforward",
-    "pages/memberlist/memberlist",
     "pages/membermanage/membermanage",
     "pages/fengrungood/fengrungood",
-    "pages/membership/membership",
     "pages/membershipdetail/membershipdetail",  
     "pages/bargain/bargain",
     "pages/my/my",
@@ -24,7 +24,7 @@
     "pages/cardlike/cardlike",
     "pages/cardguanzhu/cardguanzhu",
      "pages/cardinfo/cardinfo",
-    "pages/membershioup/membershioup",
+    
     "pages/pintuanxiangqing/pintuanxiangqing",
     "pages/cart/cart",
     "pages/voucher/voucher",

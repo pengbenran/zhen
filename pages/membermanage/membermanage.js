@@ -8,6 +8,7 @@ Page({
    */
   data: {
     hei:[0,0,0],
+    down:apimg+"/image/down.png",
     rot: [-90,-90,-90],
     animationData: {},
     Notforward: [],

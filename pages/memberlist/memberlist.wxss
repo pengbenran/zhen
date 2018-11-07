@@ -30,8 +30,8 @@ image{
   
 }
 .memberuseravator{
-  width: 100rpx;
-  height: 100rpx;
+  width: 150rpx;
+  height: 150rpx;
   overflow: hidden;
   margin: 20rpx;
   border-radius:50%; 
@@ -47,4 +47,9 @@ image{
   background: #fff;
   text-align: center;
   color: #B0B0B0;
+}
+.title{
+  height: 100rpx;
+  padding-left: 20rpx;
+  line-height: 100rpx;
 }

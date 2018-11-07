@@ -1,5 +1,6 @@
 const request = require('../../utils/request.js')
 const util = require('../../utils/util.js')
+var apimg = getApp().globalData.apimg;
 Component({
 
   behaviors: [],
@@ -12,6 +13,9 @@ Component({
   data: {
     tuijian_list: [],
     ImageWidth: '',
+    zan: apimg+'/image/zan.png',
+    zan1: apimg + '/image/zan1.png',
+    msg1:apimg+'/image/msg1.png',
     offset: 0,
     hasMore: true,
     hasMoreMsg: true,

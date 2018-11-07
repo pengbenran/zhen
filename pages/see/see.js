@@ -1,6 +1,7 @@
 // pages/see/see.js
 const request = require('../../utils/request.js')
 const util = require('../../utils/util.js')
+var apimg = getApp().globalData.apimg;
 Page({
   data: {
     find_item: [
@@ -10,6 +11,8 @@ Page({
       { name: "热帖", selected: false },
       { name: "名片榜", selected: false }],
     tuijian_list: [],
+    add: apimg+"/image/add.png",
+    bcg: apimg+"/image/bcg.png",
     ImageWidth:'',
     offset:0,
     hasMore:true,

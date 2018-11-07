@@ -1,11 +1,27 @@
 <!--pages/memberlist/memberlist.wxml-->
  <view class='memberContain'>
-    <view class='memberList' wx:for="{{memberDOList}}" bindtap='jumpconsume' data-memberId='{{item.memberId}}'>
+    <view wx:if="{{subOneMembers.length!=0}}" class='title'>一级分销商</view>
+    <view class='memberList' wx:for="{{subOneMembers}}" bindtap='jumpconsume' data-memberId='{{item.memberId}}' data-type="1">
       <view class='memberuser'>
         <view class='memberuseravator'>
           <image src='{{item.face}}'></image>
         </view>
-        <view class='memberName'>{{item.uname}}</view>
+        <view class='memberName'>
+          <view>{{item.uname}}</view>
+          <view>会员等级:{{item.memberLvName}}</view>
+        </view>
+      </view>
+    </view> 
+    <view wx:if="{{subTwoMembers.length!=0}}" class='title'>二级分销商</view>
+    <view class='memberList' wx:for="{{subTwoMembers}}" bindtap='jumpconsume' data-memberId='{{item.memberId}}'  data-type="2">
+      <view class='memberuser'>
+        <view class='memberuseravator'>
+          <image src='{{item.face}}'></image>
+        </view>
+        <view class='memberName'>
+          <view>{{item.uname}}</view>
+          <view>会员等级:{{item.memberLvName}}</view>
+        </view>
       </view>
     </view> 
      <view wx:if="{{!hasmember}}" class='tip'>

@@ -7,6 +7,8 @@ Page({
     ImageWidth:'',
     payimg: apimg + "/images/quzhifu/dizhi.png",
     clor: apimg + "/image/wode/kao6.png",
+    add: apimg+"/image/add.png",
+    addressImg: apimg +"/image/address.png",
     address:'请选择地址',
     longitude:'',
     latitude:'',
@@ -124,41 +126,32 @@ Page({
       if (res.result.spam == 0) {
         that.uploadImg().then((res) => {
           var imgPath = res
-          wx.request({
-            url: 'http://192.168.2.208/mall/api/bbs/from',
-            method: "POST",
-            header: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: {
-              memberid: wx.getStorageSync('memberId'),
-              postcontent: that.data.postcontent,
-              postaddre: address,
-              posttype: 1,
-              local: that.data.latitude + "," + that.data.longitude,
-              istop: 0,
-              lookcounts: 0,
-              sorts: 0,
-              praise: 0,
-              imgPath: imgPath
-            },
-            success: function (res) {
-              if (res.data.code == 0) {
-                wx.showToast({
-                  title: '发布成功',
-                })
-                wx.switchTab({
-                  url:'../see/see',
-                  success: function (e) {
-                    var page = getCurrentPages().pop();
-                    if (page == undefined || page == null) return;
-                    page.onLoad();
-                  }
-                })
-              }
+          let data={}
+          data.memberid= wx.getStorageSync('memberId')
+          data.postcontent= that.data.postcontent
+          data.postaddre= address
+          data.posttype=1
+          data.local= that.data.latitude + "," + that.data.longitude
+          data.istop= 0
+          data.lookcounts= 0
+          data.sorts= 0
+          data.praise= 0
+          data.imgPath= imgPath
+          request.morepost('/api/bbs/from',data).then(function(res){
+            if (res.code == 0) {
+              wx.showToast({
+                title: '发布成功',
+              })
+              wx.switchTab({
+                url: '../see/see',
+                success: function (e) {
+                  var page = getCurrentPages().pop();
+                  if (page == undefined || page == null) return;
+                  page.onLoad();
+                }
+              })
             }
           })
-
         })
       }
       else{

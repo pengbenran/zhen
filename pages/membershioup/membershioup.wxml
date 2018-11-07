@@ -16,7 +16,7 @@
     </view> -->
     <view class='membershioupIntro'>
       <view class='membershioupIntroleft'>
-        当前会员等级为{{name}}，查{{needpay}}元就能成为{{memberLvList[1].name}}，享受更多分润
+        <!-- 当前会员等级为{{name}}，查{{needpay}}元就能成为{{memberLvList[1].name}}，享受更多分润 -->
       </view>
       <view class='membershioupIntroright' bindtap='membershioup'>
         立即升级
@@ -26,14 +26,40 @@
   <view class='membergarddetail'>
     <view class='title'>成长介绍</view>
     <view class='membergardtitle'>
-      <view>会员</view>
+      <view>等级</view>
+      <view>会员角色</view>
       <view>分润</view>
       <view>价格</view>
     </view>
-    <view class='membergardlist' wx:for="{{memberLvList}}">
-      <view>{{item.name}}</view>
-      <view>{{item.discount}}%</view>
-      <view style='color: #C19657'>{{item.point}}元</view>
+    <view class='membergardlist'>
+      <view class='row1'>一级分销商</view>
+      <view class='row2'>
+        <view>{{memberLvList[0].name}}</view>
+        <view>{{memberLvList[1].name}}</view>
+      </view>
+      <view class='row3'>
+        <view>{{memberLvList[0].desLow}}%</view>
+        <view>{{memberLvList[1].desLow}}%</view>
+      </view>
+      <view class='row4' style='color: #C19657'>
+       <view>{{memberLvList[0].point}}</view> 
+       <view>{{memberLvList[1].point}}</view>
+      </view>
+    </view>
+    <view class='membergardlist'>
+      <view class='row1'>二级分销商</view>
+      <view class='row2'>
+        <view>{{memberLvList[0].name}}</view>
+        <view>{{memberLvList[1].name}}</view>
+      </view>
+      <view class='row3'>
+        <view>{{memberLvList[0].desHigh}}%</view>
+        <view>{{memberLvList[1].desHigh}}%</view>
+      </view>
+      <view class='row4' style='color: #C19657'>
+       <view>{{memberLvList[0].point}}</view> 
+       <view>{{memberLvList[1].point}}</view>
+      </view>
     </view>
   </view>
 </view>

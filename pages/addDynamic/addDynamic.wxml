@@ -7,12 +7,12 @@
      <image src='{{item}}'></image>
     </view>
     <view class='imgList' bindtap='chooseImg' style="width:{{ImageWidth}};height:{{ImageWidth}}" wx:if="{{tempFilePaths.length!=9}}">
-      <image src='/image/add.png'></image>
+      <image src='{{add}}'></image>
     </view>
   </view>
   <view class='address' bindtap='chooseAddr'>
      <view class='icon'>
-        <image src='/image/address.png'></image>     
+        <image src='{{addressImg}}'></image>     
      </view> 
      <view class='addr'>{{address}}</view>
      <view class='lefticon'>

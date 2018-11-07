@@ -73,19 +73,26 @@ color: #C19657;
   box-sizing: border-box;
 }
 .membergardtitle view{
-  width: 33%;
+  width: 25%;
   text-align: center;
   height: 80rpx;
   line-height: 80rpx;
   font-size: 0.8rem;
 }
 .membergardlist{
-  display: flex
-}
-.membergardlist view{
-  width: 33%;
-  text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
+  display: flex;
   font-size: 0.8rem;
+  text-align: center;
+  justify-content: space-around;
+}
+.membergardlist>view{
+  width: 25%;
+}
+.row1{
+  height: 130rpx;
+  line-height: 130rpx;
+}
+.row2 , .row3, .row4 view{
+  height: 65rpx;
+  line-height: 65rpx;
 }

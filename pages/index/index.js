@@ -10,6 +10,8 @@ Page({
     memberId: '',
     iscanGet:false,
     menus:[],
+    bi: apimg +"/image/bi.png",
+    gethong: apimg +"/image/gethong.png",
     labaimg: apimg + "/image/shouye/laba.png",
     bimg: apimg + "/image/shouye/logo01.png",
     moreimg: apimg + "/image/shouye/8.png",

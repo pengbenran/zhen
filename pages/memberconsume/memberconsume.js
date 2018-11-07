@@ -2,13 +2,15 @@
 var apimg = getApp().globalData.apimg;
 //获取应用实例
 var api = getApp().globalData.api;
+const request = require('../../utils/request.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    expense:[],
+    shareProfit:0
   },
 
   /**
@@ -16,19 +18,26 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    wx.request({
-      url: api + '/api/distribe/expense',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        memberId: options.memberId
-      },
-      success: function (res) {
-        that.setData({
-          expense: res.data.expense
-        })
-      }
-    })
+    that.getexpense(0, 8, options.lvtype, options.memberId)
+   
   },
+  getexpense: function (offset, limit, lvType, memberId){
+    let params = {};
+    let data = {};
+    let that = this;
+    params.offset = offset;
+    params.limit = limit;
+    params.memberId = memberId
+    params.lvType=lvType
+    data.params = JSON.stringify(params)
+    request.moregets('/api/distribe/expense', data).then(function (res) {
+      let composeList = []
+      composeList = that.data.expense.concat(res.expense.rows)
+      that.setData({
+        expense: composeList,
+        shareProfit: res.shareProfit
+      })
+
+    })
+  }
 })

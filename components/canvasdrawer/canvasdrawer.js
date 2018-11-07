@@ -53,7 +53,7 @@ Component({
       })
       console.log("输出data宽高", this.data.width,this.data.height)
       const inter = setInterval(() => {
-        if (this.ctx) {·
+        if (this.ctx) {
           clearInterval(inter)
           this.ctx.clearActions()
           this.ctx.save()

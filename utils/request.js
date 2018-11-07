@@ -18,7 +18,7 @@ const  post=(url,data)=>{
 }
 
 //封装一个get请求
-const gets = (url) => {
+const gets = (url,data) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url:url,

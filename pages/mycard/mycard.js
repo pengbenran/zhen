@@ -49,12 +49,7 @@ Page({
   let url ='/api/businessCard/getCardDate'
   let memberId = wx.getStorageSync('memberId') 
   let data = { memberId: memberId}
-  console.log("==数据开请求==")
-<<<<<<< HEAD
-    request.moregets(url, data).then(function (res) {
-=======
-    request.moregets(url, memberId).then(function (res) {
->>>>>>> ba7a85951c83895a41a9496fe6b26b5e1bdc88be
+  request.moregets(url, data).then(function (res) {
       if (res.code==0){
         var num1 = 'list[0].num';
         var num2 = 'list[1].num';

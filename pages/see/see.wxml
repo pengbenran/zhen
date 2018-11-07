@@ -3,7 +3,7 @@
   	<!-- 发现页面头部 -->
    	<view class="find_header">
    		<view class="find_bcg">
-   			<image src="/image/bcg.png" alt=""></image>
+   			<image src="{{bcg}}" alt=""></image>
    		</view>
    		<view class="find_panel">
    			<view class="find_panel_title">谷琴生活优选</view>
@@ -60,7 +60,7 @@
         <bbslist tuijian_list="{{tuijian_list}}" hasMore="{{hasMore}}" ImageWidth="{{ImageWidth}}"/>
      </view>
      <view class='add' bindtap='jumpAddDynamic'>
-      <image src='/image/add.png'></image>
+      <image src='{{add}}'></image>
      </view>
     
   </view>

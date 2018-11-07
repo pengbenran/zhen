@@ -40,13 +40,13 @@
               </view>
                <view class='zancount' wx:if="{{outItem.zanDOList.length>6}}">等{{outItem.zanDOList.length}}人已赞</view>
               <view class="find_count_icon" bindtap="zan" data-index="{{outindex}}" wx:if="{{!outItem.like}}">
-                <image src="/image/zan.png" alt=""></image>
+                <image src="{{zan}}" alt=""></image>
               </view>
               <view class="find_count_icon" bindtap="quxiaoZan" data-index="{{outindex}}" wx:if="{{outItem.like}}">
-                <image src="/image/zan1.png" alt=""></image>
+                <image src="{{zan1}}" alt=""></image>
               </view>
               <view class="find_count_icon"  data-index="{{outindex}}" bindtap='showApply'  data-postId="{{outItem.postinfoid}}" data-memberId="{{outItem.memberid}}">
-                <image src="/image/msg1.png" alt=""></image>
+                <image src="{{msg1}}" alt=""></image>
               </view>
             </view>
             <view class="find_msg {{msgOpenClose=='展开'? 'msgIsClose':''}}">

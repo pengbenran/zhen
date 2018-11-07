@@ -25,10 +25,10 @@ App({
   globalData: {
     userInfo: null,
     apimg: "https://shop.guqinet.com/html/images/guqinzhen",//图片地址
-    api: "https://www.guqinjiujiang.xyz:8444/guqinzhen",
+    //api: "https://www.guqinjiujiang.xyz:8444/guqinzhen",
     // api: "http://192.168.2.131/mall",
     //api: "http://192.168.2.208/mall",
-    // api: "http://192.168.2.111/mall",
+     api: "http://192.168.2.111/mall",
     //api: "https://www.guqinjiujiang.xyz:8444/guqinzhen",
     //api: "http://192.168.2.131/mall",
    //api: "http://192.168.2.208/mall",

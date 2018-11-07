@@ -1,6 +1,7 @@
 /* pages/see/see.wxss */
 .find_container{
   background: #fff;
+  min-height: 100vh;
 }
 image{
 	width: 100%;

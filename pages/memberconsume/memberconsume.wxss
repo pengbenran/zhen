@@ -1,25 +1,53 @@
 /* pages/memberconsume/memberconsume.wxss */
-.memberconsumetitle,.memberconsumelist{
+.memberconsumelist{
   display: flex;
   width: 100%;
- text-align: center;
- border: 1rpx solid #ddd;
+ border-bottom: 1rpx solid #ddd;
  background: #fff;
+ padding: 10rpx 20rpx 0 20rpx;
+ box-sizing: border-box;
 }
-.memberconsumetitle view{
-  width: 18%;
-  height: 80rpx;
-  line-height: 80rpx;
-}
-.memberconsumelist view{
-  width: 18%;
+.time{
+  color: #6D6D6D;
   font-size: 0.8rem;
   height: 80rpx;
   line-height: 80rpx;
 }
-.memberconsumetitle .line4{
- flex-grow: 1;
-}
-.memberconsumelist .line4{
+.left{
   flex-grow: 1;
+}
+.fenrun{
+  width: 200rpx;
+  text-align: center;
+  height: 140rpx;
+  line-height: 140rpx;
+}
+.line1 text{
+  font-size: 0.9em;
+  width: 180rpx;
+  text-align: center;
+  display: inline-block;
+  color: #6D6D6D;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 10vh;
+  line-height: 10vh;
+  width: 100%;
+  text-align: right;
+  background: #fff;
+  padding-right: 60rpx;
+  box-sizing: border-box;
+}
+.memberconten{
+  height: 90vh;
+  overflow: scroll;
+}
+.tip{
+  text-align: center;
+  height: 200rpx;
+  line-height: 200rpx;
+  color: #6D6D6D;
 }
