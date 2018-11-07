@@ -49,12 +49,8 @@ Page({
   let url ='/api/businessCard/getCardDate'
   let memberId = wx.getStorageSync('memberId') 
   let data = { memberId: memberId}
-  console.log("==数据开请求==")
-<<<<<<< HEAD
     request.moregets(url, data).then(function (res) {
-=======
-    request.moregets(url, memberId).then(function (res) {
->>>>>>> ba7a85951c83895a41a9496fe6b26b5e1bdc88be
+
       if (res.code==0){
         var num1 = 'list[0].num';
         var num2 = 'list[1].num';
@@ -67,6 +63,7 @@ Page({
              [num3]: res.CardDate.attention,
            })
         console.log('获取用户数据',res.CardDate);
+        wx: wx.setStorageSync('CardDate', res.CardDate)
        }
 
     })
@@ -88,7 +85,18 @@ Page({
       url: '../cardfrom/cardfrom',
     })
   },
-  
+  toCardimg:function(){
+    let that=this;
+    if (!that.data.boxbool){
+      wx.navigateTo({
+        url: '../cardimg/cardimg',
+      })
+    }else{
+      request.tip('你还未录入个人信息','loading')
+    }
+    
+
+  },
   //跳转
   tonext:function(e){
     let that=this;
@@ -108,156 +116,28 @@ Page({
    })
   },
 
-  //生成海报
-  eventDraw:function() {
-    this.setData({
-      maskmodel:true
-    })
-    //请求小程序码
-    let that=this;
-    let url ='https://www.guqinet.com:8444/upload/getShare'
-    let data = { page: 'pages/index/index', scene: wx.getStorageSync('memberId')}
-    request.gets(url, data).then(function(res){
-      console.log('kk',res);
-      request.getImageInfo(res).then(function(res){
-        wx.showLoading({
-          title: '绘制分享图片中',
-          mask: true
-        }),
-          that.setData({
-            painting: {
-              width: 375,
-              height: 360,
-              clear: true,
-              views: [
-                {
-                  type: 'image',
-                  url: '/image/cardbg.png',
-                  top: 0,
-                  left: 0,
-                  width: 375,
-                  height: 360
-                },
-                {
-                  type: 'image',
-                  url: that.data.face,
-                  top: 40,
-                  left: 300,
-                  width: 40,
-                  height: 40
-                },
-                {
-                  type: 'image',
-                  url:res ,
-                  top: 250,
-                  left: 270,
-                  width: 100,
-                  height: 100
-                },
-                {
-                  type: 'image',
-                  url: '/image/avatar_cover.png',
-                  top: 40,
-                  left: 300,
-                  width: 40,
-                  height: 40
-                },
-                {
-                  type: 'text',
-                  content: that.data.userinfo.cardname,
-                  fontSize: 30,
-                  color: '#666',
-                  textAlign: 'left',
-                  top: 35,
-                  left: 38,
-                },
-                {
-                  type: 'text',
-                  content: that.data.userinfo.departments + "  " + that.data.userinfo.jobs,
-                  fontSize: 14,
-                  color: '#8e8e8e',
-                  textAlign: 'left',
-                  top: 75,
-                  left: 38,
-                },
-                {
-                  type: 'text',
-                  content: that.data.userinfo.companys,
-                  fontSize: 14,
-                  color: '#8e8e8e',
-                  textAlign: 'left',
-                  top: 100,
-                  left: 38,
 
-                },
-                {
-                  type: 'text',
-                  content: '地址：' + that.data.userinfo.region,
-                  fontSize: 13,
-                  color: '#666',
-                  textAlign: 'left',
-                  top: 135,
-                  left: 38,
-
-                },
-                {
-                  type: 'text',
-                  content: '电话：' + that.data.userinfo.p1,
-                  fontSize: 13,
-                  color: '#666',
-                  textAlign: 'left',
-                  top: 155,
-                  left: 38,
-                },
-
-                {
-                  type: 'text',
-                  content: '获取等多人脉',
-                  fontSize: 20,
-                  color: '#666',
-                  textAlign: 'left',
-                  top: 275,
-                  left: 38,
-                },
-                {
-                  type: 'text',
-                  content: '请关注微鑫云臻',
-                  fontSize: 16,
-                  color: '#666',
-                  textAlign: 'left',
-                  top: 305,
-                  left: 38,
-                },
-              ]
-            }
-          })
-      })
-      console.log('小程序码', that.data.qcode)
-    })
-    
- 
-  },
-  eventSave() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.shareImage,
-      success(res) {
-        wx.showToast({
-          title: '保存图片成功',
-          icon: 'success',
-          duration: 2000
-        })
-      }
-    })
-  },
-  eventGetImage(event) {
-    console.log(event)
-    wx.hideLoading()
-    const { tempFilePath, errMsg } = event.detail
-    if (errMsg === 'canvasdrawer:ok') {
-      this.setData({
-        shareImage: tempFilePath
-      })
-    }
-  }
+  // eventSave() {
+  //   wx.saveImageToPhotosAlbum({
+  //     filePath: this.data.shareImage,
+  //     success(res) {
+  //       wx.showToast({
+  //         title: '保存图片成功',
+  //         icon: 'success',
+  //         duration: 2000
+  //       })
+  //     }
+  //   })
+  // },
+  // eventGetImage(event) {
+  //   console.log(event)
+  //   wx.hideLoading()
+  //   const { tempFilePath, errMsg } = event.detail
+  //   if (errMsg === 'canvasdrawer:ok') {
+  //     this.setData({
+  //       shareImage: tempFilePath
+  //     })
+  //   }
+  // }
 
 })

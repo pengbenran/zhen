@@ -4,7 +4,7 @@ var api = getApp().globalData.api;
 const  post=(url,data)=>{
   return new Promise((resolve, reject) => {
     wx.request({
-      url:  url,
+      url: url,
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
@@ -18,7 +18,7 @@ const  post=(url,data)=>{
 }
 
 //封装一个get请求
-const gets = (url) => {
+const gets = (url,data) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url:url,

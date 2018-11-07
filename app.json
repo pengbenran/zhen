@@ -1,6 +1,9 @@
 {
   "pages": [
+    
     "pages/index/index",
+    "pages/cardimg/cardimg",
+    "pages/sucorder/sucorder",
     "pages/dynamic/dynamic",
     "pages/comment/comment",
     "pages/seedetail/seedetail",
@@ -16,14 +19,14 @@
     "pages/membermanage/membermanage",
     "pages/fengrungood/fengrungood",
     "pages/membership/membership",
-    "pages/membershipdetail/membershipdetail",  
+    "pages/membershipdetail/membershipdetail",
     "pages/bargain/bargain",
     "pages/my/my",
     "pages/mycard/mycard",
     "pages/cardfrom/cardfrom",
     "pages/cardlike/cardlike",
     "pages/cardguanzhu/cardguanzhu",
-     "pages/cardinfo/cardinfo",
+    "pages/cardinfo/cardinfo",
     "pages/membershioup/membershioup",
     "pages/pintuanxiangqing/pintuanxiangqing",
     "pages/cart/cart",
@@ -64,15 +67,16 @@
     "pages/zhekouxiangqing/zhekouxiangqing",
     "pages/fenxiangkanjia/fenxiangkanjia",
     "pages/kanjiaxiangqing/kanjiaxiangqing",
-     "pages/receiving/receiving",
-     "pages/gotuan/gotuan",
-     "pages/phonefenlei/phonefenlei",
-      "pages/tuikuan/tuikuan",
-      "pages/search/search",
-      "pages/listgruop/listgruop",
-      "pages/cantuan/cantuan",
-      "pages/collage/collage",
-      "pages/tui/tui"
+    "pages/receiving/receiving",
+    "pages/gotuan/gotuan",
+    "pages/phonefenlei/phonefenlei",
+    "pages/tuikuan/tuikuan",
+    "pages/search/search",
+    "pages/listgruop/listgruop",
+    "pages/cantuan/cantuan",
+    "pages/collage/collage",
+    "pages/tui/tui"
+     
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -95,30 +99,29 @@
         "text": "首页"
       },
       {
-          "selectedIconPath": "/image/active01.png",
-          "iconPath": "/image/active.png",
-          "pagePath": "pages/active/active",
-          "text": "活动"
-        },
-        {
-          "selectedIconPath": "/image/all1.png",
-          "iconPath": "/image/all.png",
-          "pagePath": "pages/see/see",
-          "text": "论坛"
-        },
+        "selectedIconPath": "/image/active01.png",
+        "iconPath": "/image/active.png",
+        "pagePath": "pages/active/active",
+        "text": "活动"
+      },
       {
-         "selectedIconPath": "/image/chart01.png",
-         "iconPath": "/image/chart.png",
+        "selectedIconPath": "/image/all1.png",
+        "iconPath": "/image/all.png",
+        "pagePath": "pages/see/see",
+        "text": "论坛"
+      },
+      {
+        "selectedIconPath": "/image/chart01.png",
+        "iconPath": "/image/chart.png",
         "pagePath": "pages/cart/cart",
         "text": "购物车"
       },
       {
-         "selectedIconPath": "/image/wode01.png",
-         "iconPath": "/image/wode.png",
+        "selectedIconPath": "/image/wode01.png",
+        "iconPath": "/image/wode.png",
         "pagePath": "pages/my/my",
         "text": "我的"
       }
-      
     ]
   }
 }

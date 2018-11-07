@@ -1,0 +1,51 @@
+/* pages/cardimg/cardimg.wxss */
+
+image{height: 100%;width: 100%;}
+
+page{background: #fff;}
+.title{ padding: 20rpx 15rpx;}
+.title text{font-weight: 100;font-size:45rpx;padding-left: 16rpx;color: rgb(145, 145, 145);}
+.topTitle{display: flex;justify-content: space-between;align-items: center;}
+.topTitle .rightfont{font-size: 22rpx;font-weight: 100;color: #666;}
+.leftBorder{border-left: 10rpx solid #ff7903; }
+
+.fenList{padding: 5rpx 15rpx; }
+.fenList text{border:1px solid #ccc; font-size: 28rpx; color: #ccc; border-radius: 10rpx;padding: 10rpx 25rpx;margin-right: 15rpx;}
+.fenList .typeactive{background: #ff7903;border:1px solid #ff7903;color: #fff;}
+
+.crollwarp{ white-space:nowrap;display: block;height: 310rpx;overflow: hidden;}
+.crollwarp view{width: 240rpx;border:1px solid #e0e0e0;height: 310rpx;display: inline-block;}
+.crollwarp view:nth-child(even){border-left: none;border-right: none;}
+.crollwarp view:last-child{border-right: 1px solid #e0e0e0;}
+.crollwarp .mask{position: absolute;top:310rpx;left: 0;height: 99%;background: rgba(0, 0, 0, 0.11);transition: all .3s linear;}
+.crollwarp  .active .mask{transform: translate3d(0,-310rpx,0)}
+.scroll-item{position: relative;}
+.mask image{height: 120rpx;width: 120rpx;padding-top: 95rpx;padding-left: 60rpx;}
+
+.from-model{padding: 0 15rpx;}
+textarea{font-size: 34rpx;color: #666;width: 100%;height: 130rpx;}
+
+.TipBtn{display: flex;justify-content: space-between;align-items: center;padding: 10rpx 20rpx;}
+.TipBtn .Tip{font-size: 28rpx;font-weight: 100;color: #666;}
+.TipBtn .btn{background: #ff7903;height: 70rpx;line-height: 70rpx;padding: 0 45rpx;
+border-radius: 30rpx;font-size: 28rpx;color: #fff;}
+
+.showHide{height: 314rpx;display: flex;justify-content: center;align-items: center;font-size: 36rpx;font-weight: 100;color: #ccc;}
+.showHide i{font-size: 45rpx;margin-right: 10rpx;}
+
+/* 海报样式 */
+.canvas{z-index: 10;position: absolute;top: 0;left: 0;background: rgba(0, 0, 0, 0.000);
+/* height: 100vh;width: 750rpx; */
+}
+/* .model{height: 700rpx;width: 100%;} */
+.model{width: 750rpx;}
+.model image{width:750rpx;height: 1000rpx;}
+
+.modelbtn{width: 85%;line-height: 75rpx;background:#ff7903;color:#fff;margin: auto;text-align: center;margin-top: 60rpx;border-radius: 20rpx;}
+.modelcard{padding-top: 95rpx;}
+.modelbtntop{margin-top: 40rpx;}
+
+.fenList .typeactive{background: #ff7903;border:1px solid #ff7903;color: #fff;}
+.showHide{height: 314rpx;display: flex;justify-content: center;align-items: center;font-size: 36rpx;font-weight: 100;color: #ccc;}
+.showHide i{font-size: 45rpx;margin-right: 10rpx;}
+

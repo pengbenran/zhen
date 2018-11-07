@@ -1,0 +1,17 @@
+<!--pages/sucorder/sucorder.wxml-->
+<view class='pages'>
+  <view class='himg'></view>
+  <view class='hbtn'><button>领红包</button></view>
+  <view class='warp'>
+    <view class='bntldt'>查看详情</view>
+    <view class='btnright'>查看订单</view>
+  </view>
+</view>
+
+<view class='list'>
+ <view class='item' wx:for="{{Goods}}" wx:for-item="item">
+   <view class='topimg'><image src='{{item.thumbnail}}' mode='aspectFit'></image></view>
+   <view class='title'>{{item.name}}你好世界你好世界你好世界</view>
+   <view class='pricewarp'><text class='price'>￥{{item.price}}</text><text class='num'>数量：1155</text></view> 
+ </view>
+</view>
