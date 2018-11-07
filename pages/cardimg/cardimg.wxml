@@ -1,0 +1,45 @@
+<!--pages/cardimg/cardimg.wxml-->
+<view class='imgWarp'>
+  <view class='title topTitle'><view class='leftBorder'><text>图片分类</text></view> <view class='rightfont'>右滑查看更多>></view>  </view>
+   <view class="fenList" >
+     <text wx:for='{{TypeList}}' wx:for-index='index' bindtap='selectType'
+                                 data-typeid='{{item.id}}'
+                                 data-index='{{index}}'
+                                 class="{{TypeSelectIndex==index ?'typeactive':'active1'}}">{{item.typeName}}</text>
+   </view>
+    <!-- <view class='typeShow' wx:else>数据暂时为空</view> -->
+
+   <view class='imgList title'>
+     <scroll-view class="crollwarp" scroll-x style="height: 314rpx;"  wx:if="{{ImgList.length!=0}}">
+        <view  wx:for="{{ImgList}}" wx:for-index='index' bindtap='selctTo'  
+                                    data-indexs='{{index}}' 
+                                    data-imgurl='{{item.imgUrl}}'
+                                    class="scroll-item {{selectindex==index+1 ?'active':'active1'}}"
+                                  ><image src='{{item.imgUrl}}' mode="aspectFit"></image>
+                                  <view class="mask"><view class="imgwarp"><image src='{{imgico}}'></image></view></view>
+                                  </view>
+      </scroll-view>
+      <view class='showHide' wx:else>抱歉，暂无数据~~~~</view>
+   </view>
+</view>
+
+  <view class='title topTitle'><view class='leftBorder'><text>每日动态</text></view>  </view>
+  <view class="from-model">
+      <textarea bindblur="bindTextAreaBlur" bindblur="huoqutextarea" placeholder="请输入你的心情~~·" maxlength='30' placeholder-style='color:#ccc;font-size:30rpx;'   />
+  </view>
+
+  <view class='TipBtn'>
+     <view class='Tip'>注：最多输入30个字符</view> <view class='btn' bindtap='haibaoClick'>生成海报</view>
+  </view>
+
+  <view class='canvas' v-if='maskmodel'>
+<view class='modelcard'>
+  <view class='model'>
+    <!-- <image :src="shareImage" class="share-image"></image> -->
+     <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+  </view> 
+  <!-- <div class='modelbtn'  @click="eventSave">保存本地</div>
+  <div class='modelbtn modelbtntop' @click='guanbi'>关闭</div> -->
+  </view>
+</view>
+<!--海报样式 end-->

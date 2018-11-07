@@ -41,7 +41,7 @@ Page({
 
 //表单提交数据
   fromsub:function(e){
-    let businesscardDo={}
+    let params={}
     let parms = {}
     let url ='/api/businessCard/submitDate'
     //获取memberId
@@ -55,8 +55,8 @@ Page({
     parms.region = e.detail.value.address
     parms.industry = e.detail.value.hy
     parms.p1 = e.detail.value.dh
-    businesscardDo.businesscardDo = parms;
-    console.log(businesscardDo);
+    params.businesscardDo = parms;
+    // console.log(businesscardDo);
     //判断数据是否为空
     if (e.detail.value.name==''){
       wx.showToast({
@@ -102,7 +102,7 @@ Page({
     else{
       //请求提交数据
 
-      let msg = request.post(url, JSON.stringify(businesscardDo))
+      let msg = request.morepost(url, { params: JSON.stringify(params)} )
       msg.then(function (res) { 
         if (res.code==0){
           request.showSuccess('保存成功','../mycard/mycard')
