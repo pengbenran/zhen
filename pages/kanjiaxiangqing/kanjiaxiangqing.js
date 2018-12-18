@@ -17,7 +17,7 @@ Page({
     path3: apimg + "/image/group/3.png",
     path4: apimg + "/image/group/16.png",
     path5: apimg + "/image/group/012.png",
-    close: apimg + "/kx.png",
+    close: apimg + "/image/kx.png",
     cutTotal: '',
     percent: "",
     sw: 12,
@@ -230,10 +230,10 @@ Page({
     else {
       startcutparm.cutAverAmount = that.data.cutGood.cutAverAmount
     }
-    let parms = {}
-    parms.parms = startcutparm;
+    let params = {}
+    params.params = startcutparm;
     // 开始砍价
-    request.moregets('/api/cut/startCut', parms).then(function (res) {
+    request.moregets('/api/cut/startCut', params).then(function (res) {
       that.setData({
         cutResult: res.memberCutDate
       })

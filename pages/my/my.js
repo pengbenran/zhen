@@ -81,19 +81,17 @@ Page({
 
   },
   jumpdynamic:function(){
-    wx.navigateTo({
-      url: '../dynamic/dynamic',
-    })
+    var that = this
+    that.jump('../dynamic/dynamic')
   },
   jumprechge:function(){
-    wx.navigateTo({
-      url: '../morepoint/morepoint',
-    })
+    var  that=this
+    that.jump('../morepoint/morepoint')
   },
   jumpcomment:function(){
-    wx.navigateTo({
-      url: '../comment/comment',
-    })
+    var that=this;
+    that.jump('../comment/comment')
+    
   },
   // 获取会员信息
   getMemberInfo: function (memberId) {
@@ -210,32 +208,38 @@ Page({
   },
   openMember:function(){
     var that=this;
-    wx.request({
-      url: api + '/api/distribe/whetherDistribe',
-      data: {
-        memberId: that.data.memberId
-      },
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        if(res.data.code==0){
-          // wx.navigateTo({
-          //   url: '../membershipdetail/membershipdetail?money=' + res.data.money,
-          // })
-          wx.navigateTo({
-            url: '../bargain/bargain',
-          })
+    if (that.data.hasmemberId && that.data.isUse) {
+      wx.request({
+        url: api + '/api/distribe/whetherDistribe',
+        data: {
+          memberId: that.data.memberId
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          if (res.data.code == 0) {
+            // wx.navigateTo({
+            //   url: '../membershipdetail/membershipdetail?money=' + res.data.money,
+            // })
+            wx.navigateTo({
+              url: '../bargain/bargain',
+            })
+          }
+          else {
+            wx.navigateTo({
+              url: '../micromember/micromember',
+            })
+          }
         }
-        else{
-          wx.navigateTo({
-            url: '../micromember/micromember',
-          })
-        }
-      }
-    })
-
-    
+      })
+    } else {
+      wx.showToast({
+        title: '请先授权登录',
+        icon: 'none',
+        duration: 1000
+      })
+    }   
   },
   jump:function(url){
     var that = this;
@@ -245,11 +249,15 @@ Page({
       })
     } else {
       wx.showToast({
-        title: '未授权登录',
-        icon: 'loading',
-        duration: 2000
+        title: '请先授权登录',
+        icon: 'none',
+        duration: 1000
       })
     }
+  },
+  openposter:function(){
+    var that=this;
+    that.jump('../distribeposter/distribeposter?distribeId=' + wx.getStorageSync('distribeId'))
   },
   tui: function () {
     var that = this;

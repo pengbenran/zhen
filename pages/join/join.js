@@ -80,8 +80,7 @@ Page({
                       url: '../my/my',
                     })
                   }
-                })
-                
+                }) 
               }
               else{
                that.setData({

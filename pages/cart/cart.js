@@ -51,7 +51,7 @@ Page({
         googitem.push(cartgoods[i])
         gainedpoint += cartgoods[i].point 
         total  += cartgoods[i].num * cartgoods[i].price;   
-        weight += cartgoods[i].num * cartgoods[i].weight;     
+        weight +=cartgoods[i].weight;     
       }
       Goods.googitem = googitem
       Goods.weight = weight
@@ -72,7 +72,7 @@ Page({
         durantion: 2000
       })
     } else {
-     
+      console.log(gooditemString)
       wx.navigateTo({
         url: "../dingdan/dingdan?gooditem=" + gooditemString + '&cart=1',
         success: function (res) {

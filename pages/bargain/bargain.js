@@ -10,7 +10,9 @@ Page({
     memberLvList: [],
     isSubmit: true,
     isPass: true,
-    tip: ''
+    tip: '',
+    member: apimg +"/image/member.jpg",
+    intro: apimg +"/image/intro.jpg"
   },
   onLoad: function (options) {
     var that = this;

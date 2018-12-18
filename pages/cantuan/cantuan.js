@@ -17,6 +17,7 @@ Page({
   onLoad: function (options) {
     var that = this
     var pingtuandetail = JSON.parse(options.shops)
+    console.log(pingtuandetail)
     let params = {}
     let param={}
     param.goodsId = pingtuandetail.goodsId

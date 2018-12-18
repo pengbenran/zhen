@@ -72,7 +72,7 @@
   </view>
   <!--列表区域  -->
   <!-- 我的动态 -->
-  <view class="integral int-top" bindtap='jumpdynamic'>
+  <!-- <view class="integral int-top" bindtap='jumpdynamic'>
     <view class="integral-left">
       <image src="{{myping}}" class="integral-image"></image>
     </view>
@@ -82,9 +82,9 @@
           <image src="{{inteping}}"></image>
         </view>
     </view>
-  </view>
+  </view> -->
   <!-- 点赞评论 -->
-  <view class="integral " bindtap='jumpcomment'>
+  <!-- <view class="integral " bindtap='jumpcomment'>
     <view class="integral-left">
       <image src="{{myping}}" class="integral-image"></image>
     </view>
@@ -94,7 +94,7 @@
           <image src="{{inteping}}"></image>
         </view>
     </view>
-  </view>
+  </view> -->
   <!-- 微分销 -->
    <view class="integral" bindtap='openMember'>
     <view class="integral-left">
@@ -102,6 +102,18 @@
     </view>
     <view class="integral-right int-borde">
       <text>微分销会员</text>
+        <view class="inte-rightimg">
+          <image src="{{inteping}}"></image>
+        </view>
+    </view>
+  </view>
+  <!-- 生成海报 -->
+   <view class="integral" bindtap='openposter'>
+    <view class="integral-left">
+      <image src="{{myping}}" class="integral-image"></image>
+    </view>
+    <view class="integral-right int-borde">
+      <text>我的推广码</text>
         <view class="inte-rightimg">
           <image src="{{inteping}}"></image>
         </view>

@@ -273,13 +273,13 @@ overflow: hidden;
 }
 .box1-right-top text{
   width:70%;
-  
+  display: inline-block;
   display: -webkit-box;
-    word-break: break-all;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp:2;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
 }
 .cha-img{
  width: 50rpx;
@@ -405,6 +405,16 @@ color: #000;
    align-items: center;
    justify-content: space-between;
    font-size:16px;
+   
+ }
+ .cont-tit text{
+    display: inline-block;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
  }
  .boxt{display: flex;}
  .Sharing{

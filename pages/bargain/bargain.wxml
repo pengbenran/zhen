@@ -1,10 +1,10 @@
 <!-- 未开通微分销界面 -->
 <view class='bargaincontain'>
 <view class='headImg' style="width:{{ImageWidth}};height:{{ImageHeight}}">
-  <image src='/image/member.jpg'></image>
+  <image src='{{member}}'></image>
 </view>
 <view class='headImg' style="width:{{ImageWidth}};height:{{introImageHeight}}">
-  <image src='/image/intro.jpg'></image>
+  <image src='{{intro}}'></image>
 </view>
 <view class='memberIntro' style="min-height:{{introHeight}}">
   <view class='memberIntrotitle'>

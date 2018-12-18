@@ -12,15 +12,7 @@ Page({
     // "signtext":"未签到",
 
     total:[
-      {
-       "song": "签到送积分",
-       "addone": "+2.00",
-       "time": "2018-07-05"
-      },
-      {
-      
-      },
-      {}
+
     ]
 
 
@@ -139,7 +131,6 @@ Page({
     parms.cutpoint = 2  //积分签到获取
     var parms = JSON.stringify(parms)
     if (that.data.signStatus == 1){
-
       wx.request({
         url: api+'/api/member/upMemberLv',
         method: 'POST',

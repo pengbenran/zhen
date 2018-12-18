@@ -1,6 +1,7 @@
 {
   "pages": [   
     "pages/index/index",
+    "pages/shangfeilei/shangfeilei",
     "pages/membershioup/membershioup",
     "pages/memberlist/memberlist",
     "pages/memberconsume/memberconsume",
@@ -59,7 +60,6 @@
     "pages/bianjidizhi/bianjidizhi",
     "pages/bianjidizhitwo/bianjidizhitwo",
     "pages/sousuo/sousuo",
-    "pages/shangfeilei/shangfeilei",
     "pages/quzhifu/quzhifu",
     "pages/mypingtuan/mypingtuan",
     "pages/mykanjia/mykanjia",
@@ -103,12 +103,12 @@
         "pagePath": "pages/active/active",
         "text": "活动"
       },
-      {
-        "selectedIconPath": "/image/all1.png",
-        "iconPath": "/image/all.png",
-        "pagePath": "pages/see/see",
-        "text": "论坛"
-      },
+       {
+          "selectedIconPath": "/image/all1.png",
+          "iconPath": "/image/all.png",
+          "pagePath": "pages/see/see",
+          "text": "论坛"
+        },
       {
         "selectedIconPath": "/image/chart01.png",
         "iconPath": "/image/chart.png",

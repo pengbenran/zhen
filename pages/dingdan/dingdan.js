@@ -166,7 +166,8 @@ Page({
         that.setData({
           gooditem: gooditem
         })    
-      }  
+      }
+      console.log(that.data.gooditem)  
       var orderamount = Number(gooditem.goodsAmount - that.data.facevalue - that.data.redamount).toFixed(2)
       if (orderamount <= 0) {
         orderamount = 0.01
@@ -224,6 +225,7 @@ Page({
   }, 
   saveOrder: function (orderParms){
     var that=this
+    console.log(that.data.list[0])
     request.morepost('/api/order/save', orderParms).then(function (res) {
       wx.hideLoading()
       if (res.code == 0) {
@@ -320,23 +322,40 @@ Page({
                 fenrunParm.memberId = that.data.memberId
                 fenrunParm.distribeId = wx.getStorageSync('isAgent')
                 fenrunParm.monetary = that.data.order.orderAmount
-                fenrunParm.shareMoney = that.data.list[0].fenrunAmount
-                params.params = JSON.stringify(fenrunParm)
-                return request.morepost('/api/distribe/shareProfit', params)
-              }
-              wx.showToast({
-                title: '订单成功',
-                icon: 'success',
-                duration: 2000
-              })
-              setTimeout(function () {
-                wx.switchTab({
-                  url: '../index/index',
+                if (that.data.cart == 1){
+                  fenrunParm.shareMoney=that.data.weight  
+                  params.params = JSON.stringify(fenrunParm)
+                  return request.morepost('/api/distribe/shareProfit', params)      
+                }
+               else{
+                  fenrunParm.shareMoney = that.data.goodlist[0].shareMoney * that.data.goodlist[0].pic
+                  params.params = JSON.stringify(fenrunParm)
+                  return request.morepost('/api/distribe/shareProfit', params)
+               }               
+              }else{
+                wx.showToast({
+                  title: '订单成功',
+                  icon: 'success',
+                  duration: 2000
                 })
-              }, 1000)
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '../index/index',
+                  })
+                }, 1000)
+              }
             }
           }).then(function (res) {
-            console.log(res)
+          wx.showToast({
+              title: '订单成功',
+              icon: 'success',
+              duration: 2000
+            })
+            setTimeout(function () {
+              wx.switchTab({
+                url: '../index/index',
+              })
+            }, 1000)
           })
         }
       })

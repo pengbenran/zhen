@@ -49,7 +49,7 @@ Page({
     
   }, 
   onLoad: function (options) {
-    var that = this
+    var that = this  
     if (options.scene == undefined) {
       wx.setStorageSync('distribeId', null)
     }

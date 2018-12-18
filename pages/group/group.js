@@ -37,13 +37,9 @@ Page({
     indicatorDots: true,  //显示面板指示点
     autoplay: true,     //自动切换
     interval: 5000,    //自动切换时间间隔
-    duration: 1000,    //滑动动画时长
-    imgUrls: [
-      apimg+"/image/group/zu04.png",
-      apimg+"/image/group/zu04.png",
-      apimg+"/image/group/zu04.png"
-    ], 
+    duration: 1000,    //滑动动画时长 
     goodsId:'',
+    shareMoney:'',
     //正品保证数据
     tags: []
   },
@@ -528,16 +524,16 @@ Page({
         cartparms.productId = that.data.productId
         cartparms.original = that.data.goodDetail.thumbnail
         cartparms.memberId = that.data.memberId
-        cartparms.goodsId = that.data.goodDetail.goodsId,
-        cartparms.itemtype = that.data.goodDetail.typeId,
+        cartparms.goodsId = that.data.goodDetail.goodsId
+        cartparms.itemtype = that.data.goodDetail.typeId
         cartparms.image = that.data.goodDetail.thumbnail
         cartparms.num = that.data.pic,
         cartparms.point = that.data.goodDetail.point
-        cartparms.weight = that.data.goodDetail.weight,
-        cartparms.name = that.data.goodDetail.name,
+        cartparms.name = that.data.goodDetail.name
         cartparms.price = that.data.goodDetail.price
         cartparms.cart = 1//判断购物车订单
         if (that.data.goodDetail.haveSpec == 0) {
+          cartparms.weight = that.data.goodDetail.fenrunAmount * that.data.pic,
           cartparms.specvalue = null;
           wx.request({
             url: api + '/api/shoppingCart/save',
@@ -560,6 +556,7 @@ Page({
         }
         else{
           cartparms.specvalue = that.data.space;
+          cartparms.weight = that.data.shareMoney * that.data.pic
           if (that.data.count == that.data.adjuncts.length) {
             wx.request({
               url: api + '/api/shoppingCart/save',
@@ -652,6 +649,7 @@ Page({
             var costkey = "goodDetail.cost";
             var enableStorekey = "goodDetail.enableStore";
             that.setData({
+              shareMoney : res.data.product.fenrunAmount,
               productId : res.data.product.productId,
               [pricekey] : res.data.product.price,
               [costkey]: res.data.product.cost,
@@ -750,6 +748,7 @@ Page({
        goodlist.goodsId = that.data.goodDetail.goodsId
        goodlist.productId = that.data.productId
       if(that.data.goodDetail.haveSpec==0){
+        goodlist.shareMoney=that.data.goodDetail.fenrunAmount
         goodlist.specvalue=null
         goodarr[0] = goodlist
         wx.navigateTo({
@@ -757,8 +756,10 @@ Page({
         })
       }else{
         if(that.data.count==that.data.adjuncts.length){
+          goodlist.shareMoney = that.data.shareMoney
           goodlist.specvalue = that.data.space
           goodarr[0] = goodlist;
+       
           wx.navigateTo({
             url: "../dingdan/dingdan?goodlist=" + JSON.stringify(goodarr) + '&cart=0'
           })
